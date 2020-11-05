@@ -1,10 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Navbar from "@components/Navbar";
 
 export default function Home() {
   return (
-    <div>
+    <div className="min-h-screen bg-beige-50">
       <Head>
         <title>Next.js advanced start template.</title>
         <meta
@@ -15,123 +16,44 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex justify-center min-h-screen py-20 bg-gradient-to-b from-geist-50 via-geist-50 to-geist-100">
-        <div>
-          <h1 className="px-5 text-4xl font-bold leading-tight tracking-tight text-center sm:mt-4 sm:text-6xl">
-            Next.js
-            <br />
-            Advanced Starter
-          </h1>
+      <Navbar />
 
-          <h2 className="max-w-4xl px-10 mx-auto mt-8 text-base tracking-tight text-center text-gray-600 sm:text-2xl md:mt-5 md:text-2xl">
-            Use Tailwind CSS, ESLint, Prettier & absolute imports instantly.
-            Easily extendable zero-config template for pros and beginners.
+      <main
+        className="max-w-screen-xl px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28"
+        style={{ backgroundImage: 'url("/gradient-bg.png")' }}
+      >
+        {/* <img
+          src="/gradient-bg.png"
+          className="absolute top-0"
+          alt="background"
+        /> */}
+        <div className="text-center">
+          <h2 className="text-4xl font-bold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl text-dark-1000">
+            Alex Gogl's Workspace
           </h2>
-
-          <div className="px-4 sm:px-0">
-            <section
-              className="grid w-full grid-cols-1 mt-6 bg-white rounded-lg sm:mt-20 sm:grid-cols-2 sm:w-1000"
-              style={{
-                minHeight: "350px",
-                boxShadow: "rgba(0, 0, 0, 0.12) 0px 30px 60px 0px",
-              }}
-            >
-              <div className="flex flex-col justify-center rounded-l-lg bg-geist-50">
-                <FeatureList>
-                  <Feature main="Tailwind CSS">
-                    Fast design workflow with <InfoText text="Tailwind CSS" />
-                  </Feature>
-                  <Feature main="TypeScript">
-                    <InfoText text="TypeScript" /> by default
-                  </Feature>
-                  <Feature main="ESLint config">
-                    Customizable <InfoText text="ESLint config" />
-                  </Feature>
-                  <Feature main="Code formatting">
-                    <InfoText text="Code formatting" /> with Prettier
-                  </Feature>
-                  <Feature main="Inter font">
-                    Beautiful <InfoText text="Inter font" />
-                  </Feature>
-                  <Feature main="Absolute imports">
-                    Standardized <InfoText text="absolute imports" />
-                  </Feature>
-                </FeatureList>
-              </div>
-              <div className="px-4 py-24 space-y-5 text-center place-self-center">
-                <h3 className="text-3xl font-bold">Get it 👇</h3>
-
-                <span className="inline-flex rounded-md shadow-sm">
-                  <Link href="  https://github.com/agcty/nextjs-advanced-starter">
-                    <a
-                      type="button"
-                      className="inline-flex items-center px-4 py-4 font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md sm:px-10 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700"
-                    >
-                      Copy Template from GitHub
-                    </a>
-                  </Link>
-                </span>
-
-                <h2 className="tracking-tight text-gray-600">
-                  Used by devs around the world
-                </h2>
-              </div>
-            </section>
-            <p className="mt-6 text-xs font-medium text-center text-gray-600">
-              Built by{" "}
+          <p className="max-w-md mx-auto mt-3 text-base font-semibold text-mud-300 sm:text-lg md:mt-4 md:text-2xl md:max-w-3xl">
+            I write about startups, web design and psychology.
+          </p>
+          <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
+            <div className="rounded-md shadow">
               <a
-                className="font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline"
-                href="https://twitter.com/agctyz"
+                href="#"
+                className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
               >
-                @agctyz
+                Get started
               </a>
-            </p>
+            </div>
+            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+              <a
+                href="#"
+                className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-indigo-500 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
+              >
+                Live demo
+              </a>
+            </div>
           </div>
         </div>
       </main>
     </div>
-  );
-}
-
-interface FeatureListProps {
-  children: React.ReactNode;
-}
-
-function FeatureList({ children }: FeatureListProps) {
-  return <ul className="px-12 py-12 space-y-5">{children}</ul>;
-}
-
-function Feature({ children, main }) {
-  return (
-    <li className="flex items-center">
-      <CheckIcon className="flex-shrink-0 hidden w-5 h-5 p-1 text-gray-100 bg-blue-600 rounded-full sm:inline hiddden" />
-      <p className="hidden ml-3 text-lg text-gray-600 sm:inline">{children}</p>
-
-      <p className="mx-auto sm:hidden">
-        <InfoText text={main} />
-      </p>
-    </li>
-  );
-}
-
-function InfoText({ text }) {
-  return (
-    <span className="inline-flex items-center px-3 py-2 font-medium text-gray-700 rounded-md bg-geist-100">
-      <CheckIcon className="inline-flex flex-shrink-0 w-5 h-5 p-1 mr-3 text-gray-100 bg-blue-600 rounded-full sm:hidden" />
-      {text}
-    </span>
-  );
-}
-
-function CheckIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 13l4 4L19 7"
-      />
-    </svg>
   );
 }
