@@ -26,7 +26,10 @@ const navigationLinks: NavigationLinkProps[] = [
   },
 ];
 
-function Navbar() {
+interface NavbarProps {
+  borderShown: boolean;
+}
+function Navbar({ borderShown }: NavbarProps) {
   const navLinks = navigationLinks.map(({ link, children }) => (
     <NavigationLink link={link} key={link}>
       {children}
@@ -36,16 +39,20 @@ function Navbar() {
   const [openMobile, setOpenMobile] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border border-gray-100 bg-beige-50">
+    <nav
+      className={clsx("sticky top-0 z-50 bg-beige-10", {
+        "border-b border-gray-100": borderShown || openMobile,
+      })}
+    >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:grid items-center grid-cols-3 py-1.5 hidden">
-          <ARecord />
+          <div className="font-semibold text-dark-1000">👨🏻‍💻 gogl.io</div>
           <div className="grid grid-flow-col gap-1">{navLinks}</div>
         </div>
 
         <div className="sm:hidden py-1.5">
           <div className="flex items-center justify-between">
-            <ARecord />
+            <div className="font-semibold text-dark-1000">👨🏻‍💻 gogl.io</div>
 
             <Hamburger
               setOpenMobile={setOpenMobile}
@@ -54,7 +61,7 @@ function Navbar() {
           </div>
 
           {openMobile && (
-            <div className="grid grid-flow-row gap-1 mt-3">{navLinks}</div>
+            <div className="grid grid-flow-row gap-1 mt-5">{navLinks}</div>
           )}
         </div>
       </div>
@@ -109,9 +116,9 @@ function Hamburger({ setOpenMobile, isOpenMobile }) {
 function ARecord() {
   return (
     <a className="text-sm font-semibold sm:flex">
-      <span className="px-2.5 py-1.5 text-center transition duration-150 ease-in-out bg-gray-300 rounded-md focus:outline-none focus:text-white focus:bg-gray-700 text-gray-50 border border-gray-100 shadow-inner">
+      {/* <span className="px-2.5 py-1.5 text-center transition duration-150 ease-in-out bg-gray-300 rounded-md focus:outline-none focus:text-white focus:bg-gray-700 text-gray-50 border border-gray-100 shadow-inner">
         A
-      </span>
+      </span> */}
 
       <span className="px-2.5 py-1.5 text-center transition duration-150 ease-in-out bg-gray-300 rounded-md focus:outline-none focus:text-white focus:bg-gray-700 text-gray-50 border border-gray-100 shadow-inner ml-1">
         gogl.io
@@ -136,8 +143,8 @@ function NavigationLink({ children, link }: NavigationLinkProps) {
         className={clsx(
           "px-2.5 py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
           {
-            "bg-beige-100 text-beige-500 ": isActive,
-            "text-dark-800 hover:text-beige-500 hover:bg-beige-100": !isActive,
+            "bg-beige-50 text-beige-500 ": isActive,
+            "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
           }
         )}
       >

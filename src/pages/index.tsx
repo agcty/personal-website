@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Navbar from "@components/Navbar";
 import Prism from "prismjs";
+import Category from "@components/Category";
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+    window.addEventListener("scroll", () => setScrollY(window.scrollY));
+    return window.removeEventListener("scroll", () => null);
+  });
 
   return (
-    <div className="min-h-screen bg-beige-50">
+    <div className="min-h-screen bg-beige-10">
       <Head>
         <title>Next.js advanced start template.</title>
         <meta
@@ -21,14 +25,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      <Navbar borderShown={scrollY > 35} />
 
+      {/* {JSON.stringify(scrollYProgress)} */}
       <main className="relative max-w-screen-xl px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
         <div className="text-center">
-          <h1 className="text-4xl font-bold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl text-dark-1000">
-            Alex Gogl's Workspace
+          <h1 className="text-5xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl text-dark-1100">
+            Alex Gogl's workspace
           </h1>
-          <p className="max-w-md mx-auto mt-3 text-base font-base text-mud-300 sm:text-lg md:mt-4 md:text-2xl md:max-w-3xl">
+          <p className="max-w-md mx-auto mt-4 text-lg text-center rounded-md font-base text-dark-800 sm:text-lg md:mt-4 md:text-2xl md:max-w-3xl">
             I'm a software engineer living in Vienna. Right now I'm working at
             zerolens and build products on the side.
           </p>
@@ -70,22 +75,22 @@ export default function Home() {
             </div>
           </div> */}
         </div>
-
-        <section className="mt-12">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold sm:text-4xl text-dark-900">
-              Work
-            </h2>
-            <a className="text-sm font-medium text-blue-500">View all</a>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-3">
-            <div className="h-64 bg-white rounded-md" />
-            <div className="h-64 bg-white rounded-md" />
-            <div className="h-64 bg-white rounded-md" />
-          </div>
-        </section>
       </main>
+
+      <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-12 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28 bg-beige-50">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold sm:text-4xl text-dark-900">Work</h2>
+          <a className="link">View all</a>
+        </div>
+
+        {/* <Category>📘 Test</Category> */}
+
+        <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-3">
+          <div className="h-64 bg-white rounded-md" />
+          <div className="h-64 bg-white rounded-md" />
+          <div className="h-64 bg-white rounded-md" />
+        </div>
+      </section>
 
       {/* <img
         src="/gradient-bg.png"

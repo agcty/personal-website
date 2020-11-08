@@ -27,7 +27,8 @@ module.exports = {
         500: "#519B86",
       },
       beige: {
-        50: "#F7F6F3",
+        10: "rgb(255, 254, 252)",
+        50: "#f9f5f1",
         100: "#F0EEE4",
         400: "#988989",
         500: "#9A947A",
@@ -108,6 +109,7 @@ module.exports = {
     },
   },
   variants: {
+    borderWidth: ["responsive", "hover", "focus"],
     opacity: ["responsive", "hover", "focus", "disabled"],
     cursor: ["responsive", "hover", "focus", "disabled"],
     backgroundColor: [
@@ -122,6 +124,11 @@ module.exports = {
   },
   // eslint-disable-next-line global-require
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/ui")],
+
+  experimental: {
+    applyComplexClasses: true,
+  },
+
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
