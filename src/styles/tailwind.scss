@@ -2,7 +2,7 @@
 @tailwind base;
 
 .link {
-  @apply font-medium text-blue-500 transition duration-150 ease-in-out hover:text-blue-400 focus:outline-none focus:underline;
+  @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline;
 }
 
 // reset ios styling

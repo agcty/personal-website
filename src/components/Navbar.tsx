@@ -141,7 +141,7 @@ function NavigationLink({ children, link }: NavigationLinkProps) {
     <Link href={link}>
       <a
         className={clsx(
-          "px-2.5 py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
+          "px-2.5 py-2 sm:py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
           {
             "bg-beige-50 text-beige-500 ": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
