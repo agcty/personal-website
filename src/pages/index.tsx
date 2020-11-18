@@ -78,45 +78,85 @@ export default function Home() {
         </div>
       </main>
 
-      <div className="bg-beige-50">
-        <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-12 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28 ">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold sm:text-4xl text-dark-900">
-              Work
-            </h2>
-            <Link href="/work">
-              <a className="link">View all</a>
-            </Link>
-          </div>
-
-          {/* <Category>📘 Test</Category> */}
-
-          <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-4">
-            {works.map((work) => (
-              <GalleryItem item={work} key={work.link} />
-            ))}
-          </div>
-        </section>
-      </div>
-      <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold sm:text-4xl text-dark-900">
-            Latest Articles
-          </h2>
-          <Link href="/work">
-            <a className="link">View all</a>
-          </Link>
-        </div>
+      <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-12 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28 bg-beige-50">
+        <SectionHeading title="Work" link="/work" />
 
         {/* <Category>📘 Test</Category> */}
 
-        <ListItem />
+        <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-4">
+          {works.map((work) => (
+            <GalleryItem item={work} key={work.link} />
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28">
+        <SectionHeading title="Latest articles" link="/blog" />
+        {/* <Category>📘 Test</Category> */}
+
+        <div className="mt-5">
+          {/* <ListItem /> */}
+
+          <section className="mt-10 divide-y divide-y-beige-10">
+            <header className="flex divide-x divide-x-beige-10">
+              <div className="flex-1 px-4 font-medium text-beige-500">
+                Title
+              </div>
+              <div className="flex-1 px-4">Updated at</div>
+              <div className="flex-1 px-4">Tags</div>
+            </header>
+            <div className="flex border-l border-beige-10">
+              <div className="flex-1 px-4">How to validate ideas fast</div>
+              <div className="flex-1 px-4">The elon musk challenge</div>
+              <div className="flex-1 px-4">Doing things that you love</div>
+            </div>
+            <div className="flex divide-x divide-x-beige-10">
+              <div className="flex-1 px-4">How to validate ideas fast</div>
+              <div className="flex-1 px-4">The elon musk challenge</div>
+              <div className="flex-1 px-4">Doing things that you love</div>
+            </div>
+          </section>
+        </div>
+
+        <section className="mt-10 divide-y divide-y-beige-10">
+          <header className="grid grid-cols-3 divide-x-beige-10">
+            <div className="flex-1 px-4">Title</div>
+            <div className="flex-1 px-4">Updated at</div>
+            <div className="flex-1 px-4">Tags</div>
+          </header>
+          <div className="flex divide-x divide-x-beige-10">
+            <div className="flex-1 px-4">How to validate ideas fast</div>
+            <div className="flex-1 px-4">The elon musk challenge</div>
+            <div className="flex-1 px-4">Doing things that you love</div>
+          </div>
+          <div className="flex divide-x divide-x-beige-10">
+            <div className="flex-1 px-4">How to validate ideas fast</div>
+            <div className="flex-1 px-4">The elon musk challenge</div>
+            <div className="flex-1 px-4">Doing things that you love</div>
+          </div>
+        </section>
+
         {/* <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-4">
           {works.map((work) => (
             <GalleryItem item={work} key={work.link} />
           ))}
         </div> */}
       </section>
+    </div>
+  );
+}
+
+interface SectionHeadingProps {
+  title: string;
+  link: string;
+}
+function SectionHeading({ title, link }: SectionHeadingProps) {
+  return (
+    <div className="flex items-center justify-between">
+      <h2 className="text-2xl font-bold sm:text-4xl text-dark-900">{title}</h2>
+      <Link href={link}>
+        <a className="link">View all</a>
+      </Link>
     </div>
   );
 }

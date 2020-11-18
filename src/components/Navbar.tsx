@@ -39,13 +39,14 @@ function Navbar({ borderShown }: NavbarProps) {
   const [openMobile, setOpenMobile] = useState(false);
 
   return (
-    <nav
-      className={clsx("sticky top-0 z-50 bg-beige-10", {
-        "border-b border-gray-100": borderShown || openMobile,
-      })}
-    >
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="sm:grid items-center grid-cols-3 py-1.5 hidden">
+    <nav className={clsx("sticky top-0 z-50 bg-beige-10")}>
+      <div
+        className={clsx("px-4 mx-auto  sm:px-5", {
+          "border-b border-gray-100": borderShown || openMobile,
+        })}
+        style={{ maxWidth: "1320px" }}
+      >
+        <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">👨🏻‍💻 gogl.io</div>
           <div className="grid grid-flow-col gap-1">{navLinks}</div>
         </div>
