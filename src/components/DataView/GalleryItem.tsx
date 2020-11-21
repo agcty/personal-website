@@ -13,7 +13,7 @@ function GalleryItem({
     <Link href={link}>
       <a
         aria-label={name}
-        className="flex flex-col overflow-hidden transition-transform duration-100 ease-in-out transform border rounded-md shadow border-dark-400 bg-beige-10 group hover:border-dark-300"
+        className="flex flex-col overflow-hidden transition transition-transform duration-100 ease-in-out transform border rounded-md shadow border-dark-400 bg-beige-10 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
       >
         <div className="relative overflow-hidden bg-transparent border-b sm:h-40 h-52 border-dark-400">
           <Image

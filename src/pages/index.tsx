@@ -20,7 +20,7 @@ export default function Home() {
     {
       img: "/img/zerolens.png",
       link: "/work/zerolens",
-      name: "Zerolens",
+      name: "Fullstack Engineer @zerolens",
       description: "Digital 3D photo studio",
       id: "1",
     },
@@ -62,7 +62,7 @@ export default function Home() {
       {/* {JSON.stringify(scrollYProgress)} */}
       <main className="max-w-screen-xl px-6 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
         <div className="text-center">
-          <div className="relative mx-auto bg-red-500 rounded-full w-36 h-36 ring-2 ring-beige-400">
+          <div className="relative mx-auto bg-red-500 rounded-full w-36 h-36 ring-4 ring-beige-100">
             <Image
               src="/img/alex.jpg"
               className="object-cover object-top bg-green-500 rounded-full"
@@ -91,10 +91,11 @@ export default function Home() {
       </main>
 
       <section className="max-w-screen-xl px-4 py-12 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-12 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28 bg-beige-50">
-        <SectionHeading title="Work" link="/work" />
-        <h3 className="mt-1 text-xl font-medium text-dark-900">
-          Things I'm currently working on
-        </h3>
+        <SectionHeading
+          title="Work"
+          link="/work"
+          subtitle="Things I'm currently working on"
+        />
 
         {/* <Category>📘 Test</Category> */}
 
@@ -105,15 +106,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-screen-xl px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
-        <SectionHeading title="Writing" link="/blog" />
+      <section className="max-w-screen-xl py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
+        <SectionHeading title="Writing" link="/blog" className="px-4 sm:px-0" />
         {/* <Category>📘 Test</Category> */}
 
         <div className="mt-5">
           <div>
             <ul className="divide-y divide-y-dark-300">
-              <ListItem />
-              <ListItem />
+              <ListItem className="px-4 sm:-ml-2 sm:px-2 sm:rounded" />
+              <ListItem className="px-4 sm:-ml-2 sm:px-2 sm:rounded" />
             </ul>
           </div>
 
@@ -168,16 +169,29 @@ export default function Home() {
 
 interface SectionHeadingProps {
   title: string;
+  subtitle?: string;
   link: string;
   className?: string;
 }
-function SectionHeading({ title, link, className = "" }: SectionHeadingProps) {
+function SectionHeading({
+  title,
+  link,
+  subtitle,
+  className = "",
+}: SectionHeadingProps) {
   return (
-    <div className={`flex items-center justify-between ${className}`}>
-      <h2 className="text-4xl font-bold sm:text-4xl text-dark-1000">{title}</h2>
-      {/* <Link href={link}>
+    <div className={className}>
+      <div className="flex items-center justify-between">
+        <h2 className="text-4xl font-bold sm:text-4xl text-dark-1000">
+          {title}
+        </h2>
+        {/* <Link href={link}>
         <a className="link">View all</a>
       </Link> */}
+      </div>
+      {subtitle && (
+        <h3 className="mt-1 text-xl font-medium text-dark-900">{subtitle}</h3>
+      )}
     </div>
   );
 }
