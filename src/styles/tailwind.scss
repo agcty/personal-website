@@ -5,6 +5,14 @@
   @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline;
 }
 
+.horizontal-flex-scroll {
+  @apply flex space-x-2 overflow-x-scroll no-scrollbar;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;

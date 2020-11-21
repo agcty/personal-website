@@ -76,12 +76,12 @@ export default function Home() {
             width={160}
             height={160}
           /> */}
-          <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-5xl sm:leading-none md:text-6xl text-dark-1000">
+          <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-5xl sm:leading-none md:text-4xl text-dark-1000">
             Hey, I'm Alex!
           </h1>
           <p className="max-w-md mx-auto mt-4 text-lg text-center rounded-md font-base text-dark-800 sm:text-lg md:mt-4 md:text-2xl md:max-w-3xl">
             I'm a product designer, software engineer, and writer, currently
-            living in Vienna. Currently, I build fullstack apps at zerolens.
+            living in Vienna. Right now, I build fullstack apps at zerolens.
           </p>
 
           {/* <div className="mt-3">
@@ -90,26 +90,34 @@ export default function Home() {
         </div>
       </main>
 
-      <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-12 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28 bg-beige-50">
+      <section className="max-w-screen-xl px-4 py-12 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-12 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28 bg-beige-50">
         <SectionHeading title="Work" link="/work" />
+        <h3 className="mt-1 text-xl font-medium text-dark-900">
+          Things I'm currently working on
+        </h3>
 
         {/* <Category>📘 Test</Category> */}
 
-        <div className="grid grid-cols-1 mt-5 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6">
+        <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6">
           {works.map((work) => (
             <GalleryItem item={work} key={work.id} />
           ))}
         </div>
       </section>
 
-      <section className="max-w-screen-xl px-4 py-6 mx-auto mt-10 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20 xl:mt-28">
-        <SectionHeading title="Latest articles" link="/blog" />
+      <section className="max-w-screen-xl px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
+        <SectionHeading title="Writing" link="/blog" />
         {/* <Category>📘 Test</Category> */}
 
         <div className="mt-5">
-          {/* <ListItem /> */}
+          <div>
+            <ul className="divide-y divide-y-dark-300">
+              <ListItem />
+              <ListItem />
+            </ul>
+          </div>
 
-          <section className="mt-10 divide-y divide-y-beige-10">
+          {/* <section className="mt-10 divide-y divide-y-beige-10">
             <header className="flex divide-x divide-x-beige-10">
               <div className="flex-1 px-4 font-medium text-beige-500">
                 Title
@@ -127,10 +135,10 @@ export default function Home() {
               <div className="flex-1 px-4">The elon musk challenge</div>
               <div className="flex-1 px-4">Doing things that you love</div>
             </div>
-          </section>
+          </section> */}
         </div>
 
-        <section className="mt-10 divide-y divide-y-beige-10">
+        {/* <section className="mt-10 divide-y divide-y-beige-10">
           <header className="grid grid-cols-3 divide-x-beige-10">
             <div className="flex-1 px-4">Title</div>
             <div className="flex-1 px-4">Updated at</div>
@@ -146,7 +154,7 @@ export default function Home() {
             <div className="flex-1 px-4">The elon musk challenge</div>
             <div className="flex-1 px-4">Doing things that you love</div>
           </div>
-        </section>
+        </section> */}
 
         {/* <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-4">
           {works.map((work) => (
@@ -161,14 +169,15 @@ export default function Home() {
 interface SectionHeadingProps {
   title: string;
   link: string;
+  className?: string;
 }
-function SectionHeading({ title, link }: SectionHeadingProps) {
+function SectionHeading({ title, link, className = "" }: SectionHeadingProps) {
   return (
-    <div className="flex items-center justify-between mb-8">
-      <h2 className="text-3xl font-bold sm:text-4xl text-dark-1000">{title}</h2>
-      <Link href={link}>
+    <div className={`flex items-center justify-between ${className}`}>
+      <h2 className="text-4xl font-bold sm:text-4xl text-dark-1000">{title}</h2>
+      {/* <Link href={link}>
         <a className="link">View all</a>
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -41,14 +41,14 @@ function Navbar({ borderShown }: NavbarProps) {
   return (
     <nav className={clsx("sticky top-0 z-50 bg-beige-10")}>
       <div
-        className={clsx("px-4 mx-auto  sm:px-5", {
+        className={clsx("px-4 mx-auto sm:px-5", {
           "border-b border-gray-100": borderShown || openMobile,
         })}
         style={{ maxWidth: "1320px" }}
       >
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
-            <span className="mr-1">👨🏻‍💻</span> gogl.io
+            <span className="mr-0.5">👨🏻‍💻</span> gogl.io
           </div>
           <div className="grid grid-flow-col gap-1">{navLinks}</div>
         </div>
@@ -56,7 +56,7 @@ function Navbar({ borderShown }: NavbarProps) {
         <div className="sm:hidden py-1.5">
           <div className="flex items-center justify-between">
             <div className="font-semibold text-dark-1000">
-              <span className="mr-1">👨🏻‍💻</span> gogl.io
+              <span className="mr-0.5">👨🏻‍💻</span> gogl.io
             </div>
 
             <Hamburger
