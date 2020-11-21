@@ -19,27 +19,31 @@ export default function Home() {
   const works: Item[] = [
     {
       img: "/img/zerolens.png",
-      link: "/test",
+      link: "/work/zerolens",
       name: "Zerolens",
-      description: "Digital photo studio",
+      description: "Digital 3D photo studio",
+      id: "1",
     },
     {
       img: "/img/goglsonnen.png",
-      link: "/test",
+      link: "/work/goglsonnenschirme",
       name: "Gogl Sonnenschirme",
-      description: "Shadow for you and your company",
+      description: "Tech-infused sun umbrella company",
+      id: "2",
+    },
+    {
+      img: "/img/shareit.png",
+      link: "/work/shareit",
+      name: "shareit.video",
+      description: "Share screen recordings instantly",
+      id: "3",
     },
     {
       img: "https://source.unsplash.com/random",
       link: "/test",
       name: "Zerolens",
-      description: "Digital photo studio",
-    },
-    {
-      img: "https://source.unsplash.com/random",
-      link: "/test",
-      name: "Zerolens",
-      description: "Digital photo studio",
+      description: "Digital 3D photo studio",
+      id: "4",
     },
   ];
 
@@ -56,20 +60,28 @@ export default function Home() {
       </Head>
       <Navbar borderShown={scrollY > 35} />
       {/* {JSON.stringify(scrollYProgress)} */}
-      <main className="relative max-w-screen-xl px-6 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
+      <main className="max-w-screen-xl px-6 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
         <div className="text-center">
-          <Image
+          <div className="relative mx-auto bg-red-500 rounded-full w-36 h-36 ring-2 ring-beige-400">
+            <Image
+              src="/img/alex.jpg"
+              className="object-cover object-top bg-green-500 rounded-full"
+              width={160}
+              height={160}
+            />
+          </div>
+          {/* <img
             src="/img/alex.jpg"
-            className="object-cover object-top p-2 bg-green-500 rounded-full shadow-outline-green"
+            className="object-cover object-top p-2 bg-green-500 rounded-full ring-2 ring-green-400"
             width={160}
             height={160}
-          />
-          <h1 className="mt-5 text-5xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl text-dark-1100">
-            Alex Gogl's Workspace
+          /> */}
+          <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-5xl sm:leading-none md:text-6xl text-dark-1000">
+            Hey, I'm Alex!
           </h1>
           <p className="max-w-md mx-auto mt-4 text-lg text-center rounded-md font-base text-dark-800 sm:text-lg md:mt-4 md:text-2xl md:max-w-3xl">
-            I’m a product designer, software engineer, and writer, currently
-            living in Vienna. Right now I’m building web apps at zerolens.
+            I'm a product designer, software engineer, and writer, currently
+            living in Vienna. Currently, I build fullstack apps at zerolens.
           </p>
 
           {/* <div className="mt-3">
@@ -83,9 +95,9 @@ export default function Home() {
 
         {/* <Category>📘 Test</Category> */}
 
-        <div className="grid grid-cols-1 gap-4 mt-5 sm:grid-cols-4">
+        <div className="grid grid-cols-1 mt-5 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6">
           {works.map((work) => (
-            <GalleryItem item={work} key={work.link} />
+            <GalleryItem item={work} key={work.id} />
           ))}
         </div>
       </section>
@@ -152,8 +164,8 @@ interface SectionHeadingProps {
 }
 function SectionHeading({ title, link }: SectionHeadingProps) {
   return (
-    <div className="flex items-center justify-between">
-      <h2 className="text-2xl font-bold sm:text-4xl text-dark-900">{title}</h2>
+    <div className="flex items-center justify-between mb-8">
+      <h2 className="text-3xl font-bold sm:text-4xl text-dark-1000">{title}</h2>
       <Link href={link}>
         <a className="link">View all</a>
       </Link>

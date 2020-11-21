@@ -5,16 +5,6 @@
   @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline;
 }
 
-// reset ios styling
-textarea,
-input[type="text"],
-input[type="search"],
-input[type="button"],
-input[type="submit"] {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;

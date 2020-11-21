@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2017",
+    "lib": ["es6", "dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "ESNEXT",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -25,7 +25,7 @@
       "@context/*": ["./src/context/*"],
       "@queries/*": ["./src/queries/*"],
       "@data/*": ["./src/data/*"],
-      "@types": [".src/types.ts"],
+      "@typeDefs/*": ["./src/types/*"],
       "@generated/*": ["./src/generated/*"],
       "@public/*": ["./public/*"],
       "@utils/*": ["./src/utils/*"],
@@ -33,6 +33,12 @@
       "@assets/*": ["./src/assets/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.js",
+    "src/pages/blog/authenticating-google.bkp"
+  ]
 }

@@ -3,4 +3,5 @@ export interface Item {
   link: string;
   name: string;
   description: string;
+  id: string;
 }

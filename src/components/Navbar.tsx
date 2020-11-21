@@ -47,13 +47,17 @@ function Navbar({ borderShown }: NavbarProps) {
         style={{ maxWidth: "1320px" }}
       >
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
-          <div className="font-semibold text-dark-1000">👨🏻‍💻 gogl.io</div>
+          <div className="font-semibold text-dark-1000">
+            <span className="mr-1">👨🏻‍💻</span> gogl.io
+          </div>
           <div className="grid grid-flow-col gap-1">{navLinks}</div>
         </div>
 
         <div className="sm:hidden py-1.5">
           <div className="flex items-center justify-between">
-            <div className="font-semibold text-dark-1000">👨🏻‍💻 gogl.io</div>
+            <div className="font-semibold text-dark-1000">
+              <span className="mr-1">👨🏻‍💻</span> gogl.io
+            </div>
 
             <Hamburger
               setOpenMobile={setOpenMobile}
@@ -62,7 +66,7 @@ function Navbar({ borderShown }: NavbarProps) {
           </div>
 
           {openMobile && (
-            <div className="grid grid-flow-row gap-1 mt-5">{navLinks}</div>
+            <div className="grid grid-flow-row gap-3 mt-5">{navLinks}</div>
           )}
         </div>
       </div>
@@ -144,7 +148,7 @@ function NavigationLink({ children, link }: NavigationLinkProps) {
         className={clsx(
           "px-2.5 py-2 sm:py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
           {
-            "bg-beige-50 text-beige-500 ": isActive,
+            "bg-beige-50 text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
           }
         )}

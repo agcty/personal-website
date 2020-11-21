@@ -1,7 +1,6 @@
 {
   "presets": ["next/babel"],
   "plugins": [
-    "inline-react-svg",
     [
       "module-resolver",
       {
@@ -18,7 +17,7 @@
           "@context": "./src/context",
           "@queries": "./src/queries",
           "@data": "./src/data",
-          "@types": "./src/types.ts",
+          "@typeDefs": "./src/types",
           "@generated": "./src/generated",
           "@utils": "./src/utils",
           "@app": "./src/app",
