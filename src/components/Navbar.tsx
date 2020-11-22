@@ -44,7 +44,7 @@ function Navbar({ borderShown }: NavbarProps) {
         className={clsx("px-4 mx-auto sm:px-5", {
           "border-b border-gray-100": borderShown || openMobile,
         })}
-        style={{ maxWidth: "1320px" }}
+        style={{ maxWidth: "1220px" }}
       >
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">

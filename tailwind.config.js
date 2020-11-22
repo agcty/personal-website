@@ -108,6 +108,10 @@ module.exports = {
     },
   },
   variants: {
+    extend: {
+      borderRadius: ["first", "last"],
+      borderStyle: ["hover"],
+    },
     borderWidth: ["responsive", "hover", "focus"],
     opacity: ["responsive", "hover", "focus", "disabled"],
     cursor: ["responsive", "hover", "focus", "disabled"],
