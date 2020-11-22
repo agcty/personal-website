@@ -94,7 +94,7 @@ export default function Home() {
         <section className="max-w-screen-xl px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
           <div className="">
             <SectionHeading
-              title="💼 Work"
+              title="Work"
               link="/work"
               subtitle="Things I'm currently working on"
             />
@@ -111,7 +111,7 @@ export default function Home() {
       </div>
 
       <section className="max-w-screen-xl px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
-        <SectionHeading title="📕 Writing" link="/blog" className="" />
+        <SectionHeading title="Writing" link="/blog" className="" />
         {/* <Category>📘 Test</Category> */}
 
         <div className="mt-5 -ml-4 -mr-4">
