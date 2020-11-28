@@ -116,7 +116,7 @@ export default function Home() {
 
         <div className="mt-5 -ml-4 -mr-4">
           <div>
-            <ul className="">
+            <ul className="divide-y divide-beige-100">
               <ListItem className="px-4 sm:px-4" />
               <ListItem className="px-4 sm:px-4" />
               <ListItem className="px-4 sm:px-4" />
