@@ -32,6 +32,7 @@ function ListItem({ className = "" }: ListItemProps) {
                   </div>
                 </div>
               </div>
+
               <div className="flex-shrink-0 mt-1 sm:mt-0">
                 <div className="max-w-sm horizontal-flex-scroll">
                   <span className="px-2.5 py-0.5 sm:py-1 text-sm font-semibold text-center text-green-600 transition rounded focus:outline-none focus:text-white focus:bg-beige-200 bg-green-100">
