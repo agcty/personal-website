@@ -24,8 +24,6 @@ const navigationLinks: NavigationLinkProps[] = [
     link: "/components",
     children: "Components",
   },
-  {
-  
 ];
 
 interface NavbarProps {
