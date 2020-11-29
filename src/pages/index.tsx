@@ -60,7 +60,7 @@ export default function Home() {
       </Head>
       <Navbar borderShown={scrollY > 35} />
       {/* {JSON.stringify(scrollYProgress)} */}
-      <main className="max-w-screen-xl px-6 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
+      <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
         <div className="text-center">
           <div className="relative mx-auto bg-red-500 rounded-full w-36 h-36 ring-4 ring-beige-100">
             <Image
@@ -91,7 +91,7 @@ export default function Home() {
       </main>
 
       <div className="bg-beige-50">
-        <section className="max-w-screen-xl px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
+        <section className="max-w-screen-lg px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 md:mt-16 lg:mt-20">
           <div className="">
             <SectionHeading
               title="Work"
@@ -101,7 +101,7 @@ export default function Home() {
 
             {/* <Category>📘 Test</Category> */}
 
-            <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6">
+            <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
               {works.map((work) => (
                 <GalleryItem item={work} key={work.id} />
               ))}
@@ -110,7 +110,7 @@ export default function Home() {
         </section>
       </div>
 
-      <section className="max-w-screen-xl px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 sm:px-12 md:mt-16 lg:mt-20">
+      <section className="max-w-screen-lg px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 md:mt-16 lg:mt-20">
         <SectionHeading title="Writing" link="/blog" className="" />
         {/* <Category>📘 Test</Category> */}
 

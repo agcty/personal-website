@@ -24,6 +24,8 @@ const navigationLinks: NavigationLinkProps[] = [
     link: "/components",
     children: "Components",
   },
+  {
+  
 ];
 
 interface NavbarProps {
@@ -39,18 +41,19 @@ function Navbar({ borderShown }: NavbarProps) {
   const [openMobile, setOpenMobile] = useState(false);
 
   return (
-    <nav className={clsx("sticky top-0 z-50 bg-beige-10")}>
-      <div
-        className={clsx("px-4 mx-auto sm:px-5", {
-          "border-b border-gray-100": borderShown || openMobile,
-        })}
-        style={{ maxWidth: "1220px" }}
-      >
+    <nav
+      className={clsx("sticky top-0 z-50 bg-beige-10", {
+        "border-b border-gray-100": borderShown || openMobile,
+      })}
+    >
+      <div className={clsx("px-4 mx-auto sm:px-5 max-w-screen-xl")}>
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
             <span className="mr-0.5">👨🏻‍💻</span> gogl.io
           </div>
-          <div className="grid grid-flow-col gap-1">{navLinks}</div>
+          <div className="inline-grid grid-flow-col gap-1 justify-self-center">
+            {navLinks}
+          </div>
         </div>
 
         <div className="sm:hidden py-1.5">
