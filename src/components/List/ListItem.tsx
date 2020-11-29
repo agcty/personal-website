@@ -8,15 +8,21 @@ interface ListItemProps {
 // sm:first:rounded-t-md sm:last:rounded-b-md
 function ListItem({ className = "" }: ListItemProps) {
   return (
-    <li className="focus:outline-none hover:bg-gray-50 sm:first:rounded-t-md sm:last:rounded-b-md">
+    <li className="focus:outline-none hover:bg-gray-50 group">
       <Link href="/">
         <a className={`block transition duration-150 ease-in-out ${className}`}>
           {/* maybe move border classes to top again and use divide instead? not sure if bottom for last element is good */}
-          <div className="flex items-center py-4 sm:py-2.5 ">
+          <div className="flex items-center py-4 sm:py-2.5">
             <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
               <div>
-                <div className="text-lg font-semibold leading-5 underline group-hover:text-dark-800 text-dark-900 overflow-ellipsis">
-                  Back End Developer
+                <div
+                  className="text-lg font-semibold leading-5 underline transition group-hover:underline group-hover:text-dark-800 text-dark-900 overflow-ellipsis"
+                  // style={{
+                  //   textDecoration: "underline",
+                  //   textDecorationColor: "gray",
+                  // }}
+                >
+                  Back End Developer with a passion in stupid things
                 </div>
                 <div className="flex mt-1">
                   <div className="flex items-center text-sm leading-5 text-gray-500">

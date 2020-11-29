@@ -151,7 +151,7 @@ function SectionHeading({
   return (
     <div className={className}>
       <div className="flex items-center justify-between">
-        <h2 className="text-4xl font-bold sm:text-4xl text-dark-1000">
+        <h2 className="text-3xl font-bold sm:text-4xl text-dark-900">
           {title}
         </h2>
         {/* <Link href={link}>
@@ -159,7 +159,7 @@ function SectionHeading({
       </Link> */}
       </div>
       {subtitle && (
-        <h3 className="mt-1 text-xl font-medium text-dark-900">{subtitle}</h3>
+        <h3 className="mt-1 text-xl font-medium text-dark-800">{subtitle}</h3>
       )}
     </div>
   );
