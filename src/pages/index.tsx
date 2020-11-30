@@ -7,6 +7,7 @@ import GalleryItem from "@components/DataView/GalleryItem";
 import { Item } from "src/types";
 import ListItem from "@components/List/ListItem";
 import Image from "next/image";
+import { bg1, bg2, bg3, bg4 } from "@assets/svgBackgrounds";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -60,7 +61,7 @@ export default function Home() {
       </Head>
       <Navbar borderShown={scrollY > 35} />
       {/* {JSON.stringify(scrollYProgress)} */}
-      <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
+      <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20">
         <div className="text-center">
           <div className="relative mx-auto bg-red-500 rounded-full w-36 h-36 ring-4 ring-beige-100">
             <Image
@@ -76,7 +77,7 @@ export default function Home() {
             width={160}
             height={160}
           /> */}
-          <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-5xl sm:leading-none md:text-4xl text-dark-1000">
+          <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
             Hey, I'm Alex!
           </h1>
           <p className="max-w-md mx-auto mt-4 text-lg text-center rounded-md font-base text-dark-800 sm:text-lg md:mt-4 md:text-2xl md:max-w-3xl">
@@ -90,7 +91,12 @@ export default function Home() {
         </div>
       </main>
 
-      <div className="bg-beige-50">
+      <div
+        className="bg-beige-50"
+        style={{
+          backgroundImage: bg3,
+        }}
+      >
         <section className="max-w-screen-lg px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 md:mt-16 lg:mt-20">
           <div className="">
             <SectionHeading

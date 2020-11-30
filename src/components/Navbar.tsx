@@ -49,7 +49,7 @@ function Navbar({ borderShown }: NavbarProps) {
           <div className="font-semibold text-dark-1000">
             <span className="mr-0.5">👨🏻‍💻</span> gogl.io
           </div>
-          <div className="inline-grid grid-flow-col gap-1 justify-self-center">
+          <div className="inline-grid grid-flow-col gap-x-4 justify-self-center">
             {navLinks}
           </div>
         </div>
@@ -67,7 +67,7 @@ function Navbar({ borderShown }: NavbarProps) {
           </div>
 
           {openMobile && (
-            <div className="grid grid-flow-row gap-3 mt-5">{navLinks}</div>
+            <div className="grid grid-flow-row mt-5 gap-y-3">{navLinks}</div>
           )}
         </div>
       </div>
@@ -147,7 +147,7 @@ function NavigationLink({ children, link }: NavigationLinkProps) {
     <Link href={link}>
       <a
         className={clsx(
-          "px-2.5 py-2 sm:py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
+          "px-6 py-2 sm:py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
           {
             "bg-beige-50 text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
