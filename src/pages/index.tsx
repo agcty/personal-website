@@ -39,13 +39,6 @@ export default function Home() {
       description: "Share screen recordings instantly",
       id: "3",
     },
-    {
-      img: "https://source.unsplash.com/random",
-      link: "/test",
-      name: "Zerolens",
-      description: "Digital 3D photo studio",
-      id: "4",
-    },
   ];
 
   return (
@@ -84,61 +77,70 @@ export default function Home() {
             I'm a product designer, software engineer, and writer, currently
             living in Vienna. Right now, I build fullstack apps at zerolens.
           </p>
-
-          {/* <div className="mt-3">
-            <a className="mt-2 link">@agctyz on Twitter</a>
-          </div> */}
         </div>
       </main>
 
-      <div
-        className="bg-beige-50"
-        style={{
-          backgroundImage: bg3,
-        }}
-      >
-        <section className="max-w-screen-lg px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 md:mt-16 lg:mt-20">
-          <div className="">
+      <div className="mt-16 sm:mt-8 md:mt-16 lg:mt-20">
+        <section
+          className="bg-beige-50"
+          style={{
+            backgroundImage: bg3,
+          }}
+        >
+          <CenteredSection>
             <SectionHeading
               title="Work"
               link="/work"
               subtitle="Things I'm currently working on"
             />
-
-            {/* <Category>📘 Test</Category> */}
-
             <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
               {works.map((work) => (
                 <GalleryItem item={work} key={work.id} />
               ))}
             </div>
-          </div>
+          </CenteredSection>
         </section>
+
+        <CenteredSection>
+          <SectionHeading title="Writing" link="/blog" className="" />
+          <ul className="mt-5 -ml-4 -mr-4 divide-y divide-beige-100">
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+            <ListItem className="px-4 sm:px-4" />
+          </ul>
+        </CenteredSection>
       </div>
-
-      <section className="max-w-screen-lg px-4 py-12 mx-auto mt-4 sm:rounded-md sm:py-12 sm:mt-8 md:mt-16 lg:mt-20">
-        <SectionHeading title="Writing" link="/blog" className="" />
-        {/* <Category>📘 Test</Category> */}
-
-        <div className="mt-5 -ml-4 -mr-4">
-          <div>
-            <ul className="divide-y divide-beige-100">
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-              <ListItem className="px-4 sm:px-4" />
-            </ul>
-          </div>
-        </div>
-      </section>
     </div>
+  );
+}
+
+interface SectionProps {
+  className?: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}
+
+function Section({ className, style, children }: SectionProps) {
+  return (
+    <section className={`px-4 py-12 ${className}`} style={style}>
+      {children}
+    </section>
+  );
+}
+
+function CenteredSection({ className, style, children }: SectionProps) {
+  return (
+    <Section className="max-w-screen-lg mx-auto" style={style}>
+      {children}
+    </Section>
   );
 }
 
@@ -148,10 +150,11 @@ interface SectionHeadingProps {
   link: string;
   className?: string;
 }
+
 function SectionHeading({
-  title,
+  title = "",
   link,
-  subtitle,
+  subtitle = "",
   className = "",
 }: SectionHeadingProps) {
   return (
