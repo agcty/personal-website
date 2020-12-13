@@ -41,6 +41,7 @@ module.exports = {
       "error",
       { functions: false, classes: false, variables: true },
     ],
+    "react/react-in-jsx-scope": "off",
   },
   settings: {
     "import/resolver": {
