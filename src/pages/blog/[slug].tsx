@@ -1,7 +1,6 @@
+import { queryAllPost, queryAllPostPaths, queryPost } from "@api/sanityAPI";
 import Navbar from "@components/Navbar";
-import client from "client";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { groq } from "next-sanity";
+import { InferGetStaticPropsType } from "next";
 import { getClient } from "sanity";
 
 interface Post {
@@ -20,27 +19,21 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 }
 
 export async function getStaticProps({ params }) {
-  const post: Post = await getClient(false).fetch(
-    groq` *[_type == "post" && slug.current == $slug][0]`,
-    {
-      slug: params.slug,
-    }
-  );
+  const post: Post = await getClient(false).fetch(queryPost, {
+    slug: params.slug,
+  });
 
   return { props: { post } };
 }
 
 export async function getStaticPaths() {
-  const queryAll = groq`*[_type == "post" && slug.current != ''] {
-    'slug': slug.current
-  }`;
-
-  const pages: { slug: string }[] = await getClient(false).fetch(queryAll);
-
-  const generateList = pages.map(({ slug }) => ({ params: { slug } }));
+  const pages: { slug: string }[] = await getClient(false).fetch(
+    queryAllPostPaths
+  );
+  const paths = pages.map(({ slug }) => ({ params: { slug } }));
 
   return {
-    paths: generateList,
+    paths,
     fallback: true,
   };
 }

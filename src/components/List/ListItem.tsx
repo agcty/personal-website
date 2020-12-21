@@ -1,12 +1,14 @@
+import { Item } from "@types/DataTypes";
 import Link from "next/link";
 import React from "react";
 
 interface ListItemProps {
   className?: string;
+  item: Item;
 }
 
 // sm:first:rounded-t-md sm:last:rounded-b-md
-function ListItem({ className = "" }: ListItemProps) {
+function ListItem({ className = "", item }: ListItemProps) {
   return (
     <li className="focus:outline-none hover:bg-gray-50 group">
       <Link href="/">
@@ -22,7 +24,7 @@ function ListItem({ className = "" }: ListItemProps) {
                   //   textDecorationColor: "gray",
                   // }}
                 >
-                  Back End Developer with a passion in stupid things
+                  {item.title}
                 </div>
                 <div className="flex mt-1">
                   <div className="flex items-center text-sm leading-5 text-gray-500">

@@ -42,6 +42,7 @@ module.exports = {
       { functions: false, classes: false, variables: true },
     ],
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
   },
   settings: {
     "import/resolver": {

@@ -4,12 +4,14 @@ import Link from "next/link";
 import Navbar from "@components/Navbar";
 import Category from "@components/Category";
 import GalleryItem from "@components/DataView/GalleryItem";
-import { Item } from "src/types";
+import { Item } from "@types/DataTypes";
 import ListItem from "@components/List/ListItem";
 import Image from "next/image";
 import { bg1, bg2, bg3, bg4 } from "@assets/svgBackgrounds";
+import { getClient } from "sanity";
+import { queryAllPost } from "@api/sanityAPI";
 
-export default function Home() {
+export default function Home({ posts }) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -21,21 +23,21 @@ export default function Home() {
     {
       img: "/img/zerolens.png",
       link: "/work/zerolens",
-      name: "Fullstack Engineer @zerolens",
+      title: "Fullstack Engineer @zerolens",
       description: "Digital 3D photo studio",
       id: "1",
     },
     {
       img: "/img/goglsonnen.png",
       link: "/work/goglsonnenschirme",
-      name: "Gogl Sonnenschirme",
+      title: "Gogl Sonnenschirme",
       description: "Tech-infused sun umbrella company",
       id: "2",
     },
     {
       img: "/img/shareit.png",
       link: "/work/shareit",
-      name: "shareit.video",
+      title: "shareit.video",
       description: "Share screen recordings instantly",
       id: "3",
     },
@@ -104,17 +106,9 @@ export default function Home() {
         <CenteredSection>
           <SectionHeading title="Writing" link="/blog" className="" />
           <ul className="mt-5 -ml-4 -mr-4 divide-y divide-beige-100">
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
-            <ListItem className="px-4 sm:px-4" />
+            {posts.map((post) => (
+              <ListItem className="px-4 sm:px-4" item={post} key={post.title} />
+            ))}
           </ul>
         </CenteredSection>
       </div>
@@ -172,4 +166,10 @@ function SectionHeading({
       )}
     </div>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const posts: any = await getClient(false).fetch(queryAllPost);
+
+  return { props: { posts } };
 }

@@ -1,7 +1,7 @@
 export interface Item {
   img: string;
   link: string;
-  name: string;
+  title: string;
   description: string;
   id: string;
 }

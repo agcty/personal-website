@@ -17,7 +17,7 @@
           "@context": "./src/context",
           "@queries": "./src/queries",
           "@data": "./src/data",
-          "@typeDefs": "./src/types",
+          "@types": "./src/types",
           "@generated": "./src/generated",
           "@utils": "./src/utils",
           "@app": "./src/app",

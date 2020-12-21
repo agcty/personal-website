@@ -1,18 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { Item } from "src/types";
+import { Item } from "@types/DataTypes";
 
 interface GalleryItemProps {
   item: Item;
 }
 function GalleryItem({
-  item: { img, link, name, description },
+  item: { img, link, title, description },
 }: GalleryItemProps) {
   return (
     <Link href={link}>
       <a
-        aria-label={name}
+        aria-label={title}
         className="flex flex-col overflow-hidden transition duration-100 ease-in-out transform border rounded-md shadow border-dark-400 bg-beige-10 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
       >
         <div className="relative overflow-hidden bg-transparent border-b sm:h-40 h-52 border-dark-400">
@@ -26,7 +26,7 @@ function GalleryItem({
         <div className="flex flex-col justify-between flex-1 group-hover:bg-geist-50">
           <div className="p-4 pb-0">
             <div className="font-semibold text-dark-900 group-hover:text-dark-800">
-              {name}
+              {title}
             </div>
             <div className="text-sm text-dark-700">{description}</div>
           </div>
