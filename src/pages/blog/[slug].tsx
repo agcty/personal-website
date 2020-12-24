@@ -1,7 +1,9 @@
 import { queryAllPost, queryAllPostPaths, queryPost } from "@api/sanityAPI";
 import Navbar from "@components/Navbar";
+import client from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
 import { getClient } from "sanity";
+import { gql } from "urql";
 
 interface Post {
   title: string;
@@ -19,18 +21,45 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 }
 
 export async function getStaticProps({ params }) {
-  const post: Post = await getClient(false).fetch(queryPost, {
-    slug: params.slug,
-  });
+  const postQuery = gql`
+    query GetPost($slug: String) {
+      allPost(where: { slug: { current: { eq: $slug } } }) {
+        title
+        slug {
+          current
+        }
+      }
+    }
+  `;
 
+  const { data } = await client
+    .query(postQuery, { slug: params.slug })
+    .toPromise();
+
+  const post: Post = data.allPost[0];
   return { props: { post } };
 }
 
 export async function getStaticPaths() {
-  const pages: { slug: string }[] = await getClient(false).fetch(
-    queryAllPostPaths
-  );
-  const paths = pages.map(({ slug }) => ({ params: { slug } }));
+  const postQuery = gql`
+    query GetPostPaths {
+      allPost {
+        slug {
+          current
+        }
+      }
+    }
+  `;
+
+  const {
+    data,
+  }: {
+    data?: { allPost: { slug: { current: string } }[] };
+  } = await client.query(postQuery).toPromise();
+
+  const paths = data.allPost.map(({ slug: { current } }) => ({
+    params: { slug: current },
+  }));
 
   return {
     paths,
