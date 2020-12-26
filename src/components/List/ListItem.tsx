@@ -7,11 +7,19 @@ interface ListItemProps {
   item: Item;
 }
 
+const defaultItem: Item = {
+  title: "Blog Post",
+  link: "/",
+  img: "/",
+  description: "My Blog Post",
+  id: "1",
+};
+
 // sm:first:rounded-t-md sm:last:rounded-b-md
-function ListItem({ className = "", item }: ListItemProps) {
+function ListItem({ className = "", item = defaultItem }: ListItemProps) {
   return (
-    <li className="focus:outline-none hover:bg-gray-50 group">
-      <Link href="/">
+    <li className="focus:outline-none hover:bg-gray-50 active:bg-gray-10 group">
+      <Link href={item.link}>
         <a className={`block transition duration-150 ease-in-out ${className}`}>
           {/* maybe move border classes to top again and use divide instead? not sure if bottom for last element is good */}
           <div className="flex items-center py-4 sm:py-2.5">

@@ -21,7 +21,7 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 }
 
 export async function getStaticProps({ params }) {
-  const postQuery = gql`
+  const getPost = gql`
     query GetPost($slug: String) {
       allPost(where: { slug: { current: { eq: $slug } } }) {
         title
@@ -33,7 +33,7 @@ export async function getStaticProps({ params }) {
   `;
 
   const { data } = await client
-    .query(postQuery, { slug: params.slug })
+    .query(getPost, { slug: params.slug })
     .toPromise();
 
   const post: Post = data.allPost[0];
@@ -41,7 +41,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const postQuery = gql`
+  const getPostPaths = gql`
     query GetPostPaths {
       allPost {
         slug {
@@ -55,7 +55,7 @@ export async function getStaticPaths() {
     data,
   }: {
     data?: { allPost: { slug: { current: string } }[] };
-  } = await client.query(postQuery).toPromise();
+  } = await client.query(getPostPaths).toPromise();
 
   const paths = data.allPost.map(({ slug: { current } }) => ({
     params: { slug: current },
