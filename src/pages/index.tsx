@@ -65,7 +65,7 @@ export default function Home({ posts }) {
       </Head>
       <Navbar borderShown={scrollY > 35} />
       {/* {JSON.stringify(scrollYProgress)} */}
-      <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:mt-12 sm:px-18 md:mt-16 lg:mt-20">
+      <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
@@ -107,7 +107,7 @@ export default function Home({ posts }) {
             </div> */}
           </div>
 
-          <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-36 sm:h-36 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
+          <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
             {/* <div className="absolute w-full h-full bg-gray-100 rounded-3xl" />
             <div className="absolute w-full h-full transform shadow-lg -ml-full rounded-3xl bg-gradient-to-br from-beige-200 to-beige-200 -rotate-1 sm:rotate-6" /> */}
             <Image
@@ -123,11 +123,11 @@ export default function Home({ posts }) {
       <div className="mt-16 sm:mt-8 md:mt-16 lg:mt-20" />
 
       <CenteredSection className="bg-beige-50 sm:bg-transparent">
-        <div className="grid sm:-ml-8 sm:-mr-8 custom-grid">
+        <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8 ">
           <div className="hidden w-full h-full shadow from-green-500 to-pink-500 via-blue-500 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r" />
-          <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 -rotate-1 sm:-rotate-1 col-span-full row-span-full border-beige-200 sm:block" />
+          <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 -rotate-1 sm:-rotate-1 col-span-full row-span-full border-beige-200 sm:block bg-gradient-to-r" />
 
-          <div className="relative col-start-2 col-end-4 row-span-full ">
+          <div className="relative sm:px-8 row-span-full col-span-full">
             <div className="py-12 rounded-md">
               <SectionHeading
                 title="Work"
