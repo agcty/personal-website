@@ -14,7 +14,7 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
     <div>
       <Navbar borderShown />
       <main className="container prose">
-        <h1>{post.title}</h1>
+        <h1>{post?.title}</h1>
       </main>
     </div>
   );
