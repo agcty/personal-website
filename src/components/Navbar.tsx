@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const navigationLinks: NavigationLinkProps[] = [
   {
@@ -29,7 +29,7 @@ const navigationLinks: NavigationLinkProps[] = [
 interface NavbarProps {
   borderShown: boolean;
 }
-function Navbar({ borderShown }: NavbarProps) {
+function Navbar({ borderShown = true }: NavbarProps) {
   const navLinks = navigationLinks.map(({ link, children }) => (
     <NavigationLink link={link} key={link}>
       {children}
@@ -40,14 +40,20 @@ function Navbar({ borderShown }: NavbarProps) {
 
   return (
     <nav
-      className={clsx("sticky top-0 z-50 bg-beige-10", {
+      className={clsx("sticky top-0 z-50", {
         "border-b border-gray-100": borderShown || openMobile,
+        "bg-transparent": !borderShown,
+        "bg-beige-10": borderShown,
       })}
     >
       <div className={clsx("px-4 mx-auto sm:px-5 max-w-screen-xl")}>
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
-            <span className="mr-0.5">👨🏻‍💻</span> gogl.io
+            <Link href="/">
+              <a className="mr-0.5 focus:outline-none focus:ring-4 ring-beige-100 ring-offset-2 rounded-md">
+                👨🏻‍💻 gogl.io
+              </a>
+            </Link>
           </div>
           <div className="inline-grid grid-flow-col gap-x-4 justify-self-center">
             {navLinks}
@@ -71,10 +77,6 @@ function Navbar({ borderShown }: NavbarProps) {
           )}
         </div>
       </div>
-
-      {/* <div className="lg:hidden">
-        <div className="flex flex-col gap-4 p-2">{navLinks}</div>
-      </div> */}
     </nav>
   );
 }

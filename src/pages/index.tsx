@@ -12,15 +12,9 @@ import { getClient } from "sanity";
 import { queryAllPost } from "@api/sanityAPI";
 import { gql } from "urql";
 import client from "graphql/urqlClient";
+import useScroll from "@hooks/useScroll";
 
 export default function Home({ posts }) {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => setScrollY(window.scrollY));
-    return window.removeEventListener("scroll", () => null);
-  });
-
   const works: Item[] = [
     {
       img: "/img/zerolens.png",
@@ -52,8 +46,10 @@ export default function Home({ posts }) {
     // },
   ];
 
+  const { scrollY } = useScroll();
+
   return (
-    <div className="min-h-screen bg-beige-10">
+    <div className="min-h-screen bg-beige-10" style={{ backgroundImage: bg1 }}>
       <Head>
         <title>Next.js advanced start template.</title>
         <meta
@@ -123,9 +119,13 @@ export default function Home({ posts }) {
       <div className="mt-16 sm:mt-8 md:mt-16 lg:mt-20" />
 
       <CenteredSection className="bg-beige-50 sm:bg-transparent">
-        <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8 ">
-          <div className="hidden w-full h-full shadow from-green-500 to-pink-500 via-blue-500 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r" />
-          <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 -rotate-1 sm:-rotate-1 col-span-full row-span-full border-beige-200 sm:block bg-gradient-to-r" />
+        <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
+          <div
+            className="hidden w-full h-full shadow from-blue-400 via-green-400 to-pink-400 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
+            style={{ filter: "blur(10px)" }}
+          />
+          {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
+          <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
 
           <div className="relative sm:px-8 row-span-full col-span-full">
             <div className="py-12 rounded-md">
@@ -142,27 +142,7 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-
-        <style jsx>{`
-          .custom-grid {
-            grid-template-columns: 2rem 1fr 1fr 2rem;
-          }
-        `}</style>
-
-        {/* <div className="p-8 -mx-8 rounded-md bg-beige-50">
-            <SectionHeading
-              title="Work"
-              link="/work"
-              subtitle="Things I'm currently working on"
-            />
-            <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
-              {works.map((work) => (
-                <GalleryItem item={work} key={work.id} />
-              ))}
-            </div>
-          </div> */}
       </CenteredSection>
-      {/* </section> */}
 
       <CenteredSection>
         <SectionHeading title="Writing" link="/blog" />
@@ -172,6 +152,19 @@ export default function Home({ posts }) {
           ))}
         </ul>
       </CenteredSection>
+
+      <style jsx>
+        {`
+          .custom-grid {
+            grid-template-columns: 2rem 1fr 1fr 2rem;
+          }
+
+          .beige-blur {
+            backdrop-filter: blur(30px) saturate(180%);
+            background-color: hsla(30, 40%, 96%, 0.95);
+          }
+        `}
+      </style>
     </div>
   );
 }
@@ -250,7 +243,7 @@ export async function getStaticProps({ params }) {
     title: post.title,
     img: "",
     description: "",
-    link: post.slug.current,
+    link: `/blog/${post.slug.current}`,
   }));
   console.log(data);
 

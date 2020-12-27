@@ -32,9 +32,13 @@ export async function getStaticProps({ params }) {
     }
   `;
 
+  console.log("slug", params.slug);
+
   const { data } = await client
     .query(getPost, { slug: params.slug })
     .toPromise();
+
+  console.log(data);
 
   const post: Post = data.allPost[0];
   return { props: { post } };
