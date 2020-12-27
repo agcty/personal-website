@@ -1,12 +1,12 @@
 // lib/sanity.js
 import {
-  groq,
   createClient,
   createImageUrlBuilder,
   createPortableTextComponent,
   createPreviewSubscriptionHook,
   createCurrentUserHook,
 } from "next-sanity";
+import Image from "next/image";
 
 const config = {
   /**
@@ -17,7 +17,7 @@ const config = {
    * https://nextjs.org/docs/basic-features/environment-variables
    * */
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  projectId: process.env.SANITY_PROJECT_ID,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   useCdn: process.env.NODE_ENV === "production",
   /**
    * Set useCdn to `false` if your application require the freshest possible
@@ -26,22 +26,8 @@ const config = {
    * */
 };
 
-/**
- * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
- * Read more: https://www.sanity.io/docs/image-url
- * */
-export const urlFor = (source) => createImageUrlBuilder(config).image(source);
-
 // Set up the live preview subsscription hook
 export const usePreviewSubscription = createPreviewSubscriptionHook(config);
-
-// Set up Portable Text serialization
-export const PortableText = createPortableTextComponent({
-  ...config,
-  // Serializers passed to @sanity/block-content-to-react
-  // (https://github.com/sanity-io/block-content-to-react)
-  serializers: {},
-});
 
 // Set up the client for fetching data in the getProps page functions
 export const sanityClient = createClient(config);
@@ -53,8 +39,37 @@ export const previewClient = createClient({
 });
 
 // Helper function for easily switching between normal client and preview client
-export const getClient = (usePreview) =>
+export const getClient = (usePreview: boolean) =>
   usePreview ? previewClient : sanityClient;
+
+/**
+ * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
+ * Read more: https://www.sanity.io/docs/image-url
+ * */
+export const urlFor = (source: string) =>
+  createImageUrlBuilder(config).image(source);
+
+// Set up Portable Text serialization
+export const PortableText = createPortableTextComponent({
+  ...config,
+  // Serializers passed to @sanity/block-content-to-react
+  // (https://github.com/sanity-io/block-content-to-react)
+  serializers: {
+    types: {
+      // eslint-disable-next-line react/display-name
+      image: (props: any) => (
+        <Image
+          src={urlFor(props.node.asset._ref).url()}
+          width={700}
+          height={400}
+          objectFit="cover"
+        />
+
+        // <p className="text-red-500">{urlFor(props.node.asset._ref).url()}</p>
+      ),
+    },
+  },
+});
 
 // Helper function for using the current logged in user account
 export const useCurrentUser = createCurrentUserHook(config);

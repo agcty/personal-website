@@ -50,7 +50,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
             <Link href="/">
-              <a className="mr-0.5 focus:outline-none focus:ring-4 ring-beige-100 ring-offset-2 rounded-md">
+              <a className="mr-0.5 focus:outline-none focus:ring-4 ring-beige-100 focus:ring-offset-4 rounded-md">
                 👨🏻‍💻 gogl.io
               </a>
             </Link>

@@ -1,20 +1,29 @@
 import { queryAllPost, queryAllPostPaths, queryPost } from "@api/sanityAPI";
 import Navbar from "@components/Navbar";
-import client from "graphql/urqlClient";
+import graphClient from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
-import { getClient } from "sanity";
+import { PortableText, urlFor } from "sanity";
 import { gql } from "urql";
 
 interface Post {
   title: string;
+  bodyRaw: any;
+  publishedAt: string;
 }
 
 function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>
+    <div className="min-h-screen bg-beige-10">
       <Navbar borderShown />
-      <main className="container prose">
-        <h1>{post?.title}</h1>
+      <main className="max-w-screen-md px-4 py-8 mx-auto sm:py-12 sm:px-0">
+        <h1 className="text-3xl font-bold leading-none tracking-tight text-dark-900 sm:text-4xl sm:leading-none md:text-4xl">
+          {post.title}
+        </h1>
+        <time>{post.publishedAt} </time>
+
+        {/* <p>{JSON.stringify(post?.bodyRaw)}</p> */}
+
+        <PortableText blocks={post.bodyRaw} className="py-8 prose" />
       </main>
     </div>
   );
@@ -25,6 +34,8 @@ export async function getStaticProps({ params }) {
     query GetPost($slug: String) {
       allPost(where: { slug: { current: { eq: $slug } } }) {
         title
+        bodyRaw
+        publishedAt
         slug {
           current
         }
@@ -32,13 +43,9 @@ export async function getStaticProps({ params }) {
     }
   `;
 
-  console.log("slug", params.slug);
-
-  const { data } = await client
+  const { data } = await graphClient
     .query(getPost, { slug: params.slug })
     .toPromise();
-
-  console.log(data);
 
   const post: Post = data.allPost[0];
   return { props: { post } };
@@ -59,7 +66,7 @@ export async function getStaticPaths() {
     data,
   }: {
     data?: { allPost: { slug: { current: string } }[] };
-  } = await client.query(getPostPaths).toPromise();
+  } = await graphClient.query(getPostPaths).toPromise();
 
   const paths = data.allPost.map(({ slug: { current } }) => ({
     params: { slug: current },

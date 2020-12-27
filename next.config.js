@@ -1,7 +1,7 @@
 module.exports = {
   images: {
     deviceSizes: [320, 420, 768, 1024, 1200],
-    domains: ["source.unsplash.com"],
+    domains: ["images.unsplash.com", "cdn.sanity.io"],
   },
   typescript: {
     // !! WARN !!
