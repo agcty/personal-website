@@ -40,7 +40,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
 
   return (
     <nav
-      className={clsx("sticky top-0 z-50", {
+      className={clsx("sticky top-0 z-50 transition-colors", {
         "border-b border-gray-100": borderShown || openMobile,
         "bg-transparent": !borderShown,
         "bg-beige-10": borderShown,
@@ -50,7 +50,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
             <Link href="/">
-              <a className="mr-0.5 focus:outline-none focus:ring-4 ring-beige-100 focus:ring-offset-4 rounded-md">
+              <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded transition">
                 👨🏻‍💻 gogl.io
               </a>
             </Link>
@@ -63,7 +63,11 @@ function Navbar({ borderShown = true }: NavbarProps) {
         <div className="sm:hidden py-1.5">
           <div className="flex items-center justify-between">
             <div className="font-semibold text-dark-1000">
-              <span className="mr-0.5">👨🏻‍💻</span> gogl.io
+              <Link href="/">
+                <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded">
+                  👨🏻‍💻 gogl.io
+                </a>
+              </Link>
             </div>
 
             <Hamburger
@@ -142,14 +146,13 @@ interface NavigationLinkProps {
 
 function NavigationLink({ children, link }: NavigationLinkProps) {
   const router = useRouter();
-  const currUrl = router.pathname;
-  const isActive = currUrl === link;
+  const isActive = `/${router.pathname.split("/")[1]}` === link;
 
   return (
     <Link href={link}>
       <a
         className={clsx(
-          "px-6 py-2 sm:py-1.5 text-sm font-semibold text-center text-white transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-beige-200",
+          "px-6 py-2 sm:py-1.5 text-sm font-semibold text-center transition duration-150 ease-in-out rounded-md focus:outline-none focus:bg-beige-100 active:bg-beige-100 active:shadow-inset",
           {
             "bg-beige-50 text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,

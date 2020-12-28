@@ -122,7 +122,7 @@ export default function Home({ posts }) {
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           <div
             className="hidden w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
-            style={{ filter: "blur(10px)" }}
+            style={{ filter: "blur(15px)" }}
           />
           {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
           <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />

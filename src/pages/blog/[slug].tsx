@@ -15,15 +15,17 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className="min-h-screen bg-beige-10">
       <Navbar borderShown />
-      <main className="max-w-screen-md px-4 py-8 mx-auto sm:py-12 sm:px-0">
-        <h1 className="text-3xl font-bold leading-none tracking-tight text-dark-900 sm:text-4xl sm:leading-none md:text-4xl">
-          {post.title}
-        </h1>
-        <time>{post.publishedAt} </time>
+      <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
+        <div className="max-w-screen-md">
+          <h1 className="text-3xl font-bold leading-none tracking-tight text-dark-900 sm:text-4xl sm:leading-none md:text-4xl">
+            {post.title}
+          </h1>
+          <time>{post.publishedAt} </time>
 
-        {/* <p>{JSON.stringify(post?.bodyRaw)}</p> */}
+          {/* <p>{JSON.stringify(post?.bodyRaw)}</p> */}
 
-        <PortableText blocks={post.bodyRaw} className="py-8 prose" />
+          <PortableText blocks={post.bodyRaw} className="py-8 prose-lg" />
+        </div>
       </main>
     </div>
   );

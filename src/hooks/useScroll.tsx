@@ -14,6 +14,8 @@ export const useScroll = () => {
   }, []);
 
   useEffect(() => {
+    setState({ scrollX: window.scrollX, scrollY: window.scrollY });
+
     const scrollListener = (e) => {
       handleScrollEvent(e);
     };
