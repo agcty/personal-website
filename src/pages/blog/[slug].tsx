@@ -1,9 +1,8 @@
-import { queryAllPost, queryAllPostPaths, queryPost } from "@api/sanityAPI";
 import Navbar from "@components/Navbar";
 import { format } from "date-fns";
 import graphClient from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
-import { PortableText, urlFor } from "sanity";
+import { PortableText } from "sanity";
 import { gql } from "urql";
 
 interface Post {
@@ -81,7 +80,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 }
 
