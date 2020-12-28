@@ -13,6 +13,7 @@ const defaultItem: Item = {
   img: "/",
   description: "My Blog Post",
   id: "1",
+  tags: [{ title: "Startups" }],
 };
 
 // sm:first:rounded-t-md sm:last:rounded-b-md
@@ -45,13 +46,16 @@ function ListItem({ className = "", item = defaultItem }: ListItemProps) {
 
               <div className="flex-shrink-0 mt-1 sm:mt-0">
                 <div className="max-w-sm horizontal-flex-scroll">
-                  <span className="px-2.5 py-0.5 sm:py-1 text-sm font-semibold text-center text-green-600 transition rounded focus:outline-none focus:text-white focus:bg-beige-200 bg-green-100">
-                    Startups
-                  </span>
-
-                  <span className="px-2.5 py-0.5 sm:py-1 text-sm font-semibold text-center text-green-600 transition rounded focus:outline-none focus:text-white focus:bg-beige-200 bg-green-100">
-                    Idea Validation
-                  </span>
+                  {item.tags?.map((tag) => {
+                    return (
+                      <span
+                        key={tag.title}
+                        className={`px-2.5 py-0.5 sm:py-1 text-sm font-semibold text-center ${tag.className} transition rounded focus:outline-none`}
+                      >
+                        {tag.title}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -120,6 +120,7 @@ export default function Home({ posts }) {
 
       <CenteredSection className="bg-beige-50 sm:bg-transparent">
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
+          {/* <div className="hidden w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full sm:block" /> */}
           <div
             className="hidden w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
             style={{ filter: "blur(15px)" }}
@@ -128,7 +129,7 @@ export default function Home({ posts }) {
           <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
 
           <div className="relative sm:px-8 row-span-full col-span-full">
-            <div className="py-12 rounded-md">
+            <div className="rounded-md sm:py-12">
               <SectionHeading
                 title="Work"
                 link="/work"
@@ -144,9 +145,9 @@ export default function Home({ posts }) {
         </div>
       </CenteredSection>
 
-      <CenteredSection>
+      <CenteredSection className="bg-beige-10 sm:bg-transparent">
         <SectionHeading title="Writing" link="/blog" />
-        <ul className="mt-5 -ml-4 -mr-4 divide-y divide-beige-100">
+        <ul className="mt-5 -ml-4 -mr-4 divide-y sm:border divide-beige-100 border-beige-100 sm:bg-beige-10">
           {posts.map((post) => (
             <ListItem className="px-4" item={post} key={post.title} />
           ))}
@@ -226,6 +227,11 @@ export async function getStaticProps({ params }) {
     query GetLatestPosts {
       allPost {
         title
+        categories {
+          title
+          className
+          link
+        }
         slug {
           current
         }
@@ -236,7 +242,13 @@ export async function getStaticProps({ params }) {
   const {
     data,
   }: {
-    data?: { allPost: { slug: { current: string }; title: string }[] };
+    data?: {
+      allPost: {
+        slug: { current: string };
+        title: string;
+        categories: { title: string }[];
+      }[];
+    };
   } = await client.query(getPostPaths).toPromise();
 
   const posts: Item = data.allPost.map((post) => ({
@@ -244,8 +256,8 @@ export async function getStaticProps({ params }) {
     img: "",
     description: "",
     link: `/blog/${post.slug.current}`,
+    tags: post.categories,
   }));
-  console.log(data);
 
   return { props: { posts } };
 }

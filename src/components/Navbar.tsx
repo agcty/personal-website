@@ -40,7 +40,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
 
   return (
     <nav
-      className={clsx("sticky top-0 z-50 transition-colors", {
+      className={clsx("sticky top-0 z-50", {
         "border-b border-gray-100": borderShown || openMobile,
         "bg-transparent": !borderShown,
         "bg-beige-10": borderShown,

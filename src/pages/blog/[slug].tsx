@@ -1,5 +1,6 @@
 import { queryAllPost, queryAllPostPaths, queryPost } from "@api/sanityAPI";
 import Navbar from "@components/Navbar";
+import { format } from "date-fns";
 import graphClient from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
 import { PortableText, urlFor } from "sanity";
@@ -17,14 +18,18 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <Navbar borderShown />
       <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
         <div className="max-w-screen-md">
-          <h1 className="text-3xl font-bold leading-none tracking-tight text-dark-900 sm:text-4xl sm:leading-none md:text-4xl">
+          <h1 className="text-3xl font-bold leading-tight tracking-tight text-dark-900 sm:text-4xl sm:leading-none md:text-4xl">
             {post.title}
           </h1>
-          <time>{post.publishedAt} </time>
+          <div className="flex items-center mt-1 text-sm leading-5 text-gray-500">
+            <span>
+              <time dateTime={post.publishedAt}>
+                {format(new Date(post.publishedAt), "PPP")}
+              </time>
+            </span>
+          </div>
 
-          {/* <p>{JSON.stringify(post?.bodyRaw)}</p> */}
-
-          <PortableText blocks={post.bodyRaw} className="py-8 prose-lg" />
+          <PortableText blocks={post.bodyRaw} className="py-8 prose" />
         </div>
       </main>
     </div>
