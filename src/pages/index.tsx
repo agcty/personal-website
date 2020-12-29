@@ -107,7 +107,7 @@ export default function Home({ posts }) {
             {/* <div className="absolute w-full h-full bg-gray-100 rounded-3xl" />
             <div className="absolute w-full h-full transform shadow-lg -ml-full rounded-3xl bg-gradient-to-br from-beige-200 to-beige-200 -rotate-1 sm:rotate-6" /> */}
             <Image
-              src="/img/alex.jpg"
+              src="/img/alex.JPG"
               className="object-cover object-top rounded-full"
               width={200}
               height={200}
@@ -123,7 +123,11 @@ export default function Home({ posts }) {
           {/* <div className="hidden w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full sm:block" /> */}
           <div
             className="hidden w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
-            style={{ filter: "blur(15px)" }}
+            style={{
+              filter: "blur(15px)",
+              background:
+                "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
+            }}
           />
           {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
           <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
@@ -147,7 +151,7 @@ export default function Home({ posts }) {
 
       <CenteredSection className="bg-beige-10 sm:bg-transparent">
         <SectionHeading title="Writing" link="/blog" />
-        <ul className="mt-5 -ml-4 -mr-4 divide-y sm:border divide-beige-100 border-beige-100 sm:bg-beige-10">
+        <ul className="mt-5 -ml-4 -mr-4 divide-y rounded-md shadow-md sm:border divide-beige-100 border-beige-100 sm:bg-beige-10">
           {posts.map((post) => (
             <ListItem className="px-4" item={post} key={post.title} />
           ))}
