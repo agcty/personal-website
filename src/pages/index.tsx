@@ -122,14 +122,12 @@ export default function Home({ posts }) {
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           {/* <div className="hidden w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full sm:block" /> */}
           <div
-            className="hidden w-full h-full bg-green-500 shadow rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
-            style={
-              {
-                // filter: "blur(20px)",
-                // background:
-                //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
-              }
-            }
+            className="hidden w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
+            style={{
+              filter: "blur(20px)",
+              // background:
+              //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
+            }}
           />
           {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
           <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
