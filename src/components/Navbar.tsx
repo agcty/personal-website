@@ -4,26 +4,26 @@ import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 
 const navigationLinks: NavigationLinkProps[] = [
-  {
-    link: "/",
-    children: "Home",
-  },
-  {
-    link: "/work",
-    children: "Work",
-  },
-  {
-    link: "/blog",
-    children: "Blog",
-  },
-  {
-    link: "about",
-    children: "About",
-  },
-  {
-    link: "/components",
-    children: "Components",
-  },
+  // {
+  //   link: "/",
+  //   children: "Home",
+  // },
+  // {
+  //   link: "/work",
+  //   children: "Work",
+  // },
+  // {
+  //   link: "/blog",
+  //   children: "Blog",
+  // },
+  // {
+  //   link: "about",
+  //   children: "About",
+  // },
+  // {
+  //   link: "/components",
+  //   children: "Components",
+  // },
 ];
 
 interface NavbarProps {
