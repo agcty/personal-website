@@ -114,6 +114,7 @@ module.exports = {
       borderRadius: ["first", "last"],
       borderStyle: ["hover"],
       borderWidth: ["first", "last"],
+      padding: ["first", "last"],
     },
     opacity: ["responsive", "hover", "focus", "disabled"],
     cursor: ["responsive", "hover", "focus", "disabled"],
