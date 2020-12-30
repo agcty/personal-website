@@ -63,6 +63,12 @@ function Navbar({ borderShown = true }: NavbarProps) {
           <div className="inline-grid grid-flow-col gap-x-4 justify-self-center">
             {navLinks}
           </div>
+          <a
+            className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 justify-self-end"
+            href="https://twitter.com/agctyz"
+          >
+            Twitter
+          </a>
         </div>
 
         <div className="sm:hidden py-1.5">

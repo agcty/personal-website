@@ -21,7 +21,7 @@ const defaultItem: Item = {
 // sm:first:rounded-t-md sm:last:rounded-b-md
 function ListItem({ className = "", item = defaultItem }: ListItemProps) {
   return (
-    <li className="transition focus:outline-none hover:bg-beige-50 active:bg-gray-10 group">
+    <li className="transition focus:outline-none hover:bg-geist-50 active:bg-geist-10 group first:rounded-t-md last:rounded-b-md">
       <Link href={item.link}>
         <a className={`block transition duration-150 ease-in-out ${className}`}>
           {/* maybe move border classes to top again and use divide instead? not sure if bottom for last element is good */}

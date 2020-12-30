@@ -171,9 +171,9 @@ export default function Home({ posts }) {
         </div>
       </CenteredSection>
 
-      <CenteredSection>
-        <SectionHeading title="Writing" link="/blog" />
-        <ul className="mt-5 -ml-4 -mr-4 border-t border-b divide-y sm:border-l sm:border-r divide-beige-100 border-beige-100 ">
+      <CenteredSection className="sm:bg-transparent bg-beige-10">
+        <SectionHeading title="Latest posts" link="/blog" />
+        <ul className="mt-5 -ml-4 -mr-4 divide-y rounded-md bg-beige-10 sm:border divide-beige-100 border-beige-100">
           {posts.map((post) => (
             <ListItem className="px-4" item={post} key={post.title} />
           ))}
