@@ -2,7 +2,16 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  purge: ["./src/**/*.tsx"],
+  purge: {
+    content: ["./src/**/*.tsx"],
+
+    // These options are passed through directly to PurgeCSS
+    options: {
+      safelist: {
+        standard: [/bg-green$/, /text-green$/],
+      },
+    },
+  },
   theme: {
     // good to know: add default line height https://tailwindcss.com/docs/font-size#app
     extend: {

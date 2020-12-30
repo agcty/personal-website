@@ -15,7 +15,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
       <Link href={item.link}>
         <a
           aria-label={item.title}
-          className="flex flex-col overflow-hidden transition duration-100 ease-in-out transform border rounded-md shadow border-dark-400 bg-beige-10 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
+          className="flex flex-col overflow-hidden transition duration-100 ease-in-out border rounded-md shadow border-dark-400 bg-beige-10 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
         >
           {children}
         </a>

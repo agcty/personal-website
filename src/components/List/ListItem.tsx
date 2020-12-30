@@ -14,7 +14,7 @@ interface ListItemProps {
 function ListItem({ className = "", item, children }: ListItemProps) {
   return (
     <ItemContext.Provider value={item}>
-      <li className="transition focus:outline-none hover:bg-beige-50 active:bg-geist-10 group first:rounded-t-md last:rounded-b-md">
+      <li className="transition focus:outline-none hover:bg-beige-50 active:bg-geist-10 group first:rounded-t-md last:rounded-b-md hover:bg-transparent">
         <Link href={item.link}>
           <a
             className={`block transition duration-150 ease-in-out ${className}`}
@@ -24,32 +24,6 @@ function ListItem({ className = "", item, children }: ListItemProps) {
         </Link>
       </li>
     </ItemContext.Provider>
-  );
-}
-
-function ListItem2({ className = "", item, children }: ListItemProps) {
-  return (
-    <ListItem item={item}>
-      <div className="flex items-center py-4 sm:py-2.5">
-        <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
-          <div>
-            <ListItem.Title />
-
-            <div className="flex mt-1">
-              <ListItem.Date />
-            </div>
-          </div>
-
-          <div className="flex-shrink-0 mt-1 sm:mt-0">
-            <ListItem.Title />
-          </div>
-        </div>
-
-        <div className="flex-shrink-0 ml-5">
-          <ListItem.OpenIcon />
-        </div>
-      </div>
-    </ListItem>
   );
 }
 
