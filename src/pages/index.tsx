@@ -172,7 +172,7 @@ export default function Home({
               <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
                 {works.map((work) => (
                   <GalleryItem item={work} key={work.id}>
-                    <GalleryItem.Image />
+                    <GalleryItem.Image priority />
                     <GalleryItem.Description />
                   </GalleryItem>
                 ))}

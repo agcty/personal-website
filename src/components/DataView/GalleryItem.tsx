@@ -24,13 +24,18 @@ function GalleryItem({ item, children }: GalleryItemProps) {
   );
 }
 
-GalleryItem.Image = function GalleryItemImage() {
+GalleryItem.Image = function GalleryItemImage({
+  priority = false,
+}: {
+  priority: boolean;
+}) {
   const { img } = useItemContext();
 
   return (
     <div className="relative overflow-hidden bg-transparent border-b h-36 border-dark-400">
       <Image
         src={img}
+        priority={priority}
         layout="fill"
         className="absolute object-cover w-full h-full"
       />
