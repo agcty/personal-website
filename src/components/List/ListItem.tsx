@@ -1,4 +1,5 @@
 import { Item } from "@types/DataTypes";
+import { format } from "date-fns";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +14,8 @@ const defaultItem: Item = {
   img: "/",
   description: "My Blog Post",
   id: "1",
-  tags: [{ title: "Startups" }],
+  tags: [{ title: "Startups", link: "", className: "" }],
+  createdAt: "2020-12-29T23:00:00.000Z",
 };
 
 // sm:first:rounded-t-md sm:last:rounded-b-md
@@ -38,7 +40,9 @@ function ListItem({ className = "", item = defaultItem }: ListItemProps) {
                 <div className="flex mt-1">
                   <div className="flex items-center text-sm leading-5 text-gray-500">
                     <span>
-                      <time dateTime="2020-01-07">January 7, 2020</time>
+                      <time dateTime={item.createdAt}>
+                        {format(new Date(item.createdAt), "PPP")}
+                      </time>
                     </span>
                   </div>
                 </div>

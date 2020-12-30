@@ -4,5 +4,6 @@ export interface Item {
   title: string;
   description: string;
   id: string;
-  tags: { title: string; link: string; className: string }[];
+  createdAt: string;
+  tags?: { title: string; link: string; className: string }[];
 }

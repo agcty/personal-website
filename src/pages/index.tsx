@@ -1,18 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
-import Link from "next/link";
+
 import Navbar from "@components/Navbar";
 import Category from "@components/Category";
 import GalleryItem from "@components/DataView/GalleryItem";
 import { Item } from "@types/DataTypes";
 import ListItem from "@components/List/ListItem";
 import Image from "next/image";
-import { bg1, bg2, bg3, bg4 } from "@assets/svgBackgrounds";
-import { getClient } from "sanity";
-import { queryAllPost } from "@api/sanityAPI";
-import { gql } from "urql";
-import client from "graphql/urqlClient";
+import { bg1 } from "@assets/svgBackgrounds";
+import { gql, useQuery } from "urql";
 import useScroll from "@hooks/useScroll";
+import client from "graphql/urqlClient";
+
+const getPostPaths = gql`
+  query GetLatestPosts {
+    allPost(sort: { publishedAt: DESC }, limit: 10) {
+      title
+      publishedAt
+      categories {
+        title
+        className
+        link
+      }
+      slug {
+        current
+      }
+    }
+  }
+`;
 
 export default function Home({ posts }) {
   const works: Item[] = [
@@ -37,16 +52,23 @@ export default function Home({ posts }) {
       description: "Share screen recordings instantly",
       id: "3",
     },
-    // {
-    //   img: "/img/shareit.png",
-    //   link: "/work/shareit",
-    //   title: "shareit.video",
-    //   description: "Share screen recordings instantly",
-    //   id: "3",
-    // },
   ];
 
   const { scrollY } = useScroll();
+
+  // const [result, reexecuteQuery] = useQuery({
+  //   query: getPostPaths,
+  // });
+
+  // const { data, fetching, error } = result;
+
+  // const postList: Item = data?.allPost?.map((post) => ({
+  //   title: post.title,
+  //   img: "",
+  //   description: "",
+  //   link: `/blog/${post.slug.current}`,
+  //   tags: post.categories,
+  // }));
 
   return (
     <div className="min-h-screen bg-beige-10" style={{ backgroundImage: bg1 }}>
@@ -227,22 +249,6 @@ function SectionHeading({
 }
 
 export async function getStaticProps({ params }) {
-  const getPostPaths = gql`
-    query GetLatestPosts {
-      allPost {
-        title
-        categories {
-          title
-          className
-          link
-        }
-        slug {
-          current
-        }
-      }
-    }
-  `;
-
   const {
     data,
   }: {
@@ -251,6 +257,7 @@ export async function getStaticProps({ params }) {
         slug: { current: string };
         title: string;
         categories: { title: string }[];
+        publishedAt: string;
       }[];
     };
   } = await client.query(getPostPaths).toPromise();
@@ -261,6 +268,7 @@ export async function getStaticProps({ params }) {
     description: "",
     link: `/blog/${post.slug.current}`,
     tags: post.categories,
+    createdAt: post.publishedAt,
   }));
 
   return { props: { posts } };

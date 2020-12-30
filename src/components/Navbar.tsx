@@ -125,20 +125,6 @@ function Hamburger({ setOpenMobile, isOpenMobile }) {
   );
 }
 
-function ARecord() {
-  return (
-    <a className="text-sm font-semibold sm:flex">
-      {/* <span className="px-2.5 py-1.5 text-center transition duration-150 ease-in-out bg-gray-300 rounded-md focus:outline-none focus:text-white focus:bg-gray-700 text-gray-50 border border-gray-100 shadow-inner">
-        A
-      </span> */}
-
-      <span className="px-2.5 py-1.5 text-center transition duration-150 ease-in-out bg-gray-300 rounded-md focus:outline-none focus:text-white focus:bg-gray-700 text-gray-50 border border-gray-100 shadow-inner ml-1">
-        gogl.io
-      </span>
-    </a>
-  );
-}
-
 interface NavigationLinkProps {
   children: string;
   link: string;
