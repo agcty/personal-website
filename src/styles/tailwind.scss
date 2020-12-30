@@ -13,12 +13,16 @@
   display: none;
 }
 
-.white-blur {
-  backdrop-filter: blur(20px) saturate(180%);
-  background-color: hsla(0, 0%, 100%, 0.9);
+@variants {
+  @responsive {
+    .white-blur {
+      backdrop-filter: blur(20px) saturate(180%);
+      background-color: hsla(0, 0%, 100%, 0.9);
 
-  @screen sm {
-    background-color: hsla(0, 0%, 100%, 0.93);
+      @screen sm {
+        background-color: hsla(0, 0%, 100%, 0.93);
+      }
+    }
   }
 }
 

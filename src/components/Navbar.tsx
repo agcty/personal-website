@@ -64,7 +64,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
             {navLinks}
           </div>
           <a
-            className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 justify-self-end"
+            className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 justify-self-end hover:underline"
             href="https://twitter.com/agctyz"
           >
             Twitter
@@ -154,7 +154,7 @@ function NavigationLink({ children, link, comingSoon }: NavigationLinkProps) {
           {
             "bg-beige-50 text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
-            "opacity-50 bg-gray-50 text-beige-500 cursor-not-allowed ": comingSoon,
+            "opacity-50 bg-beige-50 text-beige-500 cursor-not-allowed ": comingSoon,
           }
         )}
       >

@@ -11,11 +11,13 @@ import { bg1 } from "@assets/svgBackgrounds";
 import { gql, useQuery } from "urql";
 import useScroll from "@hooks/useScroll";
 import client from "graphql/urqlClient";
+import { InferGetStaticPropsType } from "next";
 
 const getPostPaths = gql`
   query GetLatestPosts {
     allPost(sort: { publishedAt: DESC }, limit: 10) {
       title
+      _id
       publishedAt
       categories {
         title
@@ -29,7 +31,9 @@ const getPostPaths = gql`
   }
 `;
 
-export default function Home({ posts }) {
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const works: Item[] = [
     {
       img: "/img/zerolens.png",
@@ -37,6 +41,7 @@ export default function Home({ posts }) {
       title: "Fullstack Engineer @zerolens",
       description: "Digital 3D photo studio",
       id: "1",
+      createdAt: "",
     },
     {
       img: "/img/goglsonnen.png",
@@ -44,6 +49,7 @@ export default function Home({ posts }) {
       title: "Gogl Sonnenschirme",
       description: "Tech-infused sun umbrella company",
       id: "2",
+      createdAt: "",
     },
     {
       img: "/img/shareit.png",
@@ -51,6 +57,7 @@ export default function Home({ posts }) {
       title: "shareit.video",
       description: "Share screen recordings instantly",
       id: "3",
+      createdAt: "",
     },
   ];
 
@@ -133,6 +140,7 @@ export default function Home({ posts }) {
               className="object-cover object-top rounded-full"
               width={200}
               height={200}
+              priority
             />
           </div>
         </div>
@@ -163,7 +171,10 @@ export default function Home({ posts }) {
               />
               <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
                 {works.map((work) => (
-                  <GalleryItem item={work} key={work.id} />
+                  <GalleryItem item={work} key={work.id}>
+                    <GalleryItem.Image />
+                    <GalleryItem.Description />
+                  </GalleryItem>
                 ))}
               </div>
             </div>
@@ -175,7 +186,27 @@ export default function Home({ posts }) {
         <SectionHeading title="Latest posts" link="/blog" />
         <ul className="mt-5 -ml-4 -mr-4 divide-y rounded-md bg-beige-10 sm:border divide-beige-100 border-beige-100">
           {posts.map((post) => (
-            <ListItem className="px-4" item={post} key={post.title} />
+            <ListItem item={post} key={post.title} className="px-4">
+              <div className="flex items-center py-4 sm:py-2.5">
+                <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
+                  <div>
+                    <ListItem.Title />
+
+                    <div className="flex mt-1">
+                      <ListItem.Date />
+                    </div>
+                  </div>
+
+                  <div className="flex-shrink-0 mt-1 sm:mt-0">
+                    <ListItem.Tags />
+                  </div>
+                </div>
+
+                <div className="flex-shrink-0 ml-5">
+                  <ListItem.OpenIcon />
+                </div>
+              </div>
+            </ListItem>
           ))}
         </ul>
       </CenteredSection>
@@ -258,17 +289,20 @@ export async function getStaticProps({ params }) {
         title: string;
         categories: { title: string }[];
         publishedAt: string;
+        _id: string;
       }[];
     };
   } = await client.query(getPostPaths).toPromise();
 
-  const posts: Item = data.allPost.map((post) => ({
+  console.log(data);
+  const posts: Item[] = data.allPost.map((post) => ({
     title: post.title,
     img: "",
     description: "",
     link: `/blog/${post.slug.current}`,
     tags: post.categories,
     createdAt: post.publishedAt,
+    id: post._id,
   }));
 
   return { props: { posts } };

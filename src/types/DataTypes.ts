@@ -1,5 +1,5 @@
 export interface Item {
-  img: string;
+  img?: string;
   link: string;
   title: string;
   description: string;
