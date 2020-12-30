@@ -4,34 +4,39 @@ import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 
 const navigationLinks: NavigationLinkProps[] = [
-  // {
-  //   link: "/",
-  //   children: "Home",
-  // },
-  // {
-  //   link: "/work",
-  //   children: "Work",
-  // },
-  // {
-  //   link: "/blog",
-  //   children: "Blog",
-  // },
-  // {
-  //   link: "about",
-  //   children: "About",
-  // },
-  // {
-  //   link: "/components",
-  //   children: "Components",
-  // },
+  {
+    link: "/",
+    children: "Home",
+    comingSoon: false,
+  },
+  {
+    link: "/work",
+    children: "Work",
+    comingSoon: true,
+  },
+  {
+    link: "/blog",
+    children: "Blog",
+    comingSoon: true,
+  },
+  {
+    link: "about",
+    children: "About",
+    comingSoon: true,
+  },
+  {
+    link: "/components",
+    children: "Components",
+    comingSoon: true,
+  },
 ];
 
 interface NavbarProps {
   borderShown: boolean;
 }
 function Navbar({ borderShown = true }: NavbarProps) {
-  const navLinks = navigationLinks.map(({ link, children }) => (
-    <NavigationLink link={link} key={link}>
+  const navLinks = navigationLinks.map(({ link, children, comingSoon }) => (
+    <NavigationLink link={link} key={link} comingSoon={comingSoon}>
       {children}
     </NavigationLink>
   ));
@@ -128,20 +133,22 @@ function Hamburger({ setOpenMobile, isOpenMobile }) {
 interface NavigationLinkProps {
   children: string;
   link: string;
+  comingSoon?: boolean;
 }
 
-function NavigationLink({ children, link }: NavigationLinkProps) {
+function NavigationLink({ children, link, comingSoon }: NavigationLinkProps) {
   const router = useRouter();
   const isActive = `/${router.pathname.split("/")[1]}` === link;
 
   return (
-    <Link href={link}>
+    <Link href={comingSoon ? "/" : link}>
       <a
         className={clsx(
-          "px-6 py-2 sm:py-1.5 text-sm font-semibold text-center transition duration-150 ease-in-out rounded-md focus:outline-none focus:bg-beige-100 active:bg-beige-100 active:shadow-inset",
+          "px-6 relative py-2 sm:py-1.5 text-sm font-semibold text-center transition duration-150 ease-in-out rounded-md focus:outline-none focus:bg-beige-100 active:bg-beige-100 active:shadow-inset",
           {
             "bg-beige-50 text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
+            "opacity-50 bg-gray-50 text-beige-500 cursor-not-allowed ": comingSoon,
           }
         )}
       >

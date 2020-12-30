@@ -33,21 +33,21 @@ export default function Home({ posts }) {
   const works: Item[] = [
     {
       img: "/img/zerolens.png",
-      link: "/work/zerolens",
+      link: "/",
       title: "Fullstack Engineer @zerolens",
       description: "Digital 3D photo studio",
       id: "1",
     },
     {
       img: "/img/goglsonnen.png",
-      link: "/work/goglsonnenschirme",
+      link: "/",
       title: "Gogl Sonnenschirme",
       description: "Tech-infused sun umbrella company",
       id: "2",
     },
     {
       img: "/img/shareit.png",
-      link: "/work/shareit",
+      link: "/",
       title: "shareit.video",
       description: "Share screen recordings instantly",
       id: "3",
