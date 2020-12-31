@@ -28,7 +28,10 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             </span>
           </div>
 
-          <PortableText blocks={post.bodyRaw} className="py-8 prose" />
+          <PortableText
+            blocks={post.bodyRaw}
+            className="py-8 prose lg:prose-xl"
+          />
         </div>
       </main>
     </div>
