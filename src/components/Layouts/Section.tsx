@@ -6,7 +6,7 @@ export interface SectionProps {
 
 function Section({ className, style, children }: SectionProps) {
   return (
-    <section className={`px-4 py-12 ${className}`} style={style}>
+    <section className={`px-6 py-12 ${className}`} style={style}>
       {children}
     </section>
   );

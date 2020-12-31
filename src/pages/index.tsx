@@ -91,7 +91,7 @@ export default function Home({
       </Head>
       <Navbar borderShown={scrollY > 35} />
 
-      <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
+      <main className="max-w-screen-lg px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
@@ -183,9 +183,9 @@ export default function Home({
 
       <CenteredSection className="sm:bg-transparent bg-beige-10">
         <SectionHeading title="Latest posts" link="/blog" />
-        <ul className="mt-5 -ml-4 -mr-4 divide-y rounded-md bg-beige-10 sm:border divide-beige-100 border-beige-100">
+        <ul className="mt-5 -ml-6 -mr-6 divide-y rounded-md bg-beige-10 sm:border divide-beige-100 border-beige-100">
           {posts.map((post) => (
-            <ListItem item={post} key={post.title} className="px-4">
+            <ListItem item={post} key={post.title} className="px-6">
               <div className="flex items-center py-4 sm:py-2.5">
                 <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
                   <div>

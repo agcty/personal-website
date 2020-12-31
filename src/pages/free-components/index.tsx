@@ -13,18 +13,17 @@ function Components() {
     <div className="min-h-screen bg-beige-10" style={{ backgroundImage: bg1 }}>
       <Navbar borderShown={scrollY > 35} />
 
-      <main className="max-w-screen-lg mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
-        <Card>
-          <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
-                Free <br className="sm:hidden" /> Components 😝
-              </h1>
-              <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl">
-                I get to design a lot of components during my everyday work.
-                Grab them as copy/paste ready JSX code for free.
-              </p>
-              {/* <div className="grid w-full max-w-lg gap-4 mt-4 md:grid-cols-2 rounded-2xl bg-toast-200">
+      <main className="max-w-screen-lg px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
+        <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
+              Free <br className="sm:hidden" /> Components 😝
+            </h1>
+            <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl">
+              I get to design a lot of components during my everyday work. Grab
+              them as copy/paste ready JSX code for free.
+            </p>
+            {/* <div className="grid w-full max-w-lg gap-4 mt-4 md:grid-cols-2 rounded-2xl bg-toast-200">
               <button
                 type="button"
                 className="rounded-lg font-semibold gap-4 flex bg-gradient-to-b from-white to-beige-50 shadow-button text-center py-4 px-6 active:translate-y-0.5 active:shadow-button-active active:bg-gray-100 transform focus:outline-none focus:ring-4"
@@ -54,13 +53,13 @@ function Components() {
                 </span>
               </a>
             </div> */}
-            </div>
+          </div>
 
-            {/* <div className="p-8 border border-gray-200 rounded-md bg-beige-50 sm:min-w-400">
+          {/* <div className="p-8 border border-gray-200 rounded-md bg-beige-50 sm:min-w-400">
             <InfoText />
           </div> */}
 
-            {/* <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
+          {/* <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
             <Image
               src="/img/alex.JPG"
               className="object-cover object-top rounded-full"
@@ -69,8 +68,7 @@ function Components() {
               priority
             />
           </div> */}
-          </div>
-        </Card>
+        </div>
       </main>
 
       {/* <InfoText /> */}
@@ -134,7 +132,7 @@ function Card({ children }) {
       <div className="w-full transform border shadow-lg rounded-3xl bg-beige-10 sm:-rotate-1 col-span-full row-span-full border-beige-100 -rotate-2" />
 
       <div className="relative sm:px-8 row-span-full col-span-full">
-        <div className="px-6 py-6 rounded-md sm:py-12">{children}</div>
+        <div className="rounded-md sm:py-12">{children}</div>
       </div>
     </div>
   );
