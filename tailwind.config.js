@@ -8,12 +8,23 @@ module.exports = {
     // These options are passed through directly to PurgeCSS
     options: {
       safelist: {
-        standard: [/bg-green$/, /text-green$/],
+        standard: [/bg-green-$/, /text-green-$/],
       },
     },
   },
   theme: {
     // good to know: add default line height https://tailwindcss.com/docs/font-size#app
+    minWidth: {
+      0: "0",
+      "1/4": "25%",
+      "1/2": "50%",
+      "3/4": "75%",
+      full: "100%",
+      100: "100px",
+      200: "200px",
+      300: "300px",
+      400: "400px",
+    },
     extend: {
       colors: {
         transparent: "transparent",

@@ -27,7 +27,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
 GalleryItem.Image = function GalleryItemImage({
   priority = false,
 }: {
-  priority: boolean;
+  priority?: boolean;
 }) {
   const { img } = useItemContext();
 
