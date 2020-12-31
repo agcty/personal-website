@@ -1,7 +1,7 @@
 import { Item } from "@types/DataTypes";
 import React from "react";
 
-const defaultItem: Item = {
+export const defaultItem: Item = {
   title: "Blog Post",
   link: "/",
   img: "/",

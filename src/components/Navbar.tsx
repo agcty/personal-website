@@ -32,7 +32,7 @@ const navigationLinks: NavigationLinkProps[] = [
 ];
 
 interface NavbarProps {
-  borderShown: boolean;
+  borderShown?: boolean;
 }
 function Navbar({ borderShown = true }: NavbarProps) {
   const navLinks = navigationLinks.map(({ link, children, comingSoon }) => (

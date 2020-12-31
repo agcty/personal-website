@@ -43,7 +43,7 @@ GalleryItem.Image = function GalleryItemImage({
   );
 };
 
-GalleryItem.Description = function GallerItemContent() {
+GalleryItem.Description = function GalleryItemContent() {
   const { title, description } = useItemContext();
 
   return (

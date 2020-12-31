@@ -12,6 +12,7 @@ import { gql, useQuery } from "urql";
 import useScroll from "@hooks/useScroll";
 import client from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
+import CenteredSection from "@components/Layouts/CenteredSection";
 
 const getPostPaths = gql`
   query GetLatestPosts {
@@ -80,16 +81,16 @@ export default function Home({
   return (
     <div className="min-h-screen bg-beige-10" style={{ backgroundImage: bg1 }}>
       <Head>
-        <title>Next.js advanced start template.</title>
+        <title>Alex Gogl - Software Engineer</title>
         <meta
           name="description"
-          content="Use tailwind css, eslint, prettier & absolute imports instantly.
-            Easily extendable zero-config template for pros and beginners."
+          content="I'm a product designer, software engineer, and writer, currently
+          living in Vienna. Right now, I build fullstack apps at zerolens."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar borderShown={scrollY > 35} />
-      {/* {JSON.stringify(scrollYProgress)} */}
+
       <main className="max-w-screen-lg px-4 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
@@ -133,8 +134,6 @@ export default function Home({
           </div>
 
           <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
-            {/* <div className="absolute w-full h-full bg-gray-100 rounded-3xl" />
-            <div className="absolute w-full h-full transform shadow-lg -ml-full rounded-3xl bg-gradient-to-br from-beige-200 to-beige-200 -rotate-1 sm:rotate-6" /> */}
             <Image
               src="/img/alex.JPG"
               className="object-cover object-top rounded-full"
@@ -227,28 +226,6 @@ export default function Home({
   );
 }
 
-interface SectionProps {
-  className?: string;
-  style?: React.CSSProperties;
-  children: React.ReactNode;
-}
-
-function Section({ className, style, children }: SectionProps) {
-  return (
-    <section className={`px-4 py-12 ${className}`} style={style}>
-      {children}
-    </section>
-  );
-}
-
-function CenteredSection({ className, style, children }: SectionProps) {
-  return (
-    <Section className={`max-w-screen-lg mx-auto ${className}`} style={style}>
-      {children}
-    </Section>
-  );
-}
-
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
@@ -294,7 +271,6 @@ export async function getStaticProps({ params }) {
     };
   } = await client.query(getPostPaths).toPromise();
 
-  console.log(data);
   const posts: Item[] = data.allPost.map((post) => ({
     title: post.title,
     img: "",
