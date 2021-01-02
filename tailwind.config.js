@@ -4,12 +4,9 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: {
     content: ["./src/**/*.tsx"],
-
     // These options are passed through directly to PurgeCSS
     options: {
-      safelist: {
-        standard: [/bg-green-$/, /text-green-$/],
-      },
+      safelist: [/^bg-\w+-\d+/, /^text-\w+-\d+/],
     },
   },
   theme: {
