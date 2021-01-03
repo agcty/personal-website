@@ -60,12 +60,10 @@ export const PortableText = createPortableTextComponent({
       image: (props: any) => (
         <Image
           src={urlFor(props.node.asset._ref).url()}
-          width={700}
-          height={400}
-          objectFit="cover"
+          width={1000}
+          height={800}
+          objectFit="contain"
         />
-
-        // <p className="text-red-500">{urlFor(props.node.asset._ref).url()}</p>
       ),
     },
   },
