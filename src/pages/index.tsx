@@ -155,14 +155,12 @@ export default function Home({
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           {/* <div className="hidden w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full sm:block" /> */}
           <div
-            className="hidden w-full h-full shadow bg-beige-200 rounded-3xl col-span-full row-span-full sm:block"
-            style={
-              {
-                // filter: "blur(20px)",
-                // background:
-                //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
-              }
-            }
+            className="hidden w-full h-full bg-blue-500 shadow rounded-3xl col-span-full row-span-full sm:block"
+            style={{
+              filter: "blur(20px)",
+              // background:
+              //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
+            }}
           />
           {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
           <div className="hidden w-full transform bg-white border shadow-lg rounded-3xl sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
@@ -200,20 +198,20 @@ export default function Home({
 
       <CenteredSection className="sm:bg-transparent">
         <SectionHeading title="Latest posts" link="/blog" />
-        <ul className="mt-5 -ml-6 -mr-6 divide-y rounded-md sm:border divide-beige-100 border-beige-100">
+        <ul className="mt-5 divide-y rounded-md divide-beige-100 border-beige-100">
           {posts.map((post) => (
-            <ListItem item={post} key={post.title} className="px-6">
+            <ListItem item={post} key={post.title}>
               <div className="flex items-center py-4 sm:py-2.5">
                 <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
                   <div>
                     <ListItem.Title />
 
-                    <div className="flex mt-1">
+                    <div className="flex mt-0.5">
                       <ListItem.Date />
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0 mt-1 sm:mt-0">
+                  <div className="flex-shrink-0 mt-2 sm:mt-0">
                     <ListItem.Tags />
                   </div>
                 </div>
@@ -259,7 +257,7 @@ function SectionHeading({
   return (
     <div className={className}>
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold sm:text-3xl text-dark-1000">
+        <h2 className="text-2xl font-bold sm:text-3xl text-dark-1000">
           {title}
         </h2>
         {/* <Link href={link}>

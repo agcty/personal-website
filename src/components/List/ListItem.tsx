@@ -14,7 +14,7 @@ interface ListItemProps {
 function ListItem({ className = "", item, children }: ListItemProps) {
   return (
     <ItemContext.Provider value={item}>
-      <li className="transition focus:outline-none hover:bg-geist-50 active:bg-geist-10 group first:rounded-t-md last:rounded-b-md hover:bg-transparent">
+      <li className="transition focus:outline-none group first:rounded-t-md last:rounded-b-md">
         <Link href={item.link}>
           <a
             className={`block transition duration-150 ease-in-out ${className}`}
@@ -30,15 +30,15 @@ function ListItem({ className = "", item, children }: ListItemProps) {
 ListItem.Title = function ListItemTitle() {
   const { title } = useItemContext();
   return (
-    <div
-      className="text-lg font-semibold leading-5 underline transition text group-hover:underline group-hover:text-dark-800 text-dark-900 overflow-ellipsis"
+    <h3
+      className="font-semibold leading-5 transition group-hover:underline group-hover:text-dark-700 text-dark-1000 overflow-ellipsis"
       // style={{
       //   textDecoration: "underline",
       //   textDecorationColor: "gray",
       // }}
     >
       {title}
-    </div>
+    </h3>
   );
 };
 
@@ -61,7 +61,7 @@ ListItem.Tags = function ListItemTags() {
         return (
           <span
             key={tag.title}
-            className={`px-2.5 py-0.5 sm:py-1 text-sm font-semibold text-center ${tag.className} transition rounded focus:outline-none`}
+            className={`px-2.5 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold text-center ${tag.className} transition rounded focus:outline-none`}
           >
             {tag.title}
           </span>
@@ -74,7 +74,7 @@ ListItem.Tags = function ListItemTags() {
 ListItem.OpenIcon = function ListItemOpenIcon() {
   return (
     <svg
-      className="w-5 h-5 text-gray-400"
+      className="w-5 h-5 text-dark-1000 group-hover:text-dark-600"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"

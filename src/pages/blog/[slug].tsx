@@ -17,7 +17,7 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <Navbar borderShown />
       <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
         <div className="max-w-screen-md">
-          <h1 className="text-3xl font-bold leading-tight tracking-tight text-dark-900 sm:text-4xl sm:leading-none md:text-4xl">
+          <h1 className="text-3xl font-bold leading-tight tracking-tight text-dark-1000 sm:text-4xl sm:leading-none md:text-4xl">
             {post.title}
           </h1>
           <div className="flex items-center mt-1 text-sm leading-5 text-gray-500">
@@ -30,7 +30,7 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
           <PortableText
             blocks={post.bodyRaw}
-            className="py-8 prose lg:prose-xl"
+            className="py-8 prose lg:prose-xl text-dark-900"
           />
         </div>
       </main>
