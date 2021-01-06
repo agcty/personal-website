@@ -13,7 +13,7 @@ interface Post {
 
 function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="min-h-screen bg-beige-10">
+    <div>
       <Navbar borderShown />
       <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
         <div className="max-w-screen-md">

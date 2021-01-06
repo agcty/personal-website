@@ -72,21 +72,20 @@ function Navbar({ borderShown = true }: NavbarProps) {
           </a>
         </div>
 
-        <div className="sm:hidden py-0.5">
+        <div className="py-1 sm:hidden">
           <div className="flex items-center justify-between">
-            <div className="text-xs font-medium text-dark-1000">
-              <Link href="/">
-                <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded inline-flex items-center space-x-1.5">
-                  <Image
-                    src="/img/alex.JPG"
-                    width={20}
-                    height={20}
-                    className="absolute object-cover w-full h-full rounded-full"
-                  />
-                  <span>gogl.io</span>
-                </a>
-              </Link>
-            </div>
+            <Link href="/">
+              <a className="focus:outline-none focus:ring ring-geist-100 focus:ring-offset-4 rounded inline-flex items-center space-x-1.5 text-sm font-medium text-dark-1000">
+                {/* <Image
+                  src="/img/alex.JPG"
+                  width={20}
+                  height={20}
+                  className="absolute object-cover w-full h-full rounded-full"
+                /> */}
+
+                <span> 👨🏻‍💻 gogl.io</span>
+              </a>
+            </Link>
 
             <Hamburger
               setOpenMobile={setOpenMobile}

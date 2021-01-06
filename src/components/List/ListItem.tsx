@@ -31,7 +31,7 @@ ListItem.Title = function ListItemTitle() {
   const { title } = useItemContext();
   return (
     <div
-      className="text-lg font-semibold leading-5 underline transition group-hover:underline group-hover:text-dark-800 text-dark-900 overflow-ellipsis"
+      className="text-lg font-semibold leading-5 underline transition text group-hover:underline group-hover:text-dark-800 text-dark-900 overflow-ellipsis"
       // style={{
       //   textDecoration: "underline",
       //   textDecorationColor: "gray",

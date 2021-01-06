@@ -94,7 +94,7 @@ export default function Home({
       <main className="max-w-screen-lg px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
+            <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
               Hi, I'm Alex! 👋
             </h1>
             <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl">
@@ -147,19 +147,25 @@ export default function Home({
 
       <div className="mt-16 sm:mt-8 md:mt-16 lg:mt-20" />
 
-      <CenteredSection className="bg-geist-50 sm:bg-transparent">
+      <div className="px-4 sm:hidden">
+        <hr className="" />
+      </div>
+
+      <CenteredSection className="bg-geist-10 sm:bg-transparent">
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           {/* <div className="hidden w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full sm:block" /> */}
           <div
-            className="hidden w-full h-full bg-blue-500 shadow rounded-3xl col-span-full row-span-full sm:block"
-            style={{
-              filter: "blur(20px)",
-              // background:
-              //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
-            }}
+            className="hidden w-full h-full shadow bg-beige-200 rounded-3xl col-span-full row-span-full sm:block"
+            style={
+              {
+                // filter: "blur(20px)",
+                // background:
+                //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
+              }
+            }
           />
           {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
-          <div className="hidden w-full transform border shadow-lg bg-geist-50 rounded-3xl sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
+          <div className="hidden w-full transform bg-white border shadow-lg rounded-3xl sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
 
           <div className="relative sm:px-8 row-span-full col-span-full">
             <div className="rounded-md sm:py-12">
@@ -188,9 +194,13 @@ export default function Home({
         </div>
       </CenteredSection>
 
-      <CenteredSection className="sm:bg-transparent bg-beige-10">
+      <div className="px-4 sm:hidden">
+        <hr className="" />
+      </div>
+
+      <CenteredSection className="sm:bg-transparent">
         <SectionHeading title="Latest posts" link="/blog" />
-        <ul className="mt-5 -ml-6 -mr-6 divide-y rounded-md bg-beige-10 sm:border divide-beige-100 border-beige-100">
+        <ul className="mt-5 -ml-6 -mr-6 divide-y rounded-md sm:border divide-beige-100 border-beige-100">
           {posts.map((post) => (
             <ListItem item={post} key={post.title} className="px-6">
               <div className="flex items-center py-4 sm:py-2.5">
