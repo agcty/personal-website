@@ -26,7 +26,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
 
 GalleryItem.Image = function GalleryItemImage({ children }) {
   return (
-    <div className="relative overflow-hidden bg-transparent border-b h-36 border-dark-400">
+    <div className="relative overflow-hidden bg-transparent border-b border-dark-400 h-36">
       {children}
     </div>
   );

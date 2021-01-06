@@ -47,7 +47,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
   return (
     <nav
       className={clsx("sticky top-0 z-50", {
-        "border-b border-gray-100": borderShown || openMobile,
+        "border-b border-dark-400": borderShown || openMobile,
         "bg-transparent": !borderShown,
         "bg-white": borderShown,
       })}
