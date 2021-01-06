@@ -14,7 +14,7 @@ interface ListItemProps {
 function ListItem({ className = "", item, children }: ListItemProps) {
   return (
     <ItemContext.Provider value={item}>
-      <li className="transition focus:outline-none hover:bg-beige-50 active:bg-geist-10 group first:rounded-t-md last:rounded-b-md hover:bg-transparent">
+      <li className="transition focus:outline-none hover:bg-geist-50 active:bg-geist-10 group first:rounded-t-md last:rounded-b-md hover:bg-transparent">
         <Link href={item.link}>
           <a
             className={`block transition duration-150 ease-in-out ${className}`}

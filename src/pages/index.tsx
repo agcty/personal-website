@@ -79,7 +79,7 @@ export default function Home({
   // }));
 
   return (
-    <div className="min-h-screen bg-beige-10" style={{ backgroundImage: bg1 }}>
+    <div className="min-h-screen" style={{ backgroundImage: bg1 }}>
       <Head>
         <title>Alex Gogl - Software Engineer</title>
         <meta
@@ -147,11 +147,11 @@ export default function Home({
 
       <div className="mt-16 sm:mt-8 md:mt-16 lg:mt-20" />
 
-      <CenteredSection className="bg-beige-50 sm:bg-transparent">
+      <CenteredSection className="bg-geist-50 sm:bg-transparent">
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           {/* <div className="hidden w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full sm:block" /> */}
           <div
-            className="hidden w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full sm:block bg-gradient-to-r"
+            className="hidden w-full h-full bg-blue-500 shadow rounded-3xl col-span-full row-span-full sm:block"
             style={{
               filter: "blur(20px)",
               // background:
@@ -159,7 +159,7 @@ export default function Home({
             }}
           />
           {/* <div className="hidden w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full sm:block bg-gradient-to-r" /> */}
-          <div className="hidden w-full transform border shadow-lg rounded-3xl bg-beige-50 sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
+          <div className="hidden w-full transform border shadow-lg bg-geist-50 rounded-3xl sm:-rotate-1 col-span-full row-span-full border-beige-100 sm:block" />
 
           <div className="relative sm:px-8 row-span-full col-span-full">
             <div className="rounded-md sm:py-12">
@@ -171,7 +171,14 @@ export default function Home({
               <div className="grid grid-cols-1 mt-8 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
                 {works.map((work) => (
                   <GalleryItem item={work} key={work.id}>
-                    <GalleryItem.Image priority />
+                    <GalleryItem.Image>
+                      <Image
+                        src={work.img}
+                        loading="eager"
+                        layout="fill"
+                        className="absolute object-cover w-full h-full"
+                      />
+                    </GalleryItem.Image>
                     <GalleryItem.Description />
                   </GalleryItem>
                 ))}

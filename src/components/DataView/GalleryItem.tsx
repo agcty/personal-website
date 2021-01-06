@@ -15,7 +15,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
       <Link href={item.link}>
         <a
           aria-label={item.title}
-          className="flex flex-col overflow-hidden transition duration-100 ease-in-out border rounded-md shadow border-dark-400 bg-beige-10 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
+          className="flex flex-col overflow-hidden transition duration-100 ease-in-out bg-white border rounded-md shadow border-dark-400 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
         >
           {children}
         </a>
@@ -24,21 +24,10 @@ function GalleryItem({ item, children }: GalleryItemProps) {
   );
 }
 
-GalleryItem.Image = function GalleryItemImage({
-  priority = false,
-}: {
-  priority?: boolean;
-}) {
-  const { img } = useItemContext();
-
+GalleryItem.Image = function GalleryItemImage({ children }) {
   return (
     <div className="relative overflow-hidden bg-transparent border-b h-36 border-dark-400">
-      <Image
-        src={img}
-        priority={priority}
-        layout="fill"
-        className="absolute object-cover w-full h-full"
-      />
+      {children}
     </div>
   );
 };

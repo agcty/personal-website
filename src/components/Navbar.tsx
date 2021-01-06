@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useRouter } from "next/dist/client/router";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -48,7 +49,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
       className={clsx("sticky top-0 z-50", {
         "border-b border-gray-100": borderShown || openMobile,
         "bg-transparent": !borderShown,
-        "bg-beige-10": borderShown,
+        "bg-white": borderShown,
       })}
     >
       <div className={clsx("px-4 mx-auto sm:px-5 max-w-screen-xl")}>
@@ -71,12 +72,18 @@ function Navbar({ borderShown = true }: NavbarProps) {
           </a>
         </div>
 
-        <div className="sm:hidden py-1.5">
+        <div className="sm:hidden py-0.5">
           <div className="flex items-center justify-between">
-            <div className="font-semibold text-dark-1000">
+            <div className="text-xs font-medium text-dark-1000">
               <Link href="/">
-                <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded">
-                  👨🏻‍💻 gogl.io
+                <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded inline-flex items-center space-x-1.5">
+                  <Image
+                    src="/img/alex.JPG"
+                    width={20}
+                    height={20}
+                    className="absolute object-cover w-full h-full rounded-full"
+                  />
+                  <span>gogl.io</span>
                 </a>
               </Link>
             </div>
@@ -106,7 +113,7 @@ function Hamburger({ setOpenMobile, isOpenMobile }) {
       className="inline-flex items-center justify-center p-2 transition duration-150 ease-in-out rounded-md text-dark-800 lg:hidden hover:text-gray-500 focus:outline-none focus:text-gray-500"
     >
       <svg
-        className={clsx("h-6 w-6", openedClasses)}
+        className={clsx("h-5 w-5", openedClasses)}
         stroke="currentColor"
         fill="none"
         viewBox="0 0 24 24"
@@ -120,7 +127,7 @@ function Hamburger({ setOpenMobile, isOpenMobile }) {
       </svg>
 
       <svg
-        className={clsx("h-6 w-6", closedClasses)}
+        className={clsx("h-5 w-5", closedClasses)}
         stroke="currentColor"
         fill="none"
         viewBox="0 0 24 24"
