@@ -2,6 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
+  mode: "jit",
   purge: {
     content: ["./src/**/*.tsx"],
     // These options are passed through directly to PurgeCSS
@@ -125,25 +126,6 @@ module.exports = {
         },
       }),
     },
-  },
-  variants: {
-    extend: {
-      borderRadius: ["first", "last"],
-      borderStyle: ["hover"],
-      borderWidth: ["first", "last"],
-      padding: ["first", "last"],
-    },
-    opacity: ["responsive", "hover", "focus", "disabled"],
-    cursor: ["responsive", "hover", "focus", "disabled"],
-    backgroundColor: [
-      "responsive",
-      "hover",
-      "focus",
-      "active",
-      "group-hover",
-      "odd",
-      "even",
-    ],
   },
   // eslint-disable-next-line global-require
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],

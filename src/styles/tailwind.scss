@@ -1,16 +1,71 @@
 /* purgecss start ignore */
 @tailwind base;
 
-.link {
-  @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+/* purgecss start ignore */
+html {
+  @apply antialiased;
 }
 
-.horizontal-flex-scroll {
-  @apply flex space-x-2 overflow-x-scroll no-scrollbar;
+.white-blur {
+  backdrop-filter: blur(20px) saturate(180%);
+  background-color: hsla(0, 0%, 100%, 0.8);
+
+  @screen sm {
+    background-color: hsla(0, 0%, 100%, 0.85);
+  }
 }
 
-.no-scrollbar::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@layer base {
+  .h2 {
+    @apply text-[28px] sm:text-4xl leading-[42px] sm:leading-[46px] font-semibold text-dark-1100 sm:leading-tight;
+  }
+
+  // 999999
+  .h3 {
+    @apply text-[#1d1d1f] font-semibold text-xl;
+  }
+
+  .body {
+    @apply text-[18px] leading-[27px] leading-relaxed text-dark-1100;
+  }
+}
+
+@layer components {
+  .button {
+    @apply rounded-sm shadow-sm px-4 py-1.5 font-medium focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-30 transition focus:outline-none;
+  }
+
+  .button-primary {
+    @apply text-[#1e2026] bg-yellow-300 active:bg-[#f0b909] focus:bg-[#f0b909];
+  }
+
+  .button-lg {
+    @apply px-10 py-2 text-lg font-medium;
+  }
+
+  .link {
+    @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline;
+  }
+}
+
+@layer utilites {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .horizontal-flex-scroll {
+    @apply flex space-x-2 overflow-x-scroll no-scrollbar;
+  }
 }
 
 @variants {
@@ -36,13 +91,4 @@
   background: rgba(5, 5, 5, 0.5);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 0px;
   backdrop-filter: saturate(180%) blur(7.5px);
-}
-
-@tailwind components;
-/* purgecss end ignore */
-@tailwind utilities;
-
-/* purgecss start ignore */
-html {
-  @apply antialiased;
 }
