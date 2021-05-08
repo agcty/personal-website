@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 import { gql } from "urql";
 
 import Navbar from "@components/Navbar";
@@ -17,6 +18,7 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { scrollY } = useScroll();
   return (
     <div>
+      <NextSeo title={post.title} description={post.title} />
       <Navbar borderShown={scrollY > 35} />
       <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
         <div className="max-w-screen-md">

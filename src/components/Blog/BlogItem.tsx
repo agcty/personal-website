@@ -25,6 +25,7 @@ export default function BlogItem() {
           <div>
             <div className="flex-1 overflow-hidden transition-all cursor-pointer hover:opacity-90 h-[290px] bg-black">
               <img
+                alt="test"
                 src="https://lh3.googleusercontent.com/QNHkVfh-oVL7exIdkTBZ1zro23bmjaNB-ZLA_WaWXScq0chNcs9tUZk37qx9DUEQyoiepVHmVjQydNGo2H2eUO2e4lqwvCe4Cf4oGg=w660"
                 className="object-cover w-full h-full"
               />
@@ -74,7 +75,7 @@ export default function BlogItem() {
           <div className="flex items-center">
             <div className="mr-4">
               <div className="tooltip">
-                <button>
+                <button type="button">
                   <div className="flex flex-row items-center py-1 rounded-md hover:text-stpink">
                     <div className="mr-2 whitespace-nowrap">23</div>
                     <div className="flex pr-2">
@@ -107,7 +108,7 @@ export default function BlogItem() {
             </div>
             <div className="mr-4">
               <div className="tooltip">
-                <button>
+                <button type="button">
                   <div className="flex flex-row items-center py-1 rounded-lg hover:text-stpink">
                     <div className="mr-2 whitespace-nowrap">1</div>
                     <div className="flex pr-2">
