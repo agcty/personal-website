@@ -9,10 +9,10 @@
     "export": "next export",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint src --fix"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+    "src/**/*.{ts,tsx}": [
       "yarn lint",
       "yarn format"
     ]

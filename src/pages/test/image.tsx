@@ -79,7 +79,10 @@ function ImageTest() {
           maxWidth: "200px",
         }}
       >
-        <img src="https://images.unsplash.com/photo-1609589636609-6003886b08d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80" />
+        <img
+          alt="test"
+          src="https://images.unsplash.com/photo-1609589636609-6003886b08d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80"
+        />
       </div>
 
       <div className="flex flex-col justify-center max-w-6xl mx-auto bg-red-400">
@@ -91,6 +94,7 @@ function ImageTest() {
         />
 
         <img
+          alt="test"
           src="https://images.unsplash.com/photo-1602526429747-ac387a91d43b?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
           style={{ maxHeight: "600px", maxWidth: "100%" }}
           className="object-contain"

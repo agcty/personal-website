@@ -6,7 +6,7 @@ export const useScroll = () => {
     scrollX: 0,
   });
 
-  const handleScrollEvent = useCallback((e) => {
+  const handleScrollEvent = useCallback((e: any) => {
     setState({
       scrollY: window.scrollY,
       scrollX: window.scrollX,
