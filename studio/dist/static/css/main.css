@@ -14011,25 +14011,27 @@ ins.DiffString_changedSegment_1l59N {
 @media (min-width: 512px) {
   .Navbar_root_2dO1G {
     grid-template-areas: "hamburger   branding    createButton search              helpButton  presence    extras";
-    grid-template-columns: -webkit-max-content -webkit-max-content -webkit-min-content minmax(
+    grid-template-columns:
+      -webkit-max-content -webkit-max-content -webkit-min-content minmax(
         180px,
         100%
-      ) -webkit-min-content -webkit-max-content -webkit-max-content;
-    grid-template-columns: max-content max-content min-content minmax(
-        180px,
-        100%
-      ) min-content max-content max-content;
+      )
+      -webkit-min-content -webkit-max-content -webkit-max-content;
+    grid-template-columns:
+      max-content max-content min-content minmax(180px, 100%)
+      min-content max-content max-content;
   }
   .Navbar_root_2dO1G.Navbar_withToolMenu_1aOyA {
     grid-template-areas: "branding    datasetSelect createButton search                toolSwitcher extras      sanityStatus helpButton  presence    loginStatus";
-    grid-template-columns: -webkit-max-content -webkit-max-content -webkit-min-content minmax(
+    grid-template-columns:
+      -webkit-max-content -webkit-max-content -webkit-min-content minmax(
         180px,
         400px
-      ) auto -webkit-max-content -webkit-max-content -webkit-min-content -webkit-max-content -webkit-min-content;
-    grid-template-columns: max-content max-content min-content minmax(
-        180px,
-        400px
-      ) auto max-content max-content min-content max-content min-content;
+      )
+      auto -webkit-max-content -webkit-max-content -webkit-min-content -webkit-max-content -webkit-min-content;
+    grid-template-columns:
+      max-content max-content min-content minmax(180px, 400px)
+      auto max-content max-content min-content max-content min-content;
   }
 }
 .Navbar_branding_2itFa {
