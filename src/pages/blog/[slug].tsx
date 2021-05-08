@@ -1,9 +1,11 @@
-import Navbar from "@components/Navbar";
 import { format } from "date-fns";
-import graphClient from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
-import { PortableText } from "sanity";
 import { gql } from "urql";
+
+import Navbar from "@components/Navbar";
+import useScroll from "@hooks/useScroll";
+import graphClient from "graphql/urqlClient";
+import { PortableText } from "sanity";
 
 interface Post {
   title: string;
@@ -12,9 +14,10 @@ interface Post {
 }
 
 function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { scrollY } = useScroll();
   return (
     <div>
-      <Navbar borderShown />
+      <Navbar borderShown={scrollY > 35} />
       <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
         <div className="max-w-screen-md">
           <h1 className="text-3xl font-bold leading-tight tracking-tight text-dark-1000 sm:text-4xl sm:leading-none md:text-4xl">

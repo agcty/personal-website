@@ -1,35 +1,35 @@
+import React, { useState } from "react";
+
 import clsx from "clsx";
 import { useRouter } from "next/dist/client/router";
-import Image from "next/image";
 import Link from "next/link";
-import React, { useCallback, useEffect, useState } from "react";
 
 const navigationLinks: NavigationLinkProps[] = [
-  {
-    link: "/",
-    children: "Home",
-    comingSoon: false,
-  },
-  {
-    link: "/work",
-    children: "Work",
-    comingSoon: true,
-  },
-  {
-    link: "/blog",
-    children: "Blog",
-    comingSoon: true,
-  },
-  {
-    link: "about",
-    children: "About",
-    comingSoon: true,
-  },
-  {
-    link: "/components",
-    children: "Components",
-    comingSoon: true,
-  },
+  // {
+  //   link: "/",
+  //   children: "Home",
+  //   comingSoon: false,
+  // },
+  // {
+  //   link: "/work",
+  //   children: "Work",
+  //   comingSoon: true,
+  // },
+  // {
+  //   link: "/blog",
+  //   children: "Blog",
+  //   comingSoon: true,
+  // },
+  // {
+  //   link: "about",
+  //   children: "About",
+  //   comingSoon: true,
+  // },
+  // {
+  //   link: "/components",
+  //   children: "Components",
+  //   comingSoon: true,
+  // },
 ];
 
 interface NavbarProps {
@@ -46,13 +46,12 @@ function Navbar({ borderShown = true }: NavbarProps) {
 
   return (
     <nav
-      className={clsx("sticky top-0 z-50", {
-        "border-b border-dark-400": borderShown || openMobile,
-        "bg-transparent": !borderShown,
-        "bg-white": borderShown,
+      className={clsx("sticky top-0 z-50 py-2 transition", {
+        "bg-white": !borderShown,
+        "bg-white shadow-nav": borderShown,
       })}
     >
-      <div className={clsx("px-4 mx-auto sm:px-5 max-w-screen-xl")}>
+      <div className={clsx("px-4 mx-auto sm:px-5 max-w-screen-2xl")}>
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
             <Link href="/">
@@ -158,7 +157,7 @@ function NavigationLink({ children, link, comingSoon }: NavigationLinkProps) {
         className={clsx(
           "px-6 relative py-2 sm:py-1.5 text-sm font-semibold text-center transition duration-150 ease-in-out rounded-md focus:outline-none focus:bg-beige-100 active:bg-beige-100 active:shadow-inset",
           {
-            "bg-beige-50 text-beige-500": isActive,
+            "bg-primary text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
             "opacity-50 bg-beige-50 text-beige-500 cursor-not-allowed ": comingSoon,
           }

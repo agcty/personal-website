@@ -24,7 +24,11 @@ module.exports = {
       400: "400px",
     },
     extend: {
+      boxShadow: {
+        nav: "0 0 6.8125rem 0 rgb(0 0 0 / 20%)",
+      },
       colors: {
+        primary: "#e6007a",
         transparent: "transparent",
         current: "currentColor",
         white: "#FFFFFF",
@@ -35,7 +39,6 @@ module.exports = {
           gray: "#ABAAA5",
         },
         gray: {
-          50: "#F8F7F3",
           100: "#E3DCDC",
           300: "#ABAAA5",
           800: "#373737",

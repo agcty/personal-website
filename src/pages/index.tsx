@@ -1,18 +1,16 @@
 import React from "react";
-import Head from "next/head";
 
-import Navbar from "@components/Navbar";
-import Category from "@components/Category";
-import GalleryItem from "@components/DataView/GalleryItem";
-import { Item } from "@types/DataTypes";
-import ListItem from "@components/List/ListItem";
-import Image from "next/image";
-import { bg1, bg4 } from "@assets/svgBackgrounds";
-import { gql, useQuery } from "urql";
-import useScroll from "@hooks/useScroll";
-import client from "graphql/urqlClient";
 import { InferGetStaticPropsType } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { gql } from "urql";
+
 import CenteredSection from "@components/Layouts/CenteredSection";
+import ListItem from "@components/List/ListItem";
+import Navbar from "@components/Navbar";
+import useScroll from "@hooks/useScroll";
+import { Item } from "@types/DataTypes";
+import client from "graphql/urqlClient";
 
 const getPostPaths = gql`
   query GetLatestPosts {
@@ -79,7 +77,7 @@ export default function Home({
   // }));
 
   return (
-    <div className="min-h-screen" style={{ background: bg1 }}>
+    <div className="min-h-screen bg-gray-50">
       <Head>
         <title>Alex Gogl - Software Engineer</title>
         <meta
@@ -91,7 +89,19 @@ export default function Home({
       </Head>
       <Navbar borderShown={scrollY > 35} />
 
-      <main className="max-w-screen-lg px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
+      {/* <div class="py-12 sm:py-14 px-8 sm:px-10 text-left bg-gradient-to-r from-green-400 to-blue-500">
+        <div class="max-w-screen-2xl sm:px-3 mx-auto">
+          <div class="flex flex-row mx-3 text-white">
+            <div class="flex-1">
+              <div class="text-xl sm:text-2xl">Discover &amp; Showcase</div>
+              <div class="text-4xl sm:text-6xl">Your Favorite</div>
+              <div class="text-4xl sm:text-6xl">Crypto Art.</div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      <main className="max-w-screen-xl px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
@@ -99,7 +109,9 @@ export default function Home({
             </h1>
             <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl">
               I'm a product designer, software engineer, and writer, currently
-              living in Vienna. Right now, I build fullstack apps at zerolens.
+              living in Vienna. Right now, I build fullstack apps at zerolens. I
+              believe our world is changing dramatically and write about how it
+              will affect us.
             </p>
           </div>
 
@@ -121,7 +133,7 @@ export default function Home({
         <hr className="" />
       </div>
 
-      <CenteredSection className="bg-geist-10 sm:bg-transparent">
+      {/* <CenteredSection className="bg-geist-10 sm:bg-transparent">
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           <div
             className="hidden w-full h-full bg-blue-500 shadow rounded-3xl col-span-full row-span-full sm:block"
@@ -156,11 +168,18 @@ export default function Home({
             </div>
           </div>
         </div>
-      </CenteredSection>
+      </CenteredSection> */}
 
       <div className="px-4 sm:hidden">
         <hr className="" />
       </div>
+
+      {/* <div className="grid grid-cols-4 gap-6 mx-auto max-w-screen-2xl">
+        <BlogItem />
+        <BlogItem />
+        <BlogItem />
+        <BlogItem />
+      </div> */}
 
       <CenteredSection className="sm:bg-transparent">
         <SectionHeading title="Latest posts" link="/blog" />
