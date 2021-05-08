@@ -190,15 +190,19 @@ export default function Home({
               <div className="flex items-center py-4 sm:py-2.5">
                 <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
                   <div>
-                    <ListItem.Title />
+                    <ListItem.Title>{post.title}</ListItem.Title>
 
                     <div className="flex mt-0.5">
-                      <ListItem.Date />
+                      <ListItem.Date createdAt={post.createdAt} />
                     </div>
                   </div>
 
                   <div className="flex-shrink-0 mt-2 sm:mt-0">
-                    <ListItem.Tags />
+                    <div className="max-w-sm horizontal-flex-scroll">
+                      {post?.tags?.map((tag) => (
+                        <ListItem.Tag tag={tag} key={tag.title} />
+                      ))}
+                    </div>
                   </div>
                 </div>
 

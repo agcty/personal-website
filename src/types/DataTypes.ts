@@ -1,3 +1,9 @@
+export interface Tag {
+  title: string;
+  link: string;
+  className: string;
+}
+
 export interface Item {
   img?: string;
   link: string;
@@ -5,5 +11,5 @@ export interface Item {
   description: string;
   id: string;
   createdAt: string;
-  tags?: { title: string; link: string; className: string }[];
+  tags?: Tag[];
 }
