@@ -268,7 +268,7 @@ export async function getStaticProps() {
       allPost: {
         slug: { current: string };
         title: string;
-        categories: { title: string }[];
+        categories: { title: string; link: string; className: string }[];
         publishedAt: string;
         _id: string;
       }[];
