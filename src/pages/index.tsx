@@ -117,7 +117,7 @@ export default function Home({
 
           <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
             <Image
-              src="/img/alex.JPG"
+              src="/img/profile.jpg"
               className="object-cover object-top rounded-full"
               width={200}
               height={200}
