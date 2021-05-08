@@ -1,8 +1,10 @@
-import { Item } from "@types/DataTypes";
+import React from "react";
+
+import clsx from "clsx";
 import { format } from "date-fns";
 import Link from "next/link";
-import React from "react";
-import { ItemContext, useItemContext } from "src/contexts/ItemContext";
+
+import { Item, Tag } from "@types/DataTypes";
 
 interface ListItemProps {
   className?: string;
@@ -13,37 +15,25 @@ interface ListItemProps {
 // sm:first:rounded-t-md sm:last:rounded-b-md
 function ListItem({ className = "", item, children }: ListItemProps) {
   return (
-    <ItemContext.Provider value={item}>
-      <li className="transition focus:outline-none group first:rounded-t-md last:rounded-b-md">
-        <Link href={item.link}>
-          <a
-            className={`block transition duration-150 ease-in-out ${className}`}
-          >
-            {children}
-          </a>
-        </Link>
-      </li>
-    </ItemContext.Provider>
+    <li className="transition focus:outline-none group first:rounded-t-md last:rounded-b-md">
+      <Link href={item.link}>
+        <a className={`block transition duration-150 ease-in-out ${className}`}>
+          {children}
+        </a>
+      </Link>
+    </li>
   );
 }
 
-ListItem.Title = function ListItemTitle() {
-  const { title } = useItemContext();
+ListItem.Title = function ListItemTitle({ children }: { children: string }) {
   return (
-    <h3
-      className="font-semibold leading-5 transition group-hover:underline group-hover:text-dark-700 text-dark-1000 overflow-ellipsis"
-      // style={{
-      //   textDecoration: "underline",
-      //   textDecorationColor: "gray",
-      // }}
-    >
-      {title}
+    <h3 className="font-semibold leading-5 transition group-hover:underline group-hover:text-dark-700 text-dark-1000 overflow-ellipsis">
+      {children}
     </h3>
   );
 };
 
-ListItem.Date = function ListItemDate() {
-  const { createdAt } = useItemContext();
+ListItem.Date = function ListItemDate({ createdAt }: { createdAt: string }) {
   return (
     <div className="flex items-center text-sm leading-5 text-gray-500">
       <span>
@@ -53,21 +43,18 @@ ListItem.Date = function ListItemDate() {
   );
 };
 
-ListItem.Tags = function ListItemTags() {
-  const { tags } = useItemContext();
+ListItem.Tag = function ListItemTags({ tag }: { tag: Tag }) {
+  const { title } = tag;
+  const names = clsx({
+    "bg-green-100 text-green-600": title === "Startups",
+  });
+
   return (
-    <div className="max-w-sm horizontal-flex-scroll">
-      {tags?.map((tag) => {
-        return (
-          <span
-            key={tag.title}
-            className={`px-2.5 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold text-center ${tag.className} transition rounded focus:outline-none`}
-          >
-            {tag.title}
-          </span>
-        );
-      })}
-    </div>
+    <span
+      className={`px-2.5 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold text-center transition rounded focus:outline-none ${names}`}
+    >
+      {tag.title}
+    </span>
   );
 };
 
