@@ -9,7 +9,7 @@ import CenteredSection from "@components/Layouts/CenteredSection";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
-import { Item } from "@types/DataTypes";
+import { Item } from "@typed/DataTypes";
 import client from "graphql/urqlClient";
 
 const getPostPaths = gql`

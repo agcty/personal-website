@@ -1,5 +1,6 @@
-import { Item } from "@types/DataTypes";
 import React from "react";
+
+import { Item } from "@typed/DataTypes";
 
 export const defaultItem: Item = {
   title: "Blog Post",

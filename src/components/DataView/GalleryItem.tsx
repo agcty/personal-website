@@ -1,7 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
 import React from "react";
-import { Item } from "@types/DataTypes";
+
+import Link from "next/link";
+
+import { Item } from "@typed/DataTypes";
 import { ItemContext, useItemContext } from "src/contexts/ItemContext";
 
 interface GalleryItemProps {
