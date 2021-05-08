@@ -8,6 +8,12 @@
     "start": "next start",
     "export": "next export"
   },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.14.0",
     "@headlessui/react": "^1.1.1",
@@ -48,6 +54,8 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unused-imports": "^1.1.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.1",
     "postcss-nesting": "^8.0.1",
