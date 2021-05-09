@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import Link from "next/link";
 
-import { Item, Tag } from "@types/DataTypes";
+import { Item, Tag } from "@typed/DataTypes";
 
 interface ListItemProps {
   className?: string;

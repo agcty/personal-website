@@ -27,6 +27,7 @@
     }
   },
   "rules": {
+    "no-unused-vars": "off",
     "react/require-default-props": 0,
     "unused-imports/no-unused-imports": "error",
     "prettier/prettier": "error",
@@ -49,8 +50,9 @@
     "react/no-unescaped-entities": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "react/no-unused-prop-types": 0,
+    "no-underscore-dangle": 0,
     "@typescript-eslint/no-unused-vars": [
-      2,
+      0,
       {
         "argsIgnorePattern": "^_"
       }

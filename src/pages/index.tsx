@@ -9,7 +9,7 @@ import CenteredSection from "@components/Layouts/CenteredSection";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
-import { Item } from "@types/DataTypes";
+import { Item } from "@typed/DataTypes";
 import client from "graphql/urqlClient";
 
 const getPostPaths = gql`
@@ -33,32 +33,32 @@ const getPostPaths = gql`
 export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const works: Item[] = [
-    {
-      img: "/img/zerolens.png",
-      link: "/",
-      title: "Fullstack Engineer @zerolens",
-      description: "Digital 3D photo studio",
-      id: "1",
-      createdAt: "",
-    },
-    {
-      img: "/img/goglsonnen.png",
-      link: "/",
-      title: "Gogl Sonnenschirme",
-      description: "Tech-infused sun umbrella company",
-      id: "2",
-      createdAt: "",
-    },
-    {
-      img: "/img/shareit.png",
-      link: "/",
-      title: "shareit.video",
-      description: "Share screen recordings instantly",
-      id: "3",
-      createdAt: "",
-    },
-  ];
+  // const works: Item[] = [
+  //   {
+  //     img: "/img/zerolens.png",
+  //     link: "/",
+  //     title: "Fullstack Engineer @zerolens",
+  //     description: "Digital 3D photo studio",
+  //     id: "1",
+  //     createdAt: "",
+  //   },
+  //   {
+  //     img: "/img/goglsonnen.png",
+  //     link: "/",
+  //     title: "Gogl Sonnenschirme",
+  //     description: "Tech-infused sun umbrella company",
+  //     id: "2",
+  //     createdAt: "",
+  //   },
+  //   {
+  //     img: "/img/shareit.png",
+  //     link: "/",
+  //     title: "shareit.video",
+  //     description: "Share screen recordings instantly",
+  //     id: "3",
+  //     createdAt: "",
+  //   },
+  // ];
 
   const { scrollY } = useScroll();
 
@@ -240,7 +240,6 @@ interface SectionHeadingProps {
 
 function SectionHeading({
   title = "",
-  link,
   subtitle = "",
   className = "",
 }: SectionHeadingProps) {
@@ -261,7 +260,7 @@ function SectionHeading({
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const {
     data,
   }: {
@@ -269,7 +268,7 @@ export async function getStaticProps({ params }) {
       allPost: {
         slug: { current: string };
         title: string;
-        categories: { title: string }[];
+        categories: { title: string; link: string; className: string }[];
         publishedAt: string;
         _id: string;
       }[];

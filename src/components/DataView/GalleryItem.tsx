@@ -1,7 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
 import React from "react";
-import { Item } from "@types/DataTypes";
+
+import Link from "next/link";
+
+import { Item } from "@typed/DataTypes";
 import { ItemContext, useItemContext } from "src/contexts/ItemContext";
 
 interface GalleryItemProps {
@@ -41,8 +42,10 @@ GalleryItem.Description = function GalleryItemContent() {
         <div className="font-semibold text-dark-900 group-hover:text-dark-800">
           {title}
         </div>
+
         <div className="text-sm text-dark-700">{description}</div>
       </div>
+
       <div className="flex justify-between">
         <div className="flex items-center" />
       </div>

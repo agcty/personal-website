@@ -6,7 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write .",
+    "lint": "eslint src --fix"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint",
+      "yarn format"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.14.0",
@@ -28,7 +37,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.32.10",
-    "tailwindcss": "^2.1.2",
+    "tailwindcss": "^2.1.1",
     "urql": "^2.0.3"
   },
   "devDependencies": {
@@ -48,6 +57,8 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unused-imports": "^1.1.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.1",
     "postcss-nesting": "^8.0.1",

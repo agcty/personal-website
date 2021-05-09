@@ -45,9 +45,9 @@ html {
     @apply rounded-sm shadow-sm px-4 py-1.5 font-medium focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-30 transition focus:outline-none;
   }
 
-  .button-primary {
-    @apply text-[#1e2026] bg-yellow-300 active:bg-[#f0b909] focus:bg-[#f0b909];
-  }
+  // .button-primary {
+  //   @apply text-[#1e2026] bg-yellow-300 active:bg-[#f0b909] focus:bg-[#f0b909];
+  // }
 
   .button-lg {
     @apply px-10 py-2 text-lg font-medium;

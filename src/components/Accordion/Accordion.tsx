@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import clsx from "clsx";
 
 interface AccordionProps {
   children?: React.ReactNode;

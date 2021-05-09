@@ -2,9 +2,7 @@ import { bg1 } from "@assets/svgBackgrounds";
 import GalleryItem from "@components/DataView/GalleryItem";
 import CenteredSection from "@components/Layouts/CenteredSection";
 import Navbar from "@components/Navbar";
-import InfoText from "@components/UI/InfoText";
 import useScroll from "@hooks/useScroll";
-import Image from "next/image";
 import { defaultItem } from "src/contexts/ItemContext";
 
 function Components() {
@@ -83,7 +81,7 @@ function Components() {
               description: "Informational text component",
             }}
           >
-            <GalleryItem.Image />
+            {/* <GalleryItem.Image /> */}
             <GalleryItem.Description />
           </GalleryItem>
 
@@ -95,7 +93,7 @@ function Components() {
               description: "A heading for personal webpages",
             }}
           >
-            <GalleryItem.Image />
+            {/* <GalleryItem.Image /> */}
             <GalleryItem.Description />
           </GalleryItem>
 
@@ -107,7 +105,7 @@ function Components() {
               description: "Accordion powered with context",
             }}
           >
-            <GalleryItem.Image />
+            {/* <GalleryItem.Image /> */}
             <GalleryItem.Description />
           </GalleryItem>
         </div>
@@ -116,26 +114,26 @@ function Components() {
   );
 }
 
-function Card({ children }) {
-  return (
-    <div className="grid grid-cols-1 grid-rows-1 -ml-2 sm:-ml-8 sm:-mr-8">
-      <div className="w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full" />
-      {/* <div
-        className="w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full bg-gradient-to-r"
-        style={{
-          filter: "blur(20px)",
-          // background:
-          //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
-        }}
-      /> */}
-      {/* <div className="w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full bg-gradient-to-r" /> */}
-      <div className="w-full transform border shadow-lg rounded-3xl bg-beige-10 sm:-rotate-1 col-span-full row-span-full border-beige-100 -rotate-2" />
+// function Card({ children }) {
+//   return (
+//     <div className="grid grid-cols-1 grid-rows-1 -ml-2 sm:-ml-8 sm:-mr-8">
+//       <div className="w-full h-full shadow bg-beige-300 rounded-3xl col-span-full row-span-full" />
+//       {/* <div
+//         className="w-full h-full shadow from-red-400 via-green-400 to-blue-400 rounded-3xl col-span-full row-span-full bg-gradient-to-r"
+//         style={{
+//           filter: "blur(20px)",
+//           // background:
+//           //   "linear-gradient(90deg, rgba(248,113,113,1) 0%, rgba(217,216,34,1) 34%, rgba(52,211,153,1) 63%, rgba(99,179,237,1) 100%)",
+//         }}
+//       /> */}
+//       {/* <div className="w-full transform shadow-lg from-blue-400 via-green-400 to-pink-400 rounded-3xl sm:-rotate-1 col-span-full row-span-full bg-gradient-to-r" /> */}
+//       <div className="w-full transform border shadow-lg rounded-3xl bg-beige-10 sm:-rotate-1 col-span-full row-span-full border-beige-100 -rotate-2" />
 
-      <div className="relative sm:px-8 row-span-full col-span-full">
-        <div className="rounded-md sm:py-12">{children}</div>
-      </div>
-    </div>
-  );
-}
+//       <div className="relative sm:px-8 row-span-full col-span-full">
+//         <div className="rounded-md sm:py-12">{children}</div>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default Components;
