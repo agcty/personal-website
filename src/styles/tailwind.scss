@@ -59,13 +59,13 @@ html {
 }
 
 @layer utilites {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+  // .no-scrollbar::-webkit-scrollbar {
+  //   display: none;
+  // }
 
-  .horizontal-flex-scroll {
-    @apply flex space-x-2 overflow-x-scroll no-scrollbar;
-  }
+  // .horizontal-flex-scroll {
+  //   @apply flex space-x-2 overflow-x-scroll .no-scrollbar;
+  // }
 }
 
 @variants {
