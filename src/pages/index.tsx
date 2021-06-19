@@ -87,6 +87,7 @@ export default function Home({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Navbar borderShown={scrollY > 35} />
 
       {/* <div class="py-12 sm:py-14 px-8 sm:px-10 text-left bg-gradient-to-r from-green-400 to-blue-500">
