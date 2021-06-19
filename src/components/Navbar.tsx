@@ -159,7 +159,8 @@ function NavigationLink({ children, link, comingSoon }: NavigationLinkProps) {
           {
             "bg-primary text-beige-500": isActive,
             "text-dark-800 hover:text-beige-500 hover:bg-beige-50": !isActive,
-            "opacity-50 bg-beige-50 text-beige-500 cursor-not-allowed ": comingSoon,
+            "opacity-50 bg-beige-50 text-beige-500 cursor-not-allowed ":
+              comingSoon,
           }
         )}
       >
