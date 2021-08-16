@@ -1,9 +1,9 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "unused-imports"],
+  "plugins": ["unused-imports", "prettier"],
   "extends": [
     "next",
-    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "plugin:tailwind/recommended",
     "plugin:prettier/recommended"
   ],
   "env": {
@@ -12,16 +12,7 @@
     "jest": true,
     "node": true
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
   "rules": {
-    "no-unused-vars": "off",
     "react/require-default-props": 0,
     "unused-imports/no-unused-imports": "error",
     "prettier/prettier": "error",
@@ -41,10 +32,20 @@
     "no-use-before-define": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "import/extensions": ["error", "never", { "svg": "always" }],
+    "import/prefer-default-export": "off",
     "react/no-unescaped-entities": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "react/no-unused-prop-types": 0,
     "no-underscore-dangle": 0,
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["draft", "^((.*))"],
+        "ignorePropertyModificationsForRegex": ["^((.*))"]
+      }
+    ],
+
     "@typescript-eslint/no-unused-vars": [
       0,
       {
