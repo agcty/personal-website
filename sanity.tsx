@@ -6,7 +6,6 @@ import {
   createPreviewSubscriptionHook,
   createCurrentUserHook,
 } from "next-sanity";
-
 import Image from "next/image";
 
 const config = {
