@@ -1,25 +1,26 @@
-import { NotionRenderer } from "react-notion-x";
+import Hiker from "react-hiker";
 
-import notion from "@api/notion";
-
-export default function Test({ data }) {
+export default function Test() {
   return (
     <div>
-      <div>{JSON.stringify(data)} </div>
+      <Hiker>
+        <Hiker.Step id="1">Test</Hiker.Step>
+        <Hiker.Step id="2">Test2</Hiker.Step>
 
-      <NotionRenderer recordMap={data} />
+        <Hiker.Button>
+          {({ next }) => (
+            <button
+              onClick={() => {
+                next();
+              }}
+            >
+              Next
+            </button>
+          )}
+        </Hiker.Button>
+      </Hiker>
+
+      {/* <NotionRenderer recordMap={data} /> */}
     </div>
   );
-}
-
-export async function getServerSideProps(context) {
-  const result = await notion.blocks.children.list({
-    block_id: "c84a83a3751e4d30abcf5759d582720b",
-  });
-
-  // const result = await notion.databases.query(});
-
-  return {
-    props: { data: result }, // will be passed to the page component as props
-  };
 }
