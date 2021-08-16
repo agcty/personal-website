@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { InferGetStaticPropsType } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { NextSeo } from "next-seo";
 import { gql } from "urql";
 
@@ -43,7 +43,7 @@ function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const getPost = gql`
     query GetPost($slug: String) {
       allPost(where: { slug: { current: { eq: $slug } } }) {
@@ -62,8 +62,8 @@ export async function getStaticProps({ params }) {
     .toPromise();
 
   const post: Post = data.allPost[0];
-  return { props: { post } };
-}
+  return { props: { post }, revalidate: 60 };
+};
 
 export async function getStaticPaths() {
   const getPostPaths = gql`
