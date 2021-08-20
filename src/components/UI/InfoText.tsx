@@ -13,6 +13,7 @@ function InfoText() {
           </a> */}
         </span>
       </div>
+
       <div className="flex space-x-2">
         <span className="font-bold">👨🏻‍💻</span>
         <span className="text-gray-500">Click the copy button</span>
