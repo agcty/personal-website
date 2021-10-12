@@ -67,7 +67,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const post = await getSinglePost(params?.slug as string);
 
-    console.log(post);
     return { props: { post }, revalidate: 60 };
   } catch (error) {
     return {

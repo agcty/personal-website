@@ -244,7 +244,5 @@ export async function getStaticProps() {
     limit: 10,
   });
 
-  console.log(posts.map((post) => post.tags));
-
   return { props: { posts }, revalidate: 60 };
 }
