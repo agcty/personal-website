@@ -4,7 +4,7 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-import Centered from "@components/layouts/Centered";
+import Centered from "@components/Layouts/Centered";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
