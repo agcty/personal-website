@@ -1,18 +1,24 @@
+import Link from "next/link";
+
 export default function BlogItem() {
   return (
-    <div className="mx-auto overflow-hidden transition-all bg-white shadow-md sm:rounded-xl hover:shadow-lg">
+    <div className="mx-auto overflow-hidden bg-white shadow-md transition-all sm:rounded-xl hover:shadow-lg">
       <div className="relative flex flex-row items-center p-4">
         <div className="pr-2">
-          <a className="flex flex-row items-center" href="/blindisland">
-            <div>
-              <img
-                alt="Blind Island"
-                src="https://storage.googleapis.com/nft-public-profile-pics/61920_1616723438.jpg"
-                className="rounded-full h-[24px] w-[24px] min-w-[24px]"
-              />
-            </div>
-            <div className="ml-2 truncate hover:text-stpink">Blind Island</div>
-          </a>
+          <Link href="/">
+            <a className="flex flex-row items-center">
+              <div>
+                <img
+                  alt="Blind Island"
+                  src="https://storage.googleapis.com/nft-public-profile-pics/61920_1616723438.jpg"
+                  className="rounded-full h-[24px] w-[24px] min-w-[24px]"
+                />
+              </div>
+              <div className="ml-2 truncate hover:text-stpink">
+                Blind Island
+              </div>
+            </a>
+          </Link>
         </div>
         <div className="text-xs cursor-pointer text-stlink opacity-80 hover:opacity-100 mt-[2px]">
           Follow
@@ -23,7 +29,7 @@ export default function BlogItem() {
       <div className="relative h-[290px]">
         <div className="cursor-pointer">
           <div>
-            <div className="flex-1 overflow-hidden transition-all cursor-pointer hover:opacity-90 h-[290px] bg-black">
+            <div className="flex-1 overflow-hidden bg-black cursor-pointer transition-all hover:opacity-90 h-[290px]">
               <img
                 alt="test"
                 src="https://lh3.googleusercontent.com/QNHkVfh-oVL7exIdkTBZ1zro23bmjaNB-ZLA_WaWXScq0chNcs9tUZk37qx9DUEQyoiepVHmVjQydNGo2H2eUO2e4lqwvCe4Cf4oGg=w660"
@@ -38,7 +44,7 @@ export default function BlogItem() {
             focusable="false"
             data-prefix="fas"
             data-icon="play"
-            className="svg-inline--fa fa-play fa-w-14 h-[20px] w-[20px] text-white"
+            className="text-white svg-inline--fa fa-play fa-w-14 h-[20px] w-[20px]"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
@@ -173,20 +179,19 @@ export default function BlogItem() {
           </div>
           <div>
             <div className="flex flex-row items-center pt-1">
-              <a
-                className="flex flex-row items-center pr-2 "
-                href="/0xcda72070e455bb31c7690a170224ce43623d0b6f"
-              >
-                <div>
-                  <img
-                    alt="Foundation"
-                    src="https://lh3.googleusercontent.com/uUdrzISpIJJVRbm_g6mmu-TUaOERBbPJcNA8KeuwI1HNgXy8Kje3c2XhoMIndnPmyono9NUJE8A2_bTd95iqAcjo9pyy-e47flJy=s120"
-                    className="mr-2 rounded-full w-9 h-9"
-                    // style="height: 24px; width: 24px;"
-                  />
-                </div>
-                <div className="showtime-card-profile-link">Foundation</div>
-              </a>
+              <Link>
+                <a className="flex flex-row items-center pr-2">
+                  <div>
+                    <img
+                      alt="Foundation"
+                      src="https://lh3.googleusercontent.com/uUdrzISpIJJVRbm_g6mmu-TUaOERBbPJcNA8KeuwI1HNgXy8Kje3c2XhoMIndnPmyono9NUJE8A2_bTd95iqAcjo9pyy-e47flJy=s120"
+                      className="mr-2 rounded-full w-9 h-9"
+                      // style="height: 24px; width: 24px;"
+                    />
+                  </div>
+                  <div className="showtime-card-profile-link">Foundation</div>
+                </a>
+              </Link>
               <div
                 className="mt-2 text-xs cursor-pointer text-stlink opacity-80 hover:opacity-100"
                 // style="margin-top: 2px;"

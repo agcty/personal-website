@@ -5,7 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { gql } from "urql";
 
-import CenteredSection from "@components/Layouts/CenteredSection";
+import CenteredSection from "@components/layouts/CenteredSection";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
@@ -102,8 +102,8 @@ export default function Home({
         </div>
       </div> */}
 
-      <main className="max-w-screen-xl px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
-        <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
+      <main className="px-6 mx-auto mt-10 max-w-screen-xl sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
+        <div className="items-center grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
               Hi, I'm Alex! 👋
@@ -116,7 +116,7 @@ export default function Home({
             </p>
           </div>
 
-          <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
+          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
             <Image
               src="/img/profile.jpg"
               className="object-cover object-top rounded-full"

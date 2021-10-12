@@ -10,6 +10,19 @@ html {
   @apply antialiased;
 }
 
+.notion-viewport {
+  all: initial !important;
+}
+
+.notion-page {
+  padding: initial !important;
+}
+
+.notion-h {
+  padding-left: initial !important;
+  padding-right: initial !important;
+}
+
 .white-blur {
   backdrop-filter: blur(20px) saturate(180%);
   background-color: hsla(0, 0%, 100%, 0.8);

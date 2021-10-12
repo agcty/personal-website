@@ -1,16 +1,18 @@
 import React from "react";
 
+import Link from "next/link";
+
 function InfoText() {
   return (
-    <div className="flex flex-col space-y-6 text-lg">
+    <div className="flex flex-col text-lg space-y-6">
       <h2 className="text-3xl">How it works</h2>
       <div className="flex space-x-2">
         <span className="font-bold">🔍</span>
         <span className="text-gray-500">
           Go through all{" "}
-          <a className="text-gray-800 underline" href="/">
-            components
-          </a>
+          <Link href="/">
+            <a className="text-gray-800 underline">components</a>
+          </Link>
         </span>
       </div>
       <div className="flex space-x-2">
