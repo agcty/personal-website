@@ -1,12 +1,12 @@
+import { PostOrPage } from "@tryghost/content-api";
 import { format } from "date-fns";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
-import { gql } from "urql";
 
+import { getPosts, getSinglePost } from "@api/ghost";
+import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
-import graphClient from "graphql/urqlClient";
-import { PortableText } from "sanity";
 
 interface Post {
   title: string;
@@ -14,76 +14,74 @@ interface Post {
   publishedAt: string;
 }
 
-function Blog({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Blog({ post }: { post: PostOrPage }) {
   const { scrollY } = useScroll();
+
   return (
     <div>
-      <NextSeo title={post.title} description={post.title} />
+      <NextSeo
+        title={post.title}
+        description={post.title}
+        twitter={{
+          handle: "@agctyz",
+          site: "@agctyz",
+          cardType: "summary",
+        }}
+        openGraph={{
+          type: "article",
+          url: `https://gogl.io/blog/${post.slug}`,
+          description: post?.og_description ?? "",
+          title: `${post?.title} | gogl.io 👨🏻‍💻` ?? "",
+          locale: "en_EN",
+          site_name: "gogl.io",
+          images: [
+            {
+              url: post?.og_image ?? "",
+              alt: post?.og_description ?? "",
+            },
+          ],
+        }}
+      />
       <Navbar borderShown={scrollY > 35} />
-      <main className="flex justify-center px-4 py-8 sm:py-12 sm:px-0">
-        <div className="max-w-screen-md">
-          <h1 className="text-3xl font-bold leading-tight tracking-tight text-dark-1000 sm:text-4xl sm:leading-none md:text-4xl">
-            {post.title}
-          </h1>
-          <div className="flex items-center mt-1 text-sm leading-5 text-gray-500">
-            <span>
-              <time dateTime={post.publishedAt}>
-                {format(new Date(post.publishedAt), "PPP")}
-              </time>
-            </span>
-          </div>
 
-          <PortableText
-            blocks={post.bodyRaw}
-            className="py-8 prose lg:prose-xl text-dark-900"
-          />
+      <article className="px-4 py-8 mx-auto sm:py-12 sm:px-0 prose">
+        <h1>{post.title}</h1>
+
+        <time dateTime={post?.published_at ?? ""} className="text-dark-700">
+          {format(new Date(post.published_at ?? ""), "PPP")}
+        </time>
+
+        <div className="flex flex-wrap pb-2 mt-3 gap-2">
+          {post?.tags?.map((tag) => (
+            <ListItem.Tag tag={tag} key={tag.name} />
+          ))}
         </div>
-      </main>
+
+        <div dangerouslySetInnerHTML={{ __html: post.html ?? "" }} />
+      </article>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const getPost = gql`
-    query GetPost($slug: String) {
-      allPost(where: { slug: { current: { eq: $slug } } }) {
-        title
-        bodyRaw
-        publishedAt
-        slug {
-          current
-        }
-      }
-    }
-  `;
+  try {
+    const post = await getSinglePost(params?.slug as string);
 
-  const { data } = await graphClient
-    .query(getPost, { slug: params.slug })
-    .toPromise();
-
-  const post: Post = data.allPost[0];
-  return { props: { post }, revalidate: 60 };
+    console.log(post);
+    return { props: { post }, revalidate: 60 };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export async function getStaticPaths() {
-  const getPostPaths = gql`
-    query GetPostPaths {
-      allPost {
-        slug {
-          current
-        }
-      }
-    }
-  `;
+  const posts = await getPosts();
 
-  const {
-    data,
-  }: {
-    data?: { allPost: { slug: { current: string } }[] };
-  } = await graphClient.query(getPostPaths).toPromise();
-
-  const paths = data.allPost.map(({ slug: { current } }) => ({
-    params: { slug: current },
+  // Get the paths we want to create based on posts
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
   }));
 
   return {

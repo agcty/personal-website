@@ -92,38 +92,47 @@ module.exports = {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       typography: (theme) => ({
-        default: {
+        DEFAULT: {
           css: {
-            color: theme("colors.gray.700"),
+            color: theme("colors.black"),
             h2: {
               fontWeight: "700",
               letterSpacing: theme("letterSpacing.tight"),
-              color: theme("colors.gray.900"),
+              color: theme("colors.dark.900"),
             },
             h3: {
               fontWeight: "600",
-              color: theme("colors.gray.900"),
+              color: theme("colors.dark.900"),
             },
             "ol li:before": {
               fontWeight: "600",
-              color: theme("colors.gray.500"),
+              color: theme("colors.dark.900"),
             },
             "ul li:before": {
-              backgroundColor: theme("colors.gray.400"),
+              color: theme("colors.dark.900"),
+            },
+            li: {
+              color: theme("colors.dark.900"),
+            },
+            strong: {
+              backgroundColor: "#fef09f",
             },
             code: {
-              color: theme("colors.gray.900"),
+              color: theme("colors.dark.900"),
             },
             a: {
-              color: theme("colors.gray.900"),
+              color: theme("colors.red.500"),
+            },
+            p: {
+              color: theme("colors.black"),
             },
             pre: {
-              color: theme("colors.gray.200"),
-              backgroundColor: theme("colors.gray.800"),
+              color: theme("colors.dark.200"),
+              backgroundColor: theme("colors.dark.800"),
             },
             blockquote: {
-              color: theme("colors.gray.900"),
-              borderLeftColor: theme("colors.gray.200"),
+              color: theme("colors.dark.900"),
+              borderLeftColor: theme("colors.dark.200"),
             },
           },
         },

@@ -1,14 +1,12 @@
 import React from "react";
 
-import clsx from "clsx";
+import { PostOrPage, Tag } from "@tryghost/content-api";
 import { format } from "date-fns";
 import Link from "next/link";
 
-import { Item, Tag } from "@typed/DataTypes";
-
 interface ListItemProps {
   className?: string;
-  item: Item;
+  item: PostOrPage;
   children: React.ReactNode;
 }
 
@@ -16,7 +14,7 @@ interface ListItemProps {
 function ListItem({ className = "", item, children }: ListItemProps) {
   return (
     <li className="transition focus:outline-none group first:rounded-t-md last:rounded-b-md">
-      <Link href={item.link}>
+      <Link href={`/blog/${item.slug}`}>
         <a className={`block transition duration-150 ease-in-out ${className}`}>
           {children}
         </a>
@@ -25,7 +23,7 @@ function ListItem({ className = "", item, children }: ListItemProps) {
   );
 }
 
-ListItem.Title = function ListItemTitle({ children }: { children: string }) {
+ListItem.Title = function ListItemTitle({ children }: { children?: string }) {
   return (
     <h3 className="font-semibold leading-5 transition group-hover:underline group-hover:text-dark-700 text-dark-1000 overflow-ellipsis">
       {children}
@@ -35,7 +33,7 @@ ListItem.Title = function ListItemTitle({ children }: { children: string }) {
 
 ListItem.Date = function ListItemDate({ createdAt }: { createdAt: string }) {
   return (
-    <div className="flex items-center text-sm leading-5 text-gray-500">
+    <div className="flex items-center text-sm text-gray-500 leading-5">
       <span>
         <time dateTime={createdAt}>{format(new Date(createdAt), "PPP")}</time>
       </span>
@@ -43,17 +41,24 @@ ListItem.Date = function ListItemDate({ createdAt }: { createdAt: string }) {
   );
 };
 
-ListItem.Tag = function ListItemTags({ tag }: { tag: Tag }) {
-  const { title } = tag;
-  const names = clsx({
-    "bg-green-100 text-green-600": title === "Startups",
-  });
+ListItem.Tag = function ListItemTags({
+  tag,
+}: {
+  tag: Tag & { accent_color?: string };
+}) {
+  const { name, accent_color } = tag;
+
+  const style: React.CSSProperties = {
+    color: accent_color,
+    backgroundColor: `${accent_color}0D`,
+  };
 
   return (
     <span
-      className={`px-2.5 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold text-center transition rounded focus:outline-none ${names}`}
+      className={`px-2.5 py-1 sm:py-1 text-sm sm:text-sm font-semibold text-center transition rounded focus:outline-none`}
+      style={style}
     >
-      {tag.title}
+      {name}
     </span>
   );
 };
