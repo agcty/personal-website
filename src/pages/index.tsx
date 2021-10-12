@@ -4,7 +4,7 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-import CenteredSection from "@components/layouts/CenteredSection";
+import Centered from "@components/Layouts/Centered";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
@@ -114,7 +114,7 @@ export default function Home({
         <hr className="" />
       </div>
 
-      {/* <CenteredSection className="bg-geist-10 sm:bg-transparent">
+      {/* <Centered className="bg-geist-10 sm:bg-transparent">
         <div className="grid grid-cols-1 grid-rows-1 sm:-ml-8 sm:-mr-8">
           <div
             className="hidden w-full h-full bg-blue-500 shadow rounded-3xl col-span-full row-span-full sm:block"
@@ -149,7 +149,7 @@ export default function Home({
             </div>
           </div>
         </div>
-      </CenteredSection> */}
+      </Centered> */}
 
       <div className="px-4 sm:hidden">
         <hr className="" />
@@ -162,7 +162,7 @@ export default function Home({
         <BlogItem />
       </div> */}
 
-      <CenteredSection className="sm:bg-transparent">
+      <Centered className="sm:bg-transparent">
         <SectionHeading title="Latest posts" link="/blog" />
 
         <ul className="mt-5 divide-y divide-dark-200">
@@ -194,7 +194,7 @@ export default function Home({
             </ListItem>
           ))}
         </ul>
-      </CenteredSection>
+      </Centered>
 
       <style jsx>
         {`

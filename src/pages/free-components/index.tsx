@@ -1,6 +1,6 @@
 import { bg1 } from "@assets/svgBackgrounds";
 import GalleryItem from "@components/DataView/GalleryItem";
-import CenteredSection from "@components/layouts/CenteredSection";
+import CenteredSection from "@components/Layouts/Centered";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
 import { defaultItem } from "src/contexts/ItemContext";
