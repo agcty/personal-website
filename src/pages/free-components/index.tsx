@@ -1,6 +1,6 @@
 import { bg1 } from "@assets/svgBackgrounds";
 import GalleryItem from "@components/DataView/GalleryItem";
-import CenteredSection from "@components/Layouts/CenteredSection";
+import CenteredSection from "@components/layouts/CenteredSection";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
 import { defaultItem } from "src/contexts/ItemContext";
@@ -11,8 +11,8 @@ function Components() {
     <div className="min-h-screen bg-beige-10" style={{ backgroundImage: bg1 }}>
       <Navbar borderShown={scrollY > 35} />
 
-      <main className="max-w-screen-lg px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
-        <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
+      <main className="px-6 mx-auto mt-10 max-w-screen-lg sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
+        <div className="items-center grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h1 className="mt-5 text-4xl font-bold leading-none tracking-tight sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
               Free <br className="sm:hidden" /> Components 😝

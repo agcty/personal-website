@@ -3,32 +3,12 @@ import React from "react";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { gql } from "urql";
 
-import CenteredSection from "@components/Layouts/CenteredSection";
+import CenteredSection from "@components/layouts/CenteredSection";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
-import { Item } from "@typed/DataTypes";
-import client from "graphql/urqlClient";
-
-const getPostPaths = gql`
-  query GetLatestPosts {
-    allPost(sort: { publishedAt: DESC }, limit: 10) {
-      title
-      _id
-      publishedAt
-      categories {
-        title
-        className
-        link
-      }
-      slug {
-        current
-      }
-    }
-  }
-`;
+import ghost from "@services/ghost";
 
 export default function Home({
   posts,
@@ -102,8 +82,8 @@ export default function Home({
         </div>
       </div> */}
 
-      <main className="max-w-screen-xl px-6 mx-auto mt-10 sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
-        <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
+      <main className="px-6 mx-auto mt-10 max-w-screen-xl sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
+        <div className="items-center grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
               Hi, I'm Alex! 👋
@@ -116,7 +96,7 @@ export default function Home({
             </p>
           </div>
 
-          <div className="relative w-32 h-32 row-start-1 rounded-full sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
+          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
             <Image
               src="/img/profile.jpg"
               className="object-cover object-top rounded-full"
@@ -194,14 +174,14 @@ export default function Home({
                     <ListItem.Title>{post.title}</ListItem.Title>
 
                     <div className="flex mt-0.5">
-                      <ListItem.Date createdAt={post.createdAt} />
+                      <ListItem.Date createdAt={post.created_at ?? ""} />
                     </div>
                   </div>
 
                   <div className="flex-shrink-0 mt-2 sm:mt-0">
                     <div className="max-w-sm horizontal-flex-scroll">
                       {post?.tags?.map((tag) => (
-                        <ListItem.Tag tag={tag} key={tag.title} />
+                        <ListItem.Tag tag={tag} key={tag.name} />
                       ))}
                     </div>
                   </div>
@@ -250,9 +230,6 @@ function SectionHeading({
         <h2 className="text-2xl font-bold sm:text-3xl text-dark-1000">
           {title}
         </h2>
-        {/* <Link href={link}>
-        <a className="link">View all</a>
-      </Link> */}
       </div>
       {subtitle && (
         <h3 className="mt-1 text-lg font-medium text-dark-800">{subtitle}</h3>
@@ -262,29 +239,12 @@ function SectionHeading({
 }
 
 export async function getStaticProps() {
-  const {
-    data,
-  }: {
-    data?: {
-      allPost: {
-        slug: { current: string };
-        title: string;
-        categories: { title: string; link: string; className: string }[];
-        publishedAt: string;
-        _id: string;
-      }[];
-    };
-  } = await client.query(getPostPaths).toPromise();
+  const posts = await ghost.posts.browse({
+    include: ["tags"],
+    limit: 10,
+  });
 
-  const posts: Item[] = data.allPost.map((post) => ({
-    title: post.title,
-    img: "",
-    description: "",
-    link: `/blog/${post.slug.current}`,
-    tags: post.categories,
-    createdAt: post.publishedAt,
-    id: post._id,
-  }));
+  console.log(posts.map((post) => post.tags));
 
-  return { props: { posts } };
+  return { props: { posts }, revalidate: 60 };
 }
