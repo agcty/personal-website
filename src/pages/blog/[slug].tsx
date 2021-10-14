@@ -57,7 +57,7 @@ function Blog({ post }: { post: PostOrPage }) {
         {post?.tags?.length > 0 && (
           <div className="flex flex-wrap pb-2 mt-5 gap-2">
             {post?.tags?.map((tag) => (
-              <ListItem.Tag tag={tag} key={tag.name} />
+              <ListItem.Tag tag={tag} key={tag.name} className="text-sm" />
             ))}
           </div>
         )}
