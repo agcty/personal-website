@@ -58,7 +58,13 @@ export default function Home({
   // }));
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-1100">
+    <div
+      className="min-h-screen bg-gray-50 dark:bg-dark-1100"
+      style={{
+        backgroundColor:
+          "background:linear-gradient(319deg, rgb(255 51 98 / 8%) 10%, rgb(255 235 0 / 0%) 50%), linear-gradient(20deg, rgb(255 200 0 / 13%) 5%, rgb(255 212 0 / 0%) 40%);position:fixed;top:0;right:0;bottom:0;left:0;z-index:0",
+      }}
+    >
       <Head>
         <title>Alex Gogl - Software Engineer</title>
         <meta
@@ -82,6 +88,20 @@ export default function Home({
           </div>
         </div>
       </div> */}
+
+      {/* <div
+        style={{
+          background:
+            "linear-gradient(319deg, rgb(255 51 98 / 8%) 10%, rgb(255 235 0 / 0%) 50%), linear-gradient(20deg, rgb(255 200 0 / 13%) 5%, rgb(255 212 0 / 0%) 40%)",
+          position: "fixed",
+          top: 0,
+          opacity: 0.6,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          zIndex: 0,
+        }}
+      /> */}
 
       <main className="px-6 mx-auto mt-10 max-w-screen-xl sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="items-center grid grid-cols-1 gap-4 sm:grid-cols-2">
