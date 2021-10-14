@@ -18,7 +18,7 @@ function Blog({ post }: { post: PostOrPage }) {
   const { scrollY } = useScroll();
 
   return (
-    <div>
+    <div className="dark:bg-dark-1100">
       <NextSeo
         title={post.title}
         description={post.title}
@@ -44,18 +44,23 @@ function Blog({ post }: { post: PostOrPage }) {
       />
       <Navbar borderShown={scrollY > 35} />
 
-      <article className="px-4 py-8 mx-auto sm:py-12 sm:px-0 prose">
-        <h1>{post.title}</h1>
+      <article className="px-4 py-8 mx-auto sm:py-12 sm:px-0 prose dark:prose-dark">
+        <h1 className="">{post.title}</h1>
 
-        <time dateTime={post?.published_at ?? ""} className="text-dark-700">
+        <time
+          dateTime={post?.published_at ?? ""}
+          className="text-dark-700 dark:text-dark-500"
+        >
           {format(new Date(post.published_at ?? ""), "PPP")}
         </time>
 
-        <div className="flex flex-wrap pb-2 mt-3 gap-2">
-          {post?.tags?.map((tag) => (
-            <ListItem.Tag tag={tag} key={tag.name} />
-          ))}
-        </div>
+        {post?.tags?.length > 0 && (
+          <div className="flex flex-wrap pb-2 mt-5 gap-2">
+            {post?.tags?.map((tag) => (
+              <ListItem.Tag tag={tag} key={tag.name} className="text-sm" />
+            ))}
+          </div>
+        )}
 
         <div dangerouslySetInnerHTML={{ __html: post.html ?? "" }} />
       </article>

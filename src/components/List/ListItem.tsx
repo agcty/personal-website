@@ -25,7 +25,7 @@ function ListItem({ className = "", item, children }: ListItemProps) {
 
 ListItem.Title = function ListItemTitle({ children }: { children?: string }) {
   return (
-    <h3 className="font-semibold leading-5 transition group-hover:underline group-hover:text-dark-700 text-dark-1000 overflow-ellipsis">
+    <h3 className="font-semibold leading-5 transition group-hover:underline group-hover:text-dark-700 dark:group-hover:text-dark-500 text-dark-1000 overflow-ellipsis dark:text-dark-200">
       {children}
     </h3>
   );
@@ -33,7 +33,7 @@ ListItem.Title = function ListItemTitle({ children }: { children?: string }) {
 
 ListItem.Date = function ListItemDate({ createdAt }: { createdAt: string }) {
   return (
-    <div className="flex items-center text-sm text-gray-500 leading-5">
+    <div className="flex items-center text-sm text-gray-500 leading-5 dark:text-dark-500">
       <span>
         <time dateTime={createdAt}>{format(new Date(createdAt), "PPP")}</time>
       </span>
@@ -43,8 +43,10 @@ ListItem.Date = function ListItemDate({ createdAt }: { createdAt: string }) {
 
 ListItem.Tag = function ListItemTags({
   tag,
+  className = "",
 }: {
   tag: Tag & { accent_color?: string };
+  className?: string;
 }) {
   const { name, accent_color } = tag;
 
@@ -55,7 +57,7 @@ ListItem.Tag = function ListItemTags({
 
   return (
     <span
-      className={`px-2.5 py-1 sm:py-1 text-sm sm:text-sm font-semibold text-center transition rounded focus:outline-none`}
+      className={`px-2.5 py-1 sm:py-1 font-semibold text-center transition rounded focus:outline-none ${className}`}
       style={style}
     >
       {name}
@@ -66,7 +68,7 @@ ListItem.Tag = function ListItemTags({
 ListItem.OpenIcon = function ListItemOpenIcon() {
   return (
     <svg
-      className="w-5 h-5 text-dark-1000 group-hover:text-dark-600"
+      className="w-5 h-5 text-dark-1000 group-hover:text-dark-600 dark:text-dark-500"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
