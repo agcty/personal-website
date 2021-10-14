@@ -9,6 +9,7 @@ import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
 import ghost from "@services/ghost";
+import Link from "next/link";
 
 export default function Home({
   posts,
@@ -88,11 +89,14 @@ export default function Home({
             <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000 dark:text-white">
               Hey, I'm Alex
             </h1>
-            <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl dark:text-dark-400">
-              I'm a product designer, software engineer, and writer, currently
-              living in Vienna. Right now, I build fullstack apps at zerolens. I
-              believe our world is changing dramatically and write about how it
-              will affect us.
+            <p className="max-w-md mx-auto mt-4 rounded-md text-ase font-base text-dark-800 sm:text-sm md:mt-4 md:text-base md:max-w-3xl dark:text-dark-400">
+              I'm a software engineer working and writing on all things web3. I
+              spend all of my free time connecting with other people in the
+              space so if you want to reach out, my{" "}
+              <Link href="https://twitter.com/agctyz">
+                <a className="underline link">DMs</a>
+              </Link>{" "}
+              are always open!
             </p>
           </div>
 
