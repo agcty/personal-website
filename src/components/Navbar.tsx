@@ -46,16 +46,20 @@ function Navbar({ borderShown = true }: NavbarProps) {
 
   return (
     <nav
-      className={clsx("sticky top-0 z-50 py-2 transition", {
-        "bg-white": !borderShown,
-        "bg-white shadow-nav": borderShown,
-      })}
+      className={clsx(
+        "sticky top-0 z-50 py-2 transition dark:transition-none",
+        {
+          "bg-white dark:bg-dark-1100": !borderShown,
+          "bg-white shadow-nav dark:bg-dark-1100 dark:shadow-none border-b border-transparent dark:border-dark-900":
+            borderShown,
+        }
+      )}
     >
       <div className={clsx("px-4 mx-auto sm:px-5 max-w-screen-2xl")}>
         <div className="items-center hidden grid-cols-3 py-2 sm:grid">
           <div className="font-semibold text-dark-1000">
             <Link href="/">
-              <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded transition">
+              <a className="mr-0.5 focus:outline-none focus:ring ring-beige-100 focus:ring-offset-4 rounded transition dark:text-dark-200">
                 👨🏻‍💻 gogl.io
               </a>
             </Link>
@@ -74,7 +78,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
         <div className="py-1 sm:hidden">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <a className="focus:outline-none focus:ring ring-geist-100 focus:ring-offset-4 rounded inline-flex items-center space-x-1.5 text-sm font-medium text-dark-1000">
+              <a className="focus:outline-none focus:ring ring-geist-100 focus:ring-offset-4 rounded inline-flex items-center space-x-1.5 text-sm font-medium text-dark-1000 dark:text-dark-200">
                 {/* <Image
                   src="/img/alex.JPG"
                   width={20}
@@ -82,7 +86,7 @@ function Navbar({ borderShown = true }: NavbarProps) {
                   className="absolute object-cover w-full h-full rounded-full"
                 /> */}
 
-                <span> 👨🏻‍💻 gogl.io</span>
+                <span>👨🏻‍💻 gogl.io</span>
               </a>
             </Link>
 

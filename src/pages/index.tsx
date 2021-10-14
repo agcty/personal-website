@@ -57,7 +57,7 @@ export default function Home({
   // }));
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-1100">
       <Head>
         <title>Alex Gogl - Software Engineer</title>
         <meta
@@ -85,10 +85,10 @@ export default function Home({
       <main className="px-6 mx-auto mt-10 max-w-screen-xl sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
         <div className="items-center grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000">
-              Hi, I'm Alex! 👋
+            <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000 dark:text-white">
+              Hey, I'm Alex
             </h1>
-            <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl">
+            <p className="max-w-md mx-auto mt-4 rounded-md text-md font-base text-dark-800 sm:text-md md:mt-4 md:text-lg md:max-w-3xl dark:text-dark-400">
               I'm a product designer, software engineer, and writer, currently
               living in Vienna. Right now, I build fullstack apps at zerolens. I
               believe our world is changing dramatically and write about how it
@@ -96,7 +96,7 @@ export default function Home({
             </p>
           </div>
 
-          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-beige-100 ring-offset-2 sm:place-self-center">
+          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-dark-100 dark:ring-dark-700 dark:ring-offset-dark-500 ring-offset-2 sm:place-self-center">
             <Image
               src="/img/profile.jpg"
               className="object-cover object-top rounded-full"
@@ -111,7 +111,7 @@ export default function Home({
       <div className="mt-16 sm:mt-8 md:mt-16 lg:mt-20" />
 
       <div className="px-4 sm:hidden">
-        <hr className="" />
+        <hr className="dark:border-dark-800" />
       </div>
 
       {/* <Centered className="bg-geist-10 sm:bg-transparent">
@@ -151,10 +151,6 @@ export default function Home({
         </div>
       </Centered> */}
 
-      <div className="px-4 sm:hidden">
-        <hr className="" />
-      </div>
-
       {/* <div className="grid grid-cols-4 gap-6 mx-auto max-w-screen-2xl">
         <BlogItem />
         <BlogItem />
@@ -165,7 +161,7 @@ export default function Home({
       <Centered className="sm:bg-transparent">
         <SectionHeading title="Latest posts" link="/blog" />
 
-        <ul className="mt-5 divide-y divide-dark-200">
+        <ul className="mt-5 divide-y divide-dark-200 dark:divide-dark-900">
           {posts.map((post) => (
             <ListItem item={post} key={post.title}>
               <div className="flex items-center py-4 sm:py-2.5">
@@ -181,7 +177,11 @@ export default function Home({
                   <div className="flex-shrink-0 mt-2 sm:mt-0">
                     <div className="max-w-sm horizontal-flex-scroll">
                       {post?.tags?.map((tag) => (
-                        <ListItem.Tag tag={tag} key={tag.name} />
+                        <ListItem.Tag
+                          tag={tag}
+                          key={tag.name}
+                          className="sm:text-sm text-xs"
+                        />
                       ))}
                     </div>
                   </div>
@@ -227,12 +227,14 @@ function SectionHeading({
   return (
     <div className={className}>
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold sm:text-3xl text-dark-1000">
+        <h2 className="text-2xl font-bold sm:text-3xl text-dark-1000 dark:text-dark-100">
           {title}
         </h2>
       </div>
       {subtitle && (
-        <h3 className="mt-1 text-lg font-medium text-dark-800">{subtitle}</h3>
+        <p className="mt-1 text-lg font-medium text-dark-800 dark:text-dark-400">
+          {subtitle}
+        </p>
       )}
     </div>
   );
