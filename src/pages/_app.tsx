@@ -1,16 +1,18 @@
 import React from "react";
 
+import splitbee from "@splitbee/web";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
-import "../styles/tailwind.scss";
-import "@assets/prism.css";
-import { Provider } from "urql";
 
-import client from "graphql/urqlClient";
+import "../styles/tailwind.scss";
+
+import "@assets/prism.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  splitbee.init();
+
   return (
-    <Provider value={client}>
+    <>
       <DefaultSeo
         title="Alex Gogl - Software Engineer"
         description="I write about how our future will look and how we can improve it."
@@ -21,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         }}
       />
       <Component {...pageProps} />
-    </Provider>
+    </>
   );
 }
 
