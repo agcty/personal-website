@@ -36,6 +36,7 @@
     "react-dom": "17.0.2",
     "react-notion-x": "^4.9.7",
     "sass": "^1.42.1",
+    "swr": "^1.0.1",
     "tailwindcss": "^2.2.17",
     "urql": "^2.0.5"
   },

@@ -3,13 +3,13 @@ import React from "react";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import Centered from "@components/Layouts/Centered";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
 import ghost from "@services/ghost";
-import Link from "next/link";
 
 export default function Home({
   posts,
@@ -184,7 +184,7 @@ export default function Home({
                         <ListItem.Tag
                           tag={tag}
                           key={tag.name}
-                          className="sm:text-sm text-xs"
+                          className="text-xs sm:text-sm"
                         />
                       ))}
                     </div>
