@@ -94,15 +94,17 @@ export default function Home({ initialFilterOptions }) {
       </div>
 
       <Centered className="sm:bg-transparent">
-        <div className="flex items-center justify-between">
+        <div className="items-center justify-between sm:flex">
           <SectionHeading title="Latest posts" link="/blog" />
 
-          <Mode
-            selected={filterOptions.mode}
-            setSelected={(values) =>
-              setFilterOptions((options) => ({ ...options, mode: values }))
-            }
-          />
+          <div className="mt-6 sm:mt-0">
+            <Mode
+              selected={filterOptions.mode}
+              setSelected={(values) =>
+                setFilterOptions((options) => ({ ...options, mode: values }))
+              }
+            />
+          </div>
         </div>
 
         {tags && (
@@ -112,7 +114,7 @@ export default function Home({ initialFilterOptions }) {
               setFilterOptions((options) => ({ ...options, tags: values }));
             }}
           >
-            <div className="flex flex-wrap pb-2 mt-5 gap-2">
+            <div className="flex flex-wrap pb-2 mt-8 gap-2">
               {tags?.map((tag) => (
                 <SelectableTag tag={tag} />
               ))}
@@ -315,7 +317,7 @@ function ListItemNew({ post }: { post: PostOrPage }) {
 
 function Mode({ selected, setSelected }) {
   return (
-    <div className="z-10 w-36">
+    <div className="z-10 w-44">
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow cursor-default dark:text-dark-300 dark:bg-dark-1000 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
