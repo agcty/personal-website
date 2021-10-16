@@ -116,7 +116,7 @@ export default function Home({ initialFilterOptions }) {
           >
             <div className="flex flex-wrap pb-2 mt-8 gap-2">
               {tags?.map((tag) => (
-                <SelectableTag tag={tag} />
+                <SelectableTag tag={tag} key={tag.name} />
               ))}
             </div>
           </CheckboxGroup>
