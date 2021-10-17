@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 import { Item } from "@typed/DataTypes";
-import { ItemContext, useItemContext } from "src/contexts/ItemContext";
+import { ItemContext } from "src/contexts/ItemContext";
 
 interface GalleryItemProps {
   item: Item;
@@ -16,7 +16,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
       <Link href={item.link}>
         <a
           aria-label={item.title}
-          className="flex flex-col overflow-hidden transition duration-100 ease-in-out bg-white border rounded-md shadow border-dark-400 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
+          className="flex flex-col overflow-hidden bg-white border transition duration-100 ease-in-out rounded-md border-dark-400 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
         >
           {children}
         </a>
@@ -33,9 +33,13 @@ GalleryItem.Image = function GalleryItemImage({ children }) {
   );
 };
 
-GalleryItem.Description = function GalleryItemContent() {
-  const { title, description } = useItemContext();
-
+GalleryItem.Description = function GalleryItemContent({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <div className="flex flex-col justify-between flex-1 group-hover:bg-geist-50">
       <div className="p-4">

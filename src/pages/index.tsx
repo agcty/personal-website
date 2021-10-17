@@ -3,13 +3,13 @@ import React from "react";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import Centered from "@components/Layouts/Centered";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
 import ghost from "@services/ghost";
-import Link from "next/link";
 
 export default function Home({
   posts,
@@ -69,7 +69,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar borderShown={scrollY > 35} />
+      <Navbar scroll={scrollY > 35} />
 
       {/* <div class="py-12 sm:py-14 px-8 sm:px-10 text-left bg-gradient-to-r from-green-400 to-blue-500">
         <div class="max-w-screen-2xl sm:px-3 mx-auto">
@@ -184,7 +184,7 @@ export default function Home({
                         <ListItem.Tag
                           tag={tag}
                           key={tag.name}
-                          className="sm:text-sm text-xs"
+                          className="text-xs sm:text-sm"
                         />
                       ))}
                     </div>
