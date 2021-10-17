@@ -65,14 +65,23 @@ export default function Home({ initialFilterOptions }) {
   useEffect(() => {
     let baseLink = "/blog";
 
-    const searchParams = new URLSearchParams({
-      tags: filterOptions.tags,
-      mode: filterOptions.mode.type,
-    });
+    const searchParams = {};
 
-    router.push(`${baseLink}?${searchParams}`, undefined, {
-      shallow: true,
-    });
+    if (filterOptions.tags.length > 0) {
+      searchParams.tags = filterOptions.tags;
+    }
+
+    if (filterOptions.mode.type) {
+      searchParams.mode = filterOptions.mode.type;
+    }
+
+    const encodedSearchParams = new URLSearchParams(searchParams);
+
+    if (encodedSearchParams.toString().length > 0) {
+      router.replace(`${baseLink}?${encodedSearchParams}`, undefined, {
+        shallow: true,
+      });
+    }
   }, [filterOptions]);
 
   return (
@@ -87,15 +96,13 @@ export default function Home({ initialFilterOptions }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar borderShown={scrollY > 35} />
-
-      <div className="px-4 sm:hidden">
-        <hr className="dark:border-dark-800" />
-      </div>
+      <Navbar scroll={scrollY > 35} />
 
       <Centered className="sm:bg-transparent">
         <div className="items-center justify-between sm:flex">
-          <SectionHeading title="Latest posts" link="/blog" />
+          <h1 className="text-4xl font-bold tracking-tight text-dark-1000 dark:text-dark-100">
+            Blog
+          </h1>
 
           <div className="mt-6 sm:mt-0">
             <Mode
@@ -122,7 +129,7 @@ export default function Home({ initialFilterOptions }) {
           </CheckboxGroup>
         )}
 
-        <div className="mt-24">
+        <div className="mt-12">
           {filterOptions.mode.type === "gallery" && (
             <div className="mt-8 grid grid-cols-1 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-6">
               {posts?.map((post: PostOrPage) => (

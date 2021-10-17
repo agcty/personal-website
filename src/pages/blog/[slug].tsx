@@ -42,7 +42,8 @@ function Blog({ post }: { post: PostOrPage }) {
           ],
         }}
       />
-      <Navbar borderShown={scrollY > 35} />
+
+      <Navbar scroll={scrollY > 35} />
 
       <article className="px-4 py-8 mx-auto sm:py-12 sm:px-0 prose dark:prose-dark">
         <h1 className="">{post.title}</h1>
