@@ -179,7 +179,8 @@ function SelectableTag({ tag }: { tag: Tag }) {
   const style = getTagStyle(tag);
 
   if (checked) {
-    style.borderColor = style.color;
+    // add borderColor and hex opacity
+    style.borderColor = style.color + "66";
   }
 
   return (
