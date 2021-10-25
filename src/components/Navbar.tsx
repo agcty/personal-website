@@ -112,9 +112,9 @@ export default function Navbar({
                     <Link href={route.path} key={route.path}>
                       <a
                         className={clsx({
-                          "inline-flex items-center px-1 pt-1 font-medium border-b-2 text-dark-100 border-accent":
+                          "inline-flex items-center px-1 pt-1 font-medium border-b-2 text-dark-100 border-accent dark:text-dark-200":
                             asPath === route.path,
-                          "inline-flex items-center px-1 pt-1 font-medium border-b-2 border-transparent text-dark-1000 hover:border-dark-300 hover:text-dark-900":
+                          "inline-flex items-center px-1 pt-1 font-medium border-b-2 border-transparent text-dark-1000 hover:border-dark-300 hover:text-dark-900 dark:text-dark-200":
                             asPath !== route.path,
                         })}
                       >
