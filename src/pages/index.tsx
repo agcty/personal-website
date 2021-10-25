@@ -61,11 +61,7 @@ export default function Home({
     <div className="min-h-screen bg-gray-50 dark:bg-dark-1100">
       <Head>
         <title>Alex Gogl - Software Engineer</title>
-        <meta
-          name="description"
-          content="I'm a product designer, software engineer, and writer, currently
-          living in Vienna. Right now, I build fullstack apps at zerolens."
-        />
+        <meta name="description" content="Web3 dev" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -100,9 +96,9 @@ export default function Home({
             </p>
           </div>
 
-          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-4 ring-dark-100 dark:ring-dark-700 dark:ring-offset-dark-500 ring-offset-2 sm:place-self-center">
+          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-2 ring-dark-100 dark:ring-dark-1000 dark:ring-offset-dark-900 ring-offset-2 sm:place-self-center">
             <Image
-              src="/img/profile.jpg"
+              src="/img/profile.png"
               className="object-cover object-top rounded-full"
               width={200}
               height={200}
