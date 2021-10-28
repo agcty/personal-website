@@ -6,6 +6,7 @@ module.exports = {
       "cdn.sanity.io",
       "sanity.io",
       "gogl-publishing.ghost.io",
+      "blog.gogl.io",
     ],
   },
   typescript: {
