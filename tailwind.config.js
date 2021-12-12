@@ -1,16 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  mode: "jit",
-  darkMode: "media",
-  purge: {
-    content: ["./src/**/*.tsx"],
-    // These options are passed through directly to PurgeCSS
-    options: {
-      safelist: [/^bg-\w+-\d+/, /^text-\w+-\d+/],
-    },
-  },
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [/^bg-\w+-\d+/, /^text-\w+-\d+/],
   theme: {
     // good to know: add default line height https://tailwindcss.com/docs/font-size#app
     minWidth: {
