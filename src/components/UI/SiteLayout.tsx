@@ -1,9 +1,9 @@
 function SiteLayout() {
   return (
-    <div className="min-h-screen min-w-screen">
-      <div className="h-full gap-4 sm:grid layout">
+    <div className="min-w-screen min-h-screen">
+      <div className="layout h-full gap-4 sm:grid">
         <div className="h-32 bg-red-400" />
-        <div className="h-64 col-span-12 row-span-6 bg-green-400" />
+        <div className="col-span-12 row-span-6 h-64 bg-green-400" />
         <div className="h-32 bg-red-400" />
       </div>
 

@@ -27,12 +27,12 @@ html {
 
 @layer base {
   .h2 {
-    @apply text-[28px] sm:text-4xl leading-[42px] sm:leading-[46px] font-semibold text-dark-1100 sm:leading-tight;
+    @apply text-[28px] font-semibold leading-[42px] text-dark-1100 sm:text-4xl sm:leading-[46px] sm:leading-tight;
   }
 
   // 999999
   .h3 {
-    @apply text-[#1d1d1f] font-semibold text-xl;
+    @apply text-xl font-semibold text-[#1d1d1f];
   }
 
   .body {
@@ -42,7 +42,7 @@ html {
 
 @layer components {
   .button {
-    @apply rounded-sm shadow-sm px-4 py-1.5 font-medium focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-30 transition focus:outline-none;
+    @apply rounded-sm px-4 py-1.5 font-medium shadow-sm transition focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-30;
   }
 
   // .button-primary {
@@ -54,41 +54,25 @@ html {
   }
 
   .link {
-    @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:outline-none focus:underline;
+    @apply font-medium text-blue-600 transition duration-150 ease-in-out hover:text-blue-500 focus:underline focus:outline-none;
   }
 }
 
 @layer utilites {
-  // .no-scrollbar::-webkit-scrollbar {
-  //   display: none;
-  // }
-
-  // .horizontal-flex-scroll {
-  //   @apply flex space-x-2 overflow-x-scroll .no-scrollbar;
-  // }
-}
-
-@variants {
-  @responsive {
-    .white-blur {
-      backdrop-filter: blur(20px) saturate(180%);
-      background-color: hsla(0, 0%, 100%, 0.9);
-
-      @screen sm {
-        background-color: hsla(0, 0%, 100%, 0.93);
-      }
-    }
+  .dark-blur {
+    background: rgba(5, 5, 5, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 0px;
+    backdrop-filter: saturate(180%) blur(20px);
   }
-}
 
-.dark-blur {
-  background: rgba(5, 5, 5, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 0px;
-  backdrop-filter: saturate(180%) blur(20px);
-}
+  .dark-blur-200 {
+    background: rgba(5, 5, 5, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 0px;
+    backdrop-filter: saturate(180%) blur(7.5px);
+  }
 
-.dark-blur-200 {
-  background: rgba(5, 5, 5, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 0px;
-  backdrop-filter: saturate(180%) blur(7.5px);
+  .white-blur {
+    backdrop-filter: blur(20px) saturate(180%);
+    background-color: hsla(0, 0%, 100%, 0.9);
+  }
 }

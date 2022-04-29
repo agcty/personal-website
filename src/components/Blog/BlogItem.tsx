@@ -1,6 +1,6 @@
 export default function BlogItem() {
   return (
-    <div className="mx-auto overflow-hidden transition-all bg-white shadow-md sm:rounded-xl hover:shadow-lg">
+    <div className="mx-auto overflow-hidden bg-white shadow-md transition-all hover:shadow-lg sm:rounded-xl">
       <div className="relative flex flex-row items-center p-4">
         <div className="pr-2">
           <a className="flex flex-row items-center" href="/blindisland">
@@ -8,13 +8,13 @@ export default function BlogItem() {
               <img
                 alt="Blind Island"
                 src="https://storage.googleapis.com/nft-public-profile-pics/61920_1616723438.jpg"
-                className="rounded-full h-[24px] w-[24px] min-w-[24px]"
+                className="h-[24px] w-[24px] min-w-[24px] rounded-full"
               />
             </div>
-            <div className="ml-2 truncate hover:text-stpink">Blind Island</div>
+            <div className="hover:text-stpink ml-2 truncate">Blind Island</div>
           </a>
         </div>
-        <div className="text-xs cursor-pointer text-stlink opacity-80 hover:opacity-100 mt-[2px]">
+        <div className="text-stlink mt-[2px] cursor-pointer text-xs opacity-80 hover:opacity-100">
           Follow
         </div>
         <div className="flex-grow">&nbsp;</div>
@@ -23,16 +23,16 @@ export default function BlogItem() {
       <div className="relative h-[290px]">
         <div className="cursor-pointer">
           <div>
-            <div className="flex-1 overflow-hidden transition-all cursor-pointer hover:opacity-90 h-[290px] bg-black">
+            <div className="h-[290px] flex-1 cursor-pointer overflow-hidden bg-black transition-all hover:opacity-90">
               <img
                 alt="test"
                 src="https://lh3.googleusercontent.com/QNHkVfh-oVL7exIdkTBZ1zro23bmjaNB-ZLA_WaWXScq0chNcs9tUZk37qx9DUEQyoiepVHmVjQydNGo2H2eUO2e4lqwvCe4Cf4oGg=w660"
-                className="object-cover w-full h-full"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 p-4 cursor-pointer playbutton">
+        <div className="playbutton absolute bottom-0 right-0 cursor-pointer p-4">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -76,7 +76,7 @@ export default function BlogItem() {
             <div className="mr-4">
               <div className="tooltip">
                 <button type="button">
-                  <div className="flex flex-row items-center py-1 rounded-md hover:text-stpink">
+                  <div className="hover:text-stpink flex flex-row items-center rounded-md py-1">
                     <div className="mr-2 whitespace-nowrap">23</div>
                     <div className="flex pr-2">
                       <svg
@@ -84,7 +84,7 @@ export default function BlogItem() {
                         focusable="false"
                         data-prefix="far"
                         data-icon="heart"
-                        className="w-5 h-5 svg-inline--fa fa-heart fa-w-16"
+                        className="svg-inline--fa fa-heart fa-w-16 h-5 w-5"
                         role="img"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
@@ -109,7 +109,7 @@ export default function BlogItem() {
             <div className="mr-4">
               <div className="tooltip">
                 <button type="button">
-                  <div className="flex flex-row items-center py-1 rounded-lg hover:text-stpink">
+                  <div className="hover:text-stpink flex flex-row items-center rounded-lg py-1">
                     <div className="mr-2 whitespace-nowrap">1</div>
                     <div className="flex pr-2">
                       <svg
@@ -117,7 +117,7 @@ export default function BlogItem() {
                         focusable="false"
                         data-prefix="far"
                         data-icon="comment"
-                        className="w-5 h-5 svg-inline--fa fa-comment fa-w-16"
+                        className="svg-inline--fa fa-comment fa-w-16 h-5 w-5"
                         role="img"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
@@ -167,8 +167,8 @@ export default function BlogItem() {
         className="flex items-end border-t border-gray-200 md:h-20"
         // style="border-top-width: 1px; border-color: rgb(219, 219, 219);"
       >
-        <div className="flex flex-col py-4 mx-4">
-          <div className="flex-shrink pr-2 mb-1 text-xs text-gray-500">
+        <div className="mx-4 flex flex-col py-4">
+          <div className="mb-1 flex-shrink pr-2 text-xs text-gray-500">
             Owned by{" "}
           </div>
           <div>
@@ -181,14 +181,14 @@ export default function BlogItem() {
                   <img
                     alt="Foundation"
                     src="https://lh3.googleusercontent.com/uUdrzISpIJJVRbm_g6mmu-TUaOERBbPJcNA8KeuwI1HNgXy8Kje3c2XhoMIndnPmyono9NUJE8A2_bTd95iqAcjo9pyy-e47flJy=s120"
-                    className="mr-2 rounded-full w-9 h-9"
+                    className="mr-2 h-9 w-9 rounded-full"
                     // style="height: 24px; width: 24px;"
                   />
                 </div>
                 <div className="showtime-card-profile-link">Foundation</div>
               </a>
               <div
-                className="mt-2 text-xs cursor-pointer text-stlink opacity-80 hover:opacity-100"
+                className="text-stlink mt-2 cursor-pointer text-xs opacity-80 hover:opacity-100"
                 // style="margin-top: 2px;"
               >
                 Follow

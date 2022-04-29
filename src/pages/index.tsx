@@ -1,6 +1,5 @@
 import React from "react";
 
-import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,11 +8,9 @@ import Centered from "@components/Layouts/Centered";
 import ListItem from "@components/List/ListItem";
 import Navbar from "@components/Navbar";
 import useScroll from "@hooks/useScroll";
-import ghost from "@services/ghost";
+import { allPosts, Post } from "contentlayer/generated";
 
-export default function Home({
-  posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home() {
   // const works: Item[] = [
   //   {
   //     img: "/img/zerolens.png",
@@ -79,27 +76,27 @@ export default function Home({
         </div>
       </div> */}
 
-      <main className="px-6 mx-auto mt-10 max-w-screen-xl sm:px-24 sm:mt-12 md:mt-16 lg:mt-20">
-        <div className="items-center grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <main className="mx-auto mt-10 max-w-screen-xl px-6 sm:mt-12 sm:px-24 md:mt-16 lg:mt-20">
+        <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2">
           <div>
-            <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl text-dark-1000 dark:text-white">
+            <h1 className="mt-12 text-4xl font-bold leading-none tracking-tight text-dark-1000 dark:text-white sm:mt-5 sm:text-4xl sm:leading-none md:text-4xl">
               Hey, I'm Alex
             </h1>
-            <p className="max-w-md mx-auto mt-4 rounded-md text-ase font-base text-dark-800 sm:text-sm md:mt-4 md:text-base md:max-w-3xl dark:text-dark-400">
+            <p className="text-ase font-base mx-auto mt-4 max-w-md rounded-md text-dark-800 dark:text-dark-400 sm:text-sm md:mt-4 md:max-w-3xl md:text-base">
               I'm a software engineer working and writing on all things web3. I
               spend all of my free time connecting with other people in the
               space so if you want to reach out, my{" "}
               <Link href="https://twitter.com/agctyz">
-                <a className="underline link">DMs</a>
+                <a className="link underline">DMs</a>
               </Link>{" "}
               are always open!
             </p>
           </div>
 
-          <div className="relative w-32 h-32 rounded-full row-start-1 sm:col-start-2 sm:w-40 sm:h-40 ring-2 ring-dark-100 dark:ring-dark-1000 dark:ring-offset-dark-900 ring-offset-2 sm:place-self-center">
+          <div className="relative row-start-1 h-32 w-32 rounded-full ring-2 ring-dark-100 ring-offset-2 dark:ring-dark-1000 dark:ring-offset-dark-900 sm:col-start-2 sm:h-40 sm:w-40 sm:place-self-center">
             <Image
               src="/img/profile.png"
-              className="object-cover object-top rounded-full"
+              className="rounded-full object-cover object-top"
               width={200}
               height={200}
               priority
@@ -162,32 +159,32 @@ export default function Home({
         <SectionHeading title="Latest posts" link="/blog" />
 
         <ul className="mt-5 divide-y divide-dark-200 dark:divide-dark-900">
-          {posts.map((post) => (
+          {allPosts.slice(0, 10).map((post: Post) => (
             <ListItem item={post} key={post.title}>
               <div className="flex items-center py-4 sm:py-2.5">
-                <div className="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between">
+                <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                   <div>
                     <ListItem.Title>{post.title}</ListItem.Title>
 
-                    <div className="flex mt-0.5">
-                      <ListItem.Date createdAt={post.created_at ?? ""} />
+                    <div className="mt-0.5 flex">
+                      <ListItem.Date createdAt={post.date} />
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0 mt-2 sm:mt-0">
-                    <div className="max-w-sm horizontal-flex-scroll">
-                      {post?.tags?.map((tag) => (
+                  {/* <div className="mt-2 flex-shrink-0 sm:mt-0">
+                    <div className="horizontal-flex-scroll max-w-sm">
+                      {post.tags.map((tag) => (
                         <ListItem.Tag
-                          tag={tag}
+                          color={tags}
                           key={tag.name}
                           className="text-xs sm:text-sm"
                         />
                       ))}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
-                <div className="flex-shrink-0 ml-5">
+                <div className="ml-5 flex-shrink-0">
                   <ListItem.OpenIcon />
                 </div>
               </div>
@@ -195,19 +192,6 @@ export default function Home({
           ))}
         </ul>
       </Centered>
-
-      <style jsx>
-        {`
-          .custom-grid {
-            grid-template-columns: 2rem 1fr 1fr 2rem;
-          }
-
-          .beige-blur {
-            backdrop-filter: blur(30px) saturate(180%);
-            background-color: hsla(30, 40%, 96%, 0.95);
-          }
-        `}
-      </style>
     </div>
   );
 }
@@ -227,7 +211,7 @@ function SectionHeading({
   return (
     <div className={className}>
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold sm:text-3xl text-dark-1000 dark:text-dark-100">
+        <h2 className="text-2xl font-bold text-dark-1000 dark:text-dark-100 sm:text-3xl">
           {title}
         </h2>
       </div>
@@ -238,13 +222,4 @@ function SectionHeading({
       )}
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const posts = await ghost.posts.browse({
-    include: ["tags"],
-    limit: 10,
-  });
-
-  return { props: { posts }, revalidate: 60 };
 }

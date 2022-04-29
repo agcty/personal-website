@@ -11,7 +11,7 @@ function Category({ children, isActive = false }: CategoryProps) {
   return (
     <button
       className={clsx(
-        "font-medium text-dark-1000 border-b-2 border-transparent focus:outline-none focus:border-dark-1000 hover:border-dark-1000 pb-1",
+        "border-b-2 border-transparent pb-1 font-medium text-dark-1000 hover:border-dark-1000 focus:border-dark-1000 focus:outline-none",
         {
           underline: isActive,
         }

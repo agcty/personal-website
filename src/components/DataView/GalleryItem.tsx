@@ -16,7 +16,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
       <Link href={item.link}>
         <a
           aria-label={item.title}
-          className="flex flex-col overflow-hidden bg-white border transition duration-100 ease-in-out rounded-md border-dark-400 group hover:border-dark-300 ring-4 ring-transparent focus:ring-beige-100"
+          className="group flex flex-col overflow-hidden rounded-md border border-dark-400 bg-white ring-4 ring-transparent transition duration-100 ease-in-out hover:border-dark-300 focus:ring-beige-100"
         >
           {children}
         </a>
@@ -27,7 +27,7 @@ function GalleryItem({ item, children }: GalleryItemProps) {
 
 GalleryItem.Image = function GalleryItemImage({ children }) {
   return (
-    <div className="relative overflow-hidden bg-transparent border-b border-dark-400 h-36">
+    <div className="relative h-36 overflow-hidden border-b border-dark-400 bg-transparent">
       {children}
     </div>
   );
@@ -41,7 +41,7 @@ GalleryItem.Description = function GalleryItemContent({
   description: string;
 }) {
   return (
-    <div className="flex flex-col justify-between flex-1 group-hover:bg-geist-50">
+    <div className="flex flex-1 flex-col justify-between group-hover:bg-geist-50">
       <div className="p-4">
         <div className="font-semibold text-dark-900 group-hover:text-dark-800">
           {title}
