@@ -18,8 +18,9 @@ export type Post = {
   title: string
   /** The date of the post */
   date: string
-  /** Markdown file body */
-  body: Markdown
+  tags?: string | undefined
+  /** MDX file body */
+  body: MDX
   url: string
 }  
 

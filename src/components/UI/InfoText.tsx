@@ -2,7 +2,7 @@ import React from "react";
 
 function InfoText() {
   return (
-    <div className="flex flex-col text-lg space-y-6">
+    <div className="flex flex-col space-y-6 text-lg">
       <h2 className="text-3xl">How it works</h2>
       <div className="flex space-x-2">
         <span className="font-bold">🔍</span>

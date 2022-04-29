@@ -72,7 +72,7 @@ module.exports = {
         },
         dark: {
           1100: "rgb(26,26,26)",
-          1000: "#2B2B2B",
+          1000: "#11181C",
           900: "#404040",
           800: "#4D4D4D",
           700: "#5e5e5e",
@@ -92,19 +92,27 @@ module.exports = {
           css: {
             color: theme("colors.black"),
             h1: {
-              fontWeight: "700",
+              fontWeight: "500",
+              fontSize: "21px",
               letterSpacing: theme("letterSpacing.normal"),
               lineHeight: theme("lineHeight.tight"),
-              color: theme("colors.black"),
+              color: theme("colors.dark.1000"),
+              fontWeight: theme("fontWeight.medium"),
+              marginBottom: theme("spacing.0"),
             },
             h2: {
-              fontWeight: "700",
+              fontWeight: "500",
+              fontSize: "19px",
               letterSpacing: theme("letterSpacing.tight"),
-              color: theme("colors.dark.900"),
+              color: theme("colors.dark.1000"),
             },
             h3: {
               fontWeight: "600",
               color: theme("colors.dark.900"),
+            },
+            time: {
+              fontSize: theme("fontSize.sm"),
+              color: theme("colors.dark.500"),
             },
             "ol li:before": {
               fontWeight: "600",
@@ -126,7 +134,10 @@ module.exports = {
               color: theme("colors.red.500"),
             },
             p: {
-              color: theme("colors.black"),
+              fontWeight: "400",
+              fontSize: theme("fontSize.base"),
+              color: theme("colors.dark.1000"),
+              lineHeight: "28.8px",
             },
             pre: {
               color: theme("colors.dark.200"),
@@ -180,6 +191,7 @@ module.exports = {
               color: theme("colors.red.500"),
             },
             p: {
+              fontWeight: "400",
               color: theme("colors.dark.400"),
             },
             pre: {
