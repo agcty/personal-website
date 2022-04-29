@@ -1,15 +1,6 @@
 {
-  "plugins": ["unused-imports", "prettier"],
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:tailwind/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
+  "plugins": ["testing-library", "unused-imports", "prettier"],
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "rules": {
     "no-unused-vars": "off",
     "react/require-default-props": 0,
